@@ -1,0 +1,64 @@
+.ms-core-listMenu-verticalBox li.static
+{
+    height: 2em !important;
+    overflow: hidden !important;
+}
+
+.ms-core-listMenu-verticalBox li.static:hover
+{
+    height: auto !important;
+}
+
+.ms-core-listMenu-verticalBox li > span.menu-item
+{
+    cursor: pointer !important;
+}
+
+/* Format the headers */
+.ms-core-listMenu-verticalBox li > span.menu-item {
+    cursor: pointer;
+    background: #468847 ;
+    color: white;
+    border: solid #fff;
+    border-width: 1px 0;
+}
+
+/* Format the accordion list items */
+.ms-core-listMenu-verticalBox a.menu-item {
+    color:#000; 
+    background:lightgreen;
+    border:1px solid green;
+    border-bottom:none;
+}
+
+/* Format the header hover, list item hover and currently selected item */
+.ms-core-listMenu-verticalBox li > span.menu-item:hover, /*Header */
+.ms-core-listMenu-verticalBox a.selected, /* Selected */
+.ms-core-listMenu-verticalBox a.menu-item:hover /* List item */{
+    color:#FFF;
+    background:#468847 ;
+}
+
+.ms-core-listMenu-verticalBox ul.root > li.static {
+    max-height: 2em;
+    overflow: hidden;
+    transition: max-height 1s linear;
+}
+   
+.ms-core-listMenu-verticalBox ul.root > li.static:hover {
+    max-height: 500px;
+}
+
+.navbar.left-navbar.navbar-inverse{
+background-color: white;
+}
+
+#ctl00_PlaceHolderLeftNavBar_PlaceHolderQuickLaunchBottom_idNavLinkViewAll{
+	display:none;
+}
+
+#zz12_V4QuickLaunchMenu_NavMenu_Edit{
+	display:none;
+}
+
+/*End*/
