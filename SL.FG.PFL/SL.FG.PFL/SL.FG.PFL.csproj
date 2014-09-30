@@ -66,6 +66,13 @@
     <Compile Include="WebParts\AddEventsToMSASchedule\AddEventsToMSAScheduleUserControl.ascx.designer.cs">
       <DependentUpon>AddEventsToMSAScheduleUserControl.ascx.cs</DependentUpon>
     </Compile>
+    <Compile Include="WebParts\IRAForm\IRAForm.cs" />
+    <Compile Include="WebParts\IRAForm\IRAFormUserControl.ascx.cs">
+      <DependentUpon>IRAFormUserControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebParts\IRAForm\IRAFormUserControl.ascx.designer.cs">
+      <DependentUpon>IRAFormUserControl.ascx.cs</DependentUpon>
+    </Compile>
     <Compile Include="WebParts\IRBForm\IRBForm.cs" />
     <Compile Include="WebParts\IRBForm\IRBFormUserControl.ascx.cs">
       <DependentUpon>IRBFormUserControl.ascx</DependentUpon>
@@ -137,6 +144,12 @@
     <None Include="Lists\Department\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{fcc1d242-e107-4ffb-99d6-2550bde14721}</SharePointProjectItemId>
     </None>
+    <None Include="Lists\IRB\IRBInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{2a298ab5-a9f3-4c99-86a2-5a4b97a5bd49}</SharePointProjectItemId>
+    </None>
+    <None Include="Lists\IRB\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{1ccfc6da-2e8b-4bf6-b90e-83ad137a6ae2}</SharePointProjectItemId>
+    </None>
     <None Include="Lists\MSAContactDetail\MSAContactDetailInstance\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{977b6368-877e-484e-9863-f859bf24994e}</SharePointProjectItemId>
     </None>
@@ -204,6 +217,10 @@
     <None Include="WebParts\AddEventsToMSASchedule\AddEventsToMSASchedule.webpart" />
     <None Include="WebParts\AddEventsToMSASchedule\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{041245eb-5ac9-472c-b11e-ecfaa9180394}</SharePointProjectItemId>
+    </None>
+    <None Include="WebParts\IRAForm\IRAForm.webpart" />
+    <None Include="WebParts\IRAForm\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{c59b5d3e-ffe8-4170-8bb4-7af5b9a92b08}</SharePointProjectItemId>
     </None>
     <None Include="WebParts\IRBForm\IRBForm.webpart" />
     <None Include="WebParts\IRBForm\SharePointProjectItem.spdata">
@@ -273,6 +290,9 @@
     <Content Include="Lists\Department\DepartmentInstance\Elements.xml" />
     <Content Include="Lists\Department\Elements.xml" />
     <Content Include="Lists\Department\Schema.xml" />
+    <Content Include="Lists\IRB\Elements.xml" />
+    <Content Include="Lists\IRB\IRBInstance\Elements.xml" />
+    <Content Include="Lists\IRB\Schema.xml" />
     <Content Include="Lists\MSAContactDetail\Elements.xml" />
     <Content Include="Lists\MSAContactDetail\MSAContactDetailInstance\Elements.xml" />
     <Content Include="Lists\MSAContactDetail\Schema.xml" />
@@ -303,6 +323,8 @@
     <Content Include="SiteColumn\PFLSection\Elements.xml" />
     <Content Include="WebParts\AddEventsToMSASchedule\AddEventsToMSAScheduleUserControl.ascx" />
     <Content Include="WebParts\AddEventsToMSASchedule\Elements.xml" />
+    <Content Include="WebParts\IRAForm\Elements.xml" />
+    <Content Include="WebParts\IRAForm\IRAFormUserControl.ascx" />
     <Content Include="WebParts\IRBForm\Elements.xml" />
     <Content Include="WebParts\IRBForm\IRBFormUserControl.ascx" />
     <Content Include="WebParts\MSAForm\Elements.xml" />
