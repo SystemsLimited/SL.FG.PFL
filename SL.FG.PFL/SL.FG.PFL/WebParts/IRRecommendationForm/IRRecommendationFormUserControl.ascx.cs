@@ -272,11 +272,11 @@ namespace SL.FG.PFL.WebParts.IRRecommendationForm
                                         }
                                     }
 
-                                    if (spListItemR["IsSuggestion"] != null)
+                                    if (spListItemR["Type"] != null)
                                     {
-                                        bool isSuggestion = Convert.ToBoolean(spListItemR["Status"]);
+                                        string type = Convert.ToString(spListItemR["Type"]);
 
-                                        if (isSuggestion)
+                                        if (type.Equals("Suggestion", StringComparison.OrdinalIgnoreCase))
                                         {
                                             this.type2_rb.Checked = true;
                                             this.recommendationNo_label.InnerText = "Suggestion No";
