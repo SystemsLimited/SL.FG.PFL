@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SL.FG.PFL.WebParts.IRAForm {
+namespace SL.FG.PFL.WebParts.IRAOnJobForm {
     
     
-    public partial class IRAFormUserControl {
+    public partial class IRAOnJobFormUserControl {
         
         /// <summary>
         /// message_div control.
@@ -283,22 +283,13 @@ namespace SL.FG.PFL.WebParts.IRAForm {
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden TypeOfInjury_hdn;
         
         /// <summary>
-        /// ReportRequired_cb control.
+        /// outside_cb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox ReportRequired_cb;
-        
-        /// <summary>
-        /// TeamRequired_cb control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox TeamRequired_cb;
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox outside_cb;
         
         /// <summary>
         /// MOName_div control.
@@ -391,13 +382,13 @@ namespace SL.FG.PFL.WebParts.IRAForm {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Span1;
         
         /// <summary>
-        /// ReasoneSendingReportlate control.
+        /// ReasoneSendingReportlate_ta control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea ReasoneSendingReportlate;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea ReasoneSendingReportlate_ta;
         
         /// <summary>
         /// SubmittedBy_div control.
@@ -578,6 +569,15 @@ namespace SL.FG.PFL.WebParts.IRAForm {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSave;
+        
+        /// <summary>
+        /// btnMOSave control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnMOSave;
         
         /// <summary>
         /// btnCancel control.

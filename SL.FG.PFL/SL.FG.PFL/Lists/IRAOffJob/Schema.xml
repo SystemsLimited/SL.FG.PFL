@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<List xmlns:ows="Microsoft SharePoint" Title="IRAOffJob" FolderCreation="FALSE" Direction="$Resources:Direction;" Url="Lists/IRAOffJob" BaseType="0" xmlns="http://schemas.microsoft.com/sharepoint/">
+  <MetaData>
+    <ContentTypes>
+      
+      
+    <ContentType ID="0x01000c515a67c8ed48c39f6439d2e15b9963" Name="ListFieldsContentType"><FieldRefs><FieldRef ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Name="Title" /><FieldRef ID="{15d7fa8b-f5cc-4bfe-85a0-b0d795d9eba2}" Name="IncidentCategory" /><FieldRef ID="{29a18d9e-a299-4949-a1af-3b9c0c212e3b}" Name="InjuryCategory" /><FieldRef ID="{da792c7d-3102-478a-8ed2-4ac63350ae2f}" Name="DateOfIncident" /><FieldRef ID="{ab2952e7-5793-40f8-a68e-1fe648de9005}" Name="TimeOfIncident" /><FieldRef ID="{e0f6dada-a8bd-4c19-9709-c62883b0dd0c}" Name="TitleOfIncident" /><FieldRef ID="{468b404a-8202-4d3c-a472-6570f5098fb6}" Name="Unit_x002f_Area" /><FieldRef ID="{79862d5f-a72b-4cf6-98c8-da09f2b50d9a}" Name="EmployeeType" /><FieldRef ID="{49b19924-641e-4528-89df-3749c54c737c}" Name="EmployeeName" /><FieldRef ID="{1c11c961-9d17-4d4e-b9c0-26625bd42086}" Name="NameOfInjured" /><FieldRef ID="{26b2b2ec-9b41-4134-a89c-f7bda1dc5e39}" Name="PNo" /><FieldRef ID="{85acdecb-3b77-420d-8e55-3def065c8d76}" Name="OccupationTrade" /><FieldRef ID="{f0e09a09-88f3-4629-bf88-a1722adb9ab3}" Name="EmployeeSection" /><FieldRef ID="{1a90ad3d-f7b9-4642-99c3-51d627d468f1}" Name="EmployeeDepartment" /><FieldRef ID="{ff5b709f-2c45-4262-aaa0-aa2617477979}" Name="OutsideForMedical" /><FieldRef ID="{2661859a-813e-4d98-b34a-db676e170994}" Name="MedicalOfficer" /><FieldRef ID="{6b9ae1d9-15c0-46f7-99e1-810fb2f5fd07}" Name="MORemarks" /><FieldRef ID="{a469e8fb-2c0e-4f50-b969-b036373957e1}" Name="DescriptionOfIncident" /><FieldRef ID="{740ae0e4-af53-4d0e-afd3-f36b5d396c29}" Name="DateOfOccurrenceOfIncident" /><FieldRef ID="{5911ca38-99a6-499b-8b2d-1da1f7fbe9af}" Name="ReasonsForLate" /><FieldRef ID="{4090858a-59ee-4276-aa58-0f5431968a25}" Name="ApprovalAuthority" /><FieldRef ID="{4ec9d2da-0df8-4416-8f14-644f14138085}" Name="ApprovalDate" /><FieldRef ID="{9004ccd7-b785-4751-8c47-533765b34ada}" Name="IncidentType" /><FieldRef ID="{61ef33ad-41d1-4cba-a98b-efde2281dde6}" Name="InjuryTo" /><FieldRef ID="{c4fe465b-c656-49e6-82dc-0d2778f1e05b}" Name="ContractorName" /><FieldRef ID="{1d18698c-01a2-4704-870f-cf4acbaed386}" Name="CauseOfInjury" /><FieldRef ID="{9afd40b0-c1af-4217-9c24-6419a58fdae9}" Name="TypeOfInjury" /><FieldRef ID="{114f855f-f69e-4f10-b350-082eaa4b71e5}" Name="IRID" /><FieldRef ID="{51d93c73-9c18-4bf6-b77a-c14d05ea3b60}" Name="IsSaveAsDraft" /><FieldRef ID="{a2aff16c-522c-4860-8b96-969295b47333}" Name="Assignee" /><FieldRef ID="{a3d358f0-a4a0-4bd9-b453-37e78f5f6daf}" Name="AuditedBy" /><FieldRef ID="{67386874-4019-4c6c-ab58-184b8262e05c}" Name="SubmittedBy" /><FieldRef ID="{847b93a7-087b-4e79-ae24-624e2ec906e2}" Name="Status" /></FieldRefs></ContentType><ContentTypeRef ID="0x01">
+        <Folder TargetName="Item" />
+      </ContentTypeRef><ContentTypeRef ID="0x0120" /></ContentTypes>
+    <Fields>
+      
+    <Field ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Type="Text" Name="Title" DisplayName="$Resources:core,Title;" Required="FALSE" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="Title" MaxLength="255" /><Field Name="IncidentCategory" ID="{15d7fa8b-f5cc-4bfe-85a0-b0d795d9eba2}" DisplayName="IncidentCategory" Type="Text" /><Field Name="InjuryCategory" ID="{29a18d9e-a299-4949-a1af-3b9c0c212e3b}" DisplayName="InjuryCategory" Type="Text" /><Field Name="DateOfIncident" ID="{da792c7d-3102-478a-8ed2-4ac63350ae2f}" DisplayName="DateOfIncident" Type="DateTime" /><Field Name="TimeOfIncident" ID="{ab2952e7-5793-40f8-a68e-1fe648de9005}" DisplayName="TimeOfIncident" Type="DateTime" /><Field Name="TitleOfIncident" ID="{e0f6dada-a8bd-4c19-9709-c62883b0dd0c}" DisplayName="TitleOfIncident" Type="Text" /><Field Name="Unit_x002f_Area" ID="{468b404a-8202-4d3c-a472-6570f5098fb6}" DisplayName="Unit/Area" Type="Text" /><Field Name="EmployeeType" ID="{79862d5f-a72b-4cf6-98c8-da09f2b50d9a}" DisplayName="EmployeeType" Type="Text" /><Field Name="EmployeeName" ID="{49b19924-641e-4528-89df-3749c54c737c}" DisplayName="EmployeeName" Type="Text" /><Field Name="NameOfInjured" ID="{1c11c961-9d17-4d4e-b9c0-26625bd42086}" DisplayName="NameOfInjured" Type="Text" /><Field Name="PNo" ID="{26b2b2ec-9b41-4134-a89c-f7bda1dc5e39}" DisplayName="PNo" Type="Text" /><Field Name="OccupationTrade" ID="{85acdecb-3b77-420d-8e55-3def065c8d76}" DisplayName="OccupationTrade" Type="Text" /><Field Name="EmployeeSection" ID="{f0e09a09-88f3-4629-bf88-a1722adb9ab3}" DisplayName="EmployeeSection" Type="Text" /><Field Name="EmployeeDepartment" ID="{1a90ad3d-f7b9-4642-99c3-51d627d468f1}" DisplayName="EmployeeDepartment" Type="Text" /><Field Name="OutsideForMedical" ID="{ff5b709f-2c45-4262-aaa0-aa2617477979}" DisplayName="OutsideForMedical" Type="Text" /><Field Name="MedicalOfficer" ID="{2661859a-813e-4d98-b34a-db676e170994}" DisplayName="MedicalOfficer" Type="Text" /><Field Name="MORemarks" ID="{6b9ae1d9-15c0-46f7-99e1-810fb2f5fd07}" DisplayName="MORemarks" Type="Text" /><Field Name="DescriptionOfIncident" ID="{a469e8fb-2c0e-4f50-b969-b036373957e1}" DisplayName="DescriptionOfIncident" Type="Text" /><Field Name="DateOfOccurrenceOfIncident" ID="{740ae0e4-af53-4d0e-afd3-f36b5d396c29}" DisplayName="DateOfOccurrenceOfIncident" Type="DateTime" /><Field Name="ReasonsForLate" ID="{5911ca38-99a6-499b-8b2d-1da1f7fbe9af}" DisplayName="ReasonsForLate" Type="Note" /><Field Name="ApprovalAuthority" ID="{4090858a-59ee-4276-aa58-0f5431968a25}" DisplayName="ApprovalAuthority" Type="Text" /><Field Name="ApprovalDate" ID="{4ec9d2da-0df8-4416-8f14-644f14138085}" DisplayName="ApprovalDate" Type="Text" /><Field Name="IncidentType" ID="{9004ccd7-b785-4751-8c47-533765b34ada}" DisplayName="IncidentType" Type="Text" /><Field Name="InjuryTo" ID="{61ef33ad-41d1-4cba-a98b-efde2281dde6}" DisplayName="InjuryTo" Type="Text" /><Field Name="ContractorName" ID="{c4fe465b-c656-49e6-82dc-0d2778f1e05b}" DisplayName="ContractorName" Type="Text" /><Field Name="CauseOfInjury" ID="{1d18698c-01a2-4704-870f-cf4acbaed386}" DisplayName="CauseOfInjury" Type="Text" /><Field Name="TypeOfInjury" ID="{9afd40b0-c1af-4217-9c24-6419a58fdae9}" DisplayName="TypeOfInjury" Type="Text" /><Field Name="IRID" ID="{114f855f-f69e-4f10-b350-082eaa4b71e5}" DisplayName="IRID" Type="Text" /><Field Name="IsSaveAsDraft" ID="{51d93c73-9c18-4bf6-b77a-c14d05ea3b60}" DisplayName="IsSaveAsDraft" Type="Text" /><Field Name="Assignee" ID="{a2aff16c-522c-4860-8b96-969295b47333}" DisplayName="Assignee" Type="Note" /><Field Name="AuditedBy" ID="{a3d358f0-a4a0-4bd9-b453-37e78f5f6daf}" DisplayName="AuditedBy" Type="Text" /><Field Name="SubmittedBy" ID="{67386874-4019-4c6c-ab58-184b8262e05c}" DisplayName="SubmittedBy" Type="Text" /><Field Name="Status" ID="{847b93a7-087b-4e79-ae24-624e2ec906e2}" DisplayName="Status" Type="Text" /></Fields>
+    <Views>
+      
+      
+    <View BaseViewID="0" Type="HTML" MobileView="TRUE" TabularView="FALSE">
+        <Toolbar Type="Standard" />
+        <XslLink Default="TRUE">main.xsl</XslLink>
+        <RowLimit Paged="TRUE">30</RowLimit>
+        <ViewFields>
+          
+        <FieldRef Name="LinkTitleNoMenu"></FieldRef></ViewFields>
+        <Query>
+          <OrderBy>
+            
+          <FieldRef Name="Modified" Ascending="FALSE"></FieldRef></OrderBy>
+        </Query>
+        <ParameterBindings>
+          <ParameterBinding Name="AddNewAnnouncement" Location="Resource(wss,addnewitem)" />
+          <ParameterBinding Name="NoAnnouncements" Location="Resource(wss,noXinviewofY_LIST)" />
+          <ParameterBinding Name="NoAnnouncementsHowTo" Location="Resource(wss,noXinviewofY_ONET_HOME)" />
+        </ParameterBindings>
+      </View><View BaseViewID="1" Type="HTML" WebPartZoneID="Main" DisplayName="$Resources:core,objectiv_schema_mwsidcamlidC24;" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" SetupPath="pages\viewpage.aspx" ImageUrl="/_layouts/15/images/generic.png?rev=23" Url="AllItems.aspx">
+        <Toolbar Type="Standard" />
+        <XslLink Default="TRUE">main.xsl</XslLink>
+        <JSLink>clienttemplates.js</JSLink>
+        <RowLimit Paged="TRUE">30</RowLimit>
+        <ViewFields>
+          
+        <FieldRef Name="LinkTitle"></FieldRef><FieldRef Name="IncidentCategory" /><FieldRef Name="InjuryCategory" /><FieldRef Name="DateOfIncident" /><FieldRef Name="TimeOfIncident" /><FieldRef Name="TitleOfIncident" /><FieldRef Name="Unit_x002f_Area" /><FieldRef Name="EmployeeType" /><FieldRef Name="EmployeeName" /><FieldRef Name="NameOfInjured" /><FieldRef Name="PNo" /><FieldRef Name="OccupationTrade" /><FieldRef Name="EmployeeSection" /><FieldRef Name="EmployeeDepartment" /><FieldRef Name="OutsideForMedical" /><FieldRef Name="MedicalOfficer" /><FieldRef Name="MORemarks" /><FieldRef Name="DescriptionOfIncident" /><FieldRef Name="DateOfOccurrenceOfIncident" /><FieldRef Name="ReasonsForLate" /><FieldRef Name="ApprovalAuthority" /><FieldRef Name="ApprovalDate" /><FieldRef Name="IncidentType" /><FieldRef Name="InjuryTo" /><FieldRef Name="ContractorName" /><FieldRef Name="CauseOfInjury" /><FieldRef Name="TypeOfInjury" /><FieldRef Name="IRID" /><FieldRef Name="IsSaveAsDraft" /><FieldRef Name="Assignee" /><FieldRef Name="AuditedBy" /><FieldRef Name="SubmittedBy" /><FieldRef Name="Status" /></ViewFields>
+        <Query>
+          <OrderBy>
+            
+          <FieldRef Name="ID"></FieldRef></OrderBy>
+        </Query>
+        <ParameterBindings>
+          <ParameterBinding Name="NoAnnouncements" Location="Resource(wss,noXinviewofY_LIST)" />
+          <ParameterBinding Name="NoAnnouncementsHowTo" Location="Resource(wss,noXinviewofY_DEFAULT)" />
+        </ParameterBindings>
+      </View></Views>
+    <Forms>
+      <Form Type="DisplayForm" Url="DispForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+      <Form Type="EditForm" Url="EditForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+      <Form Type="NewForm" Url="NewForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+    </Forms>
+  </MetaData>
+</List>

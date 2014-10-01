@@ -2,12 +2,12 @@
 <webParts>
   <webPart xmlns="http://schemas.microsoft.com/WebPart/v3">
     <metaData>
-      <type name="SL.FG.PFL.WebParts.IRAForm.IRAForm, $SharePoint.Project.AssemblyFullName$" />
+      <type name="SL.FG.PFL.WebParts.IRAOnJobForm.IRAOnJobForm, $SharePoint.Project.AssemblyFullName$" />
       <importErrorMessage>$Resources:core,ImportErrorMessage;</importErrorMessage>
     </metaData>
     <data>
       <properties>
-        <property name="Title" type="string">SL.FG.PFL - IRAForm</property>
+        <property name="Title" type="string">SL.FG.PFL - IRAOnJobForm</property>
         <property name="Description" type="string">My Visual Web Part</property>
       </properties>
     </data>

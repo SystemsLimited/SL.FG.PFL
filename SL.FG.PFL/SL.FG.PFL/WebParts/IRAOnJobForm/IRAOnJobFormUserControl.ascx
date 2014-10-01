@@ -1,12 +1,11 @@
 ﻿<%@ Assembly Name="$SharePoint.Project.AssemblyFullName$" %>
-<%@ Assembly Name="Microsoft.Web.CommandUI, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %> 
-<%@ Register Tagprefix="SharePoint" Namespace="Microsoft.SharePoint.WebControls" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %> 
-<%@ Register Tagprefix="Utilities" Namespace="Microsoft.SharePoint.Utilities" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
-<%@ Register Tagprefix="asp" Namespace="System.Web.UI" Assembly="System.Web.Extensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" %>
-<%@ Import Namespace="Microsoft.SharePoint" %> 
-<%@ Register Tagprefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
-<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="IRAFormUserControl.ascx.cs" Inherits="SL.FG.PFL.WebParts.IRAForm.IRAFormUserControl" %>
-
+<%@ Assembly Name="Microsoft.Web.CommandUI, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
+<%@ Register TagPrefix="SharePoint" Namespace="Microsoft.SharePoint.WebControls" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
+<%@ Register TagPrefix="Utilities" Namespace="Microsoft.SharePoint.Utilities" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
+<%@ Register TagPrefix="asp" Namespace="System.Web.UI" Assembly="System.Web.Extensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" %>
+<%@ Import Namespace="Microsoft.SharePoint" %>
+<%@ Register TagPrefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
+<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="IRAOnJobFormUserControl.ascx.cs" Inherits="SL.FG.PFL.WebParts.IRAOnJobForm.IRAOnJobFormUserControl" %>
 
 
 
@@ -210,7 +209,7 @@
 
                             <div class="col-lg-6">
                                 <label>Incident Type<span style="color: red">&nbsp;*</span></label>
-                                <select id="IncidentType_ddl" class="form-control" runat="server" >
+                                <select id="IncidentType_ddl" class="form-control" runat="server">
                                     <option value="0">Please Select</option>
                                     <option>Safety</option>
                                     <option>Environment</option>
@@ -218,8 +217,8 @@
                                 <label id="IncidentType_msg" hidden style="color: red">You can't leave this empty.</label>
                             </div>
                             <div class="col-lg-6">
-                                 <label>Employee Type<span style="color: red">&nbsp;*</span></label>
-                                <select id="EmployeeType_ddl" class="form-control" runat="server" >
+                                <label>Employee Type<span style="color: red">&nbsp;*</span></label>
+                                <select id="EmployeeType_ddl" class="form-control" runat="server">
                                     <option value="0">Please Select</option>
                                     <option>PFL</option>
                                     <option>Contractor</option>
@@ -232,7 +231,7 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <label>Incident Category<span style="color: red">&nbsp;*</span></label>
-                                <select id="IncidentCategory_ddl" class="select2 col-lg-12 form-control" multiple="true" runat="server" >
+                                <select id="IncidentCategory_ddl" class="select2 col-lg-12 form-control" multiple="true" runat="server">
                                 </select>
                                 <textarea id="IncidentCategory_ta" class="form-control" runat="server" visible="false"></textarea>
                                 <label id="IncidentCategory_msg" hidden style="color: red">You can't leave this empty.</label>
@@ -241,7 +240,7 @@
                             <div class="col-lg-6">
                                 <label>Unit/Area Of Incident<span style="color: red">&nbsp;*</span></label>
                                 <br />
-                                <select id="Unit_Area_ddl" class="select2 col-lg-12 form-control" runat="server" >
+                                <select id="Unit_Area_ddl" class="select2 col-lg-12 form-control" runat="server">
                                 </select>
                                 <label id="Unit_Area_msg" hidden style="color: red">You can't leave this empty.</label>
                                 <input class="form-control" id="Unit_Area_hdn" placeholder="Enter text" type="hidden" runat="server">
@@ -272,11 +271,10 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <label>Title<span style="color: red">&nbsp;*</span></label>
-                                <input type="text" id="Title_tf" class="form-control" placeholder="Enter text" runat="server" >
+                                <input type="text" id="Title_tf" class="form-control" placeholder="Enter text" runat="server">
                                 <label id="Title_msg" hidden style="color: red">You can't leave this empty.</label>
                             </div>
                             <div class="col-lg-6">
-                               
                             </div>
                         </div>
                     </div>
@@ -389,20 +387,20 @@
                                         <div class="col-lg-6">
                                             <div class="form-inline">
                                                 <label>Person need to be send to outside medical facility &nbsp;&nbsp;</label>
-                                                <input id="ReportRequired_cb" type="checkbox" runat="server">
+                                                <input id="outside_cb" type="checkbox" runat="server">
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
-                                            <div class="form-group">
+                                            <%-- <div class="form-group">
                                                 <label>Person need not to be send to outside medical facility &nbsp;&nbsp;</label>
-                                                <input id="TeamRequired_cb" type="checkbox" runat="server">
-                                            </div>
+                                                <input id="Notoutside_cb" type="checkbox" runat="server">
+                                            </div>--%>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div id="MOName_div" runat="server" >
+                            <div id="MOName_div" runat="server">
                                 <div class="form-group">
 
                                     <div class="row">
@@ -428,83 +426,84 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <div class="col-lg-12">
-                            <label>Description/Details Of Incident<span style="color: red">&nbsp;*</span></label>
-                            <textarea id="Description_ta" class="form-control" runat="server"></textarea>
-                            <label id="Description_msg" hidden style="color: red">You can't leave this empty.</label>
-                        </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-lg-12">
+                        <label>Description/Details Of Incident<span style="color: red">&nbsp;*</span></label>
+                        <textarea id="Description_ta" class="form-control" runat="server"></textarea>
+                        <label id="Description_msg" hidden style="color: red">You can't leave this empty.</label>
                     </div>
+                </div>
 
-                    <div class="panel-body">
-                        <div class="form-group row" id="">
-                            <div class="col-lg-6">
-                                <label>Date Of Occurence Of Incident<span style="color: red">&nbsp;*</span></label>
-                                <div class="form-group">
-                                    <SharePoint:DateTimeControl ID="DateOfOccurenceOfIncident_dtc" runat="server" DateOnly="true" CssClassTextBox="form-control" AutoPostBack="false" UseTimeZoneAdjustment="false" LocaleId="2057" />
-                                    <label id="DateOfOccurenceOfIncident_msg" hidden style="color: red">You can't leave this empty.</label>
-                                </div>
-
+                <div class="panel-body">
+                    <div class="form-group row" id="">
+                        <div class="col-lg-6">
+                            <label>Date Of Occurence Of Incident<span style="color: red">&nbsp;*</span></label>
+                            <div class="form-group">
+                                <SharePoint:DateTimeControl ID="DateOfOccurenceOfIncident_dtc" runat="server" DateOnly="true" CssClassTextBox="form-control" AutoPostBack="false" UseTimeZoneAdjustment="false" LocaleId="2057" />
+                                <label id="DateOfOccurenceOfIncident_msg" hidden style="color: red">You can't leave this empty.</label>
                             </div>
 
-                            <div class="col-lg-6">
+                        </div>
 
-                                <label id="Label1" runat="server">Reasone for sending the report late<span id="Span1" runat="server" style="color: red">&nbsp;*</span></label>
+                        <div class="col-lg-6">
 
-                                <textarea id="ReasoneSendingReportlate" class="form-control" runat="server"></textarea>
-                                <label id="ReasoneSendingReportlate_msg" hidden style="color: red">You can't leave this empty.</label>
+                            <label id="Label1" runat="server">Reasone for sending the report late<span id="Span1" runat="server" style="color: red">&nbsp;*</span></label>
 
-                            </div>
-
-                            <div class="form-group row">
-                                <span class="errorMsg" id="LateSubmition_spn">Late Submission</span>
-                            </div>
+                            <textarea id="ReasoneSendingReportlate_ta" class="form-control" runat="server"></textarea>
+                            <label id="ReasoneSendingReportlate_msg" hidden style="color: red">You can't leave this empty.</label>
 
                         </div>
 
                         <div class="form-group row">
-                            <div class="col-lg-6 table-responsive">
+                            <span class="errorMsg" id="LateSubmition_spn">Late Submission</span>
+                        </div>
 
-                                <label>Submitted By<span style="color: red">&nbsp;*</span></label>
-                                <div id="SubmittedBy_div" runat="server">
-                                    <SharePoint:ClientPeoplePicker runat="server" ID="SubmittedBy_PeopleEditor" Rows="1" VisibleSuggestions="3" AllowMultipleEntities="false" PrincipalAccountType="User" Enabled="false" />
-                                </div>
-                                <input class="form-control" id="SubmittedBy_tf" placeholder="Enter text" visible="false" runat="server">
-                                <label id="SubmittedBy_PeopleEditor_msg" hidden style="color: red">You can't leave this empty.</label>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-lg-6 table-responsive">
+
+                            <label>Submitted By<span style="color: red">&nbsp;*</span></label>
+                            <div id="SubmittedBy_div" runat="server">
+                                <SharePoint:ClientPeoplePicker runat="server" ID="SubmittedBy_PeopleEditor" Rows="1" VisibleSuggestions="3" AllowMultipleEntities="false" PrincipalAccountType="User" Enabled="false" />
                             </div>
-                            <div class="col-lg-6">
-                                <label>Submission Date<span style="color: red">&nbsp;*</span></label>
-                                <div class="form-group">
-                                    <SharePoint:DateTimeControl ID="SubmissionDate_dtc" runat="server" DateOnly="true" CssClassTextBox="form-control" AutoPostBack="false" UseTimeZoneAdjustment="false" LocaleId="2057" />
-                                </div>
-                                <label id="SubmissionDate_msg" hidden style="color: red">You can't leave this empty.</label>
+                            <input class="form-control" id="SubmittedBy_tf" placeholder="Enter text" visible="false" runat="server">
+                            <label id="SubmittedBy_PeopleEditor_msg" hidden style="color: red">You can't leave this empty.</label>
+                        </div>
+                        <div class="col-lg-6">
+                            <label>Submission Date<span style="color: red">&nbsp;*</span></label>
+                            <div class="form-group">
+                                <SharePoint:DateTimeControl ID="SubmissionDate_dtc" runat="server" DateOnly="true" CssClassTextBox="form-control" AutoPostBack="false" UseTimeZoneAdjustment="false" LocaleId="2057" />
                             </div>
+                            <label id="SubmissionDate_msg" hidden style="color: red">You can't leave this empty.</label>
                         </div>
                     </div>
-
-
-
-                    <div class="col-lg-6" id="FRTagetDate_div" runat="server" style="display: none;">
-                        <SharePoint:DateTimeControl ID="FRTargetDate_dtc" runat="server" DateOnly="true" CssClassTextBox="form-control" AutoPostBack="false" Enabled="false" UseTimeZoneAdjustment="false" LocaleId="2057" />
-                    </div>
-                    <!--Recomendation End Here-->
-
-                    <asp:HiddenField ID="hdnSentFrom" runat="server" Value="" />
-                    <asp:HiddenField ID="hdnIsChangesAllowed" runat="server" Value="1" />
-                    <asp:HiddenField ID="hdnApprovalAuthority" runat="server" Value="" />
-                    <asp:HiddenField ID="hdnFRID" runat="server" Value="" />
-                    <asp:HiddenField ID="hdnIR05ID" runat="server" Value="" />
-                    <asp:HiddenField ID="hdnIRR01DI_Id" runat="server" Value="" />
-                    <asp:HiddenField ID="hdnIdList" runat="server" Value="" />
-                    <asp:HiddenField ID="hdnKeyFindingsList" runat="server" Value="" />
-                    <asp:HiddenField ID="hdnPeopleInterviewedList" runat="server" Value="" />
-                    <asp:HiddenField ID="hdnRootCausesList" runat="server" Value="" />
-                    <asp:HiddenField ID="hdnRecommendationList" runat="server" Value="" />
-                    <asp:HiddenField ID="hdnFRTargetDate" runat="server" Value="" />
-                    <br />
-                    <br />
-
                 </div>
+
+
+
+                <div class="col-lg-6" id="FRTagetDate_div" runat="server" style="display: none;">
+                    <SharePoint:DateTimeControl ID="FRTargetDate_dtc" runat="server" DateOnly="true" CssClassTextBox="form-control" AutoPostBack="false" Enabled="false" UseTimeZoneAdjustment="false" LocaleId="2057" />
+                </div>
+                <!--Recomendation End Here-->
+
+                <asp:HiddenField ID="hdnSentFrom" runat="server" Value="" />
+                <asp:HiddenField ID="hdnIsChangesAllowed" runat="server" Value="1" />
+                <asp:HiddenField ID="hdnApprovalAuthority" runat="server" Value="" />
+                <asp:HiddenField ID="hdnFRID" runat="server" Value="" />
+                <asp:HiddenField ID="hdnIR05ID" runat="server" Value="" />
+                <asp:HiddenField ID="hdnIRR01DI_Id" runat="server" Value="" />
+                <asp:HiddenField ID="hdnIdList" runat="server" Value="" />
+                <asp:HiddenField ID="hdnKeyFindingsList" runat="server" Value="" />
+                <asp:HiddenField ID="hdnPeopleInterviewedList" runat="server" Value="" />
+                <asp:HiddenField ID="hdnRootCausesList" runat="server" Value="" />
+                <asp:HiddenField ID="hdnRecommendationList" runat="server" Value="" />
+                <asp:HiddenField ID="hdnFRTargetDate" runat="server" Value="" />
+                <br />
+                <br />
+
+
 
             </div>
 
@@ -519,14 +518,15 @@
     <div class="form-group pull-right">
         <asp:Button ID="btnSaveAsDraft" runat="server" Text="Save" CssClass="btnSaveAsDraft" />
         <asp:Button ID="btnSave" runat="server" Text="Submit" CssClass="btnSave" />
-    <%--    <asp:Button ID="btnApprovingAuthoritySave" runat="server" Visible="false" Text="Save" CssClass="btnApprove" />
+         <asp:Button ID="btnMOSave" runat="server" Text="Submit" OnClick="btnMOSave_Click" Visible="false" CssClass="btnSave" />
+        <%--    <asp:Button ID="btnApprovingAuthoritySave" runat="server" Visible="false" Text="Save" CssClass="btnApprove" />
         <asp:Button ID="btnApprovingAuthorityApprove" runat="server" Visible="false" Text="Approve" CssClass="btnApprove" />
         <asp:Button ID="btnApprovingAuthorityDisApprove" runat="server" Visible="false" Text="Reject" CssClass="btnReject" />
         <asp:Button ID="btnHSEApprove" runat="server" Visible="false" Text="Approve And Send Recomendation" CssClass="btnApprove" />--%>
         <asp:Button ID="btnCancel" runat="server" Text="Cancel" CssClass="btnCancel" />
     </div>
 
-
+</div>
 
     <script src="/_layouts/15/SL.FG.FFL/Scripts/jQuery.js"></script>
     <script src="/_layouts/15/SL.FG.FFL/Scripts/MicrosoftAjax.js" type="text/javascript">
@@ -562,9 +562,6 @@
             $("[id$=IncidentCategory_ddl]").each(function () {
 
                 $("[id$=IncidentCategory_hdn]").val($(this).val());
-
-
-
 
             });
 
@@ -649,7 +646,17 @@
 
         })
 
+        $('[id$=CauseOfInjury_ddl]').on('change', function () {
 
+            $("[id$=CauseOfInjury_hdn]").val($(this).val());
+
+        })
+
+        $('[id$=TypeOfInjury_ddl]').on('change', function () {
+
+            $("[id$=TypeOfInjury_hdn]").val($(this).val());
+
+        })
 
     </script>
 
