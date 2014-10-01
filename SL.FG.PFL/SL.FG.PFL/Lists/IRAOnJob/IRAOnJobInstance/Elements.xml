@@ -1,4 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Elements xmlns="http://schemas.microsoft.com/sharepoint/">
-  <ListInstance Title="IRAOnJob" OnQuickLaunch="TRUE" TemplateType="80006" Url="Lists/IRAOnJob" Description="My List Instance"></ListInstance>
+  <ListInstance Title="IRAOnJob" OnQuickLaunch="FALSE" TemplateType="80006" Url="Lists/IRAOnJob" Description="My List Instance">
+    <Data>
+      <Rows>
+        <Row>
+          <Field Name="TitleOfIncident">Test Title</Field>
+          <Field Name="SubmittedBy">lahore\rizwan.mahfooz</Field>
+          <Field Name="DateOFSubmission">8/12/2014</Field>
+        </Row>
+      </Rows>
+    </Data>
+  </ListInstance>
 </Elements>

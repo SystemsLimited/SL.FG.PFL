@@ -34,10 +34,10 @@
         <Toolbar Type="Standard" />
         <XslLink Default="TRUE">main.xsl</XslLink>
         <JSLink>clienttemplates.js</JSLink>
-        <RowLimit Paged="TRUE">30</RowLimit>
+        <RowLimit Paged="TRUE">100</RowLimit>
         <ViewFields>
           
-        <FieldRef Name="LinkTitle"></FieldRef><FieldRef Name="FlashReportID" /><FieldRef Name="SequenceOfEvents" /><FieldRef Name="FactsLeadingToConclusion" /><FieldRef Name="SuggestionsForImprovements" /><FieldRef Name="Conclusion" /><FieldRef Name="HSEApprover" /><FieldRef Name="HSEComments" /><FieldRef Name="IRRCQualityScore" /><FieldRef Name="QualityAssessedBy" /><FieldRef Name="Assignee" /><FieldRef Name="AssigneeEmail" /><FieldRef Name="IncidentDescription" /><FieldRef Name="IsSubmitted" /><FieldRef Name="IsApproved" /><FieldRef Name="IsClosed" /><FieldRef Name="IsSavedAsDraft" /><FieldRef Name="ApprovalDate1" /><FieldRef Name="ReportDueOnDate" /><FieldRef Name="IncidentTitle" /><FieldRef Name="BasicActivityInProgress" /><FieldRef Name="CauseOfIncidentPR" /><FieldRef Name="CauseOfIncidentER" /><FieldRef Name="SupervisionAtTimeOfIncident" /><FieldRef Name="RelatedCausesProcR" /><FieldRef Name="RelatedCausesPermR" /><FieldRef Name="PSMsViolated" /><FieldRef Name="ResultantEffect" /><FieldRef Name="RecommendFurtherInvestigations" /><FieldRef Name="ConcurrenceOfRP" /></ViewFields>
+        <FieldRef Name="FlashReportID" /><FieldRef Name="SequenceOfEvents" /><FieldRef Name="FactsLeadingToConclusion" /><FieldRef Name="SuggestionsForImprovements" /><FieldRef Name="Conclusion" /><FieldRef Name="HSEApprover" /><FieldRef Name="HSEComments" /><FieldRef Name="IRRCQualityScore" /><FieldRef Name="QualityAssessedBy" /><FieldRef Name="Assignee" /><FieldRef Name="AssigneeEmail" /><FieldRef Name="IncidentDescription" /><FieldRef Name="IsSubmitted" /><FieldRef Name="IsApproved" /><FieldRef Name="IsClosed" /><FieldRef Name="IsSavedAsDraft" /><FieldRef Name="ApprovalDate1" /><FieldRef Name="ReportDueOnDate" /><FieldRef Name="IncidentTitle" /><FieldRef Name="BasicActivityInProgress" /><FieldRef Name="CauseOfIncidentPR" /><FieldRef Name="CauseOfIncidentER" /><FieldRef Name="SupervisionAtTimeOfIncident" /><FieldRef Name="RelatedCausesProcR" /><FieldRef Name="RelatedCausesPermR" /><FieldRef Name="PSMsViolated" /><FieldRef Name="ResultantEffect" /><FieldRef Name="RecommendFurtherInvestigations" /><FieldRef Name="ConcurrenceOfRP" /></ViewFields>
         <Query>
           <OrderBy>
             

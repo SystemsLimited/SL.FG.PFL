@@ -34,7 +34,7 @@
         <Toolbar Type="Standard" />
         <XslLink Default="TRUE">main.xsl</XslLink>
         <JSLink>clienttemplates.js</JSLink>
-        <RowLimit Paged="TRUE">30</RowLimit>
+        <RowLimit Paged="TRUE">100</RowLimit>
         <ViewFields>
           
         <FieldRef Name="LinkTitle"></FieldRef><FieldRef Name="IR_x002d_1ReceivingDate" /><FieldRef Name="FlashIssueDate" /><FieldRef Name="Unit_x002f_Section" /><FieldRef Name="DateOfIncident" /><FieldRef Name="TimeOfIncident" /><FieldRef Name="DescriptionOfIncident" /><FieldRef Name="ActionRequired" /><FieldRef Name="IncidentScore" /><FieldRef Name="ActionTaken" /><FieldRef Name="ResponcibleSection_x002f_Unit" /><FieldRef Name="ResponcibleDepartment" /><FieldRef Name="TeamMembers" /><FieldRef Name="TargetDate" /><FieldRef Name="ApprovingAuthority" /><FieldRef Name="Description2" /><FieldRef Name="TeamLead" /><FieldRef Name="IsSaveAsDraft" /><FieldRef Name="IRID" /><FieldRef Name="SubmittedBy" /><FieldRef Name="Assignee" /><FieldRef Name="AuditedBy" /><FieldRef Name="Status" /></ViewFields>

@@ -34,10 +34,10 @@
         <Toolbar Type="Standard" />
         <XslLink Default="TRUE">main.xsl</XslLink>
         <JSLink>clienttemplates.js</JSLink>
-        <RowLimit Paged="TRUE">30</RowLimit>
+        <RowLimit Paged="TRUE">100</RowLimit>
         <ViewFields>
           
-        <FieldRef Name="LinkTitle"></FieldRef><FieldRef Name="RecommendationNo" /><FieldRef Name="ResponsiblePerson" /><FieldRef Name="ResponsibleDepartment" /><FieldRef Name="ResponsibleSection" /><FieldRef Name="TargetDate" /><FieldRef Name="Status" /><FieldRef Name="IRDescription" /><FieldRef Name="LastStatement" /><FieldRef Name="ClosureJustification" /><FieldRef Name="ClosureDate" /><FieldRef Name="ApprovedBy" /><FieldRef Name="Assignee" /><FieldRef Name="AssigneeEmail" /><FieldRef Name="Type" /><FieldRef Name="IsSavedAsDraft" /><FieldRef Name="WaivedTargetDate1" /><FieldRef Name="WaivedTargetDate2" /><FieldRef Name="IRID" /></ViewFields>
+        <FieldRef Name="RecommendationNo" /><FieldRef Name="ResponsiblePerson" /><FieldRef Name="ResponsibleDepartment" /><FieldRef Name="ResponsibleSection" /><FieldRef Name="TargetDate" /><FieldRef Name="Status" /><FieldRef Name="IRDescription" /><FieldRef Name="LastStatement" /><FieldRef Name="ClosureJustification" /><FieldRef Name="ClosureDate" /><FieldRef Name="ApprovedBy" /><FieldRef Name="Assignee" /><FieldRef Name="AssigneeEmail" /><FieldRef Name="Type" /><FieldRef Name="IsSavedAsDraft" /><FieldRef Name="WaivedTargetDate1" /><FieldRef Name="WaivedTargetDate2" /><FieldRef Name="IRID" /></ViewFields>
         <Query>
           <OrderBy>
             

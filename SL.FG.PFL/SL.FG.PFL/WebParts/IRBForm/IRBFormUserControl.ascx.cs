@@ -1604,33 +1604,21 @@ namespace SL.FG.PFL.WebParts.IRBForm
                                         this.btnSaveAsDraft.Visible = false;
                                     }
 
-                                    if (!String.IsNullOrEmpty(Convert.ToString(spListItemFR["ActionRequired"])))
+                                    if (!String.IsNullOrEmpty(Convert.ToString(spListItemFR["IRAID"])))
                                     {
-                                        string actionRequired = Convert.ToString(spListItemFR["ActionRequired"]);
+                                        this.hdnIRA_Id.Value = Convert.ToString(spListItemFR["IRAID"]);
 
-                                        if (!actionRequired.Contains("IR-3"))
+                                        if (!String.IsNullOrEmpty(this.hdnIRA_Id.Value))
                                         {
-                                            DisableControls(true);
-                                            return false;
-                                        }
-                                    }
+                                            int IRAID = Convert.ToInt32(this.hdnIRA_Id.Value);
 
+                                            string spListNameIRA = "IRAOnJob";
 
-                                    if (!String.IsNullOrEmpty(Convert.ToString(spListItemFR["IR1ID"])))
-                                    {
-                                        this.hdnIR1ID.Value = Convert.ToString(spListItemFR["IR1ID"]);
+                                            SPList spListIR1A = oSPWeb.GetList(string.Format("{0}/Lists/{1}/AllItems.aspx", oSPWeb.Url, spListNameIRA));
 
-                                        if (!String.IsNullOrEmpty(this.hdnIR1ID.Value))
-                                        {
-                                            int IRDIID = Convert.ToInt32(this.hdnIR1ID.Value);
-
-                                            string spListNameIR1 = "IR-1";
-
-                                            SPList spListIR1 = oSPWeb.GetList(string.Format("{0}/Lists/{1}/AllItems.aspx", oSPWeb.Url, spListNameIR1));
-
-                                            if (spListIR1 != null)
+                                            if (spListIR1A != null)
                                             {
-                                                SPListItem spListItemIRDI = spListIR1.GetItemById(IRDIID);
+                                                SPListItem spListItemIRDI = spListIR1A.GetItemById(IRAID);
 
                                                 if (!String.IsNullOrEmpty(Convert.ToString(spListItemIRDI["TitleOfIncident"])))
                                                 {

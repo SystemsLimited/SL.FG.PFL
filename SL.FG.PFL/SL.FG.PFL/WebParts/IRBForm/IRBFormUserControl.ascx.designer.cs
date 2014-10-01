@@ -571,13 +571,13 @@ namespace SL.FG.PFL.WebParts.IRBForm {
         protected global::System.Web.UI.WebControls.HiddenField hdnFRID;
         
         /// <summary>
-        /// hdnIR1ID control.
+        /// hdnIRA_Id control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdnIR1ID;
+        protected global::System.Web.UI.WebControls.HiddenField hdnIRA_Id;
         
         /// <summary>
         /// hdnIRB_Id control.

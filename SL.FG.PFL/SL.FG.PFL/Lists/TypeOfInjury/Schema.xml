@@ -34,7 +34,7 @@
         <Toolbar Type="Standard" />
         <XslLink Default="TRUE">main.xsl</XslLink>
         <JSLink>clienttemplates.js</JSLink>
-        <RowLimit Paged="TRUE">30</RowLimit>
+        <RowLimit Paged="TRUE">100</RowLimit>
         <ViewFields>
           
         <FieldRef Name="LinkTitle"></FieldRef><FieldRef Name="TypeID" /></ViewFields>

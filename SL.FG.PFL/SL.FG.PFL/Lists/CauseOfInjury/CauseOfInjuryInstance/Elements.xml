@@ -1,4 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Elements xmlns="http://schemas.microsoft.com/sharepoint/">
-  <ListInstance Title="CauseOfInjury" OnQuickLaunch="TRUE" TemplateType="80003" Url="Lists/CauseOfInjury" Description="My List Instance"></ListInstance>
+  <ListInstance Title="CauseOfInjury" OnQuickLaunch="FALSE" TemplateType="80003" Url="Lists/CauseOfInjury" Description="My List Instance"></ListInstance>
 </Elements>

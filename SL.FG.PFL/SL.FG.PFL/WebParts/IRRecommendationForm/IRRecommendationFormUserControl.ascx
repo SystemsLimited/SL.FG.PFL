@@ -106,8 +106,10 @@
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>Type</label>
-                                    <asp:RadioButton ID="type1_rb" runat="server" Text="Recommendation" GroupName="Type" AutoPostBack="false" Enabled="false" Checked="true" />
-                                    <asp:RadioButton ID="type2_rb" runat="server" Text="Suggestion" GroupName="Type" AutoPostBack="false" Enabled="false" />
+                                    <div>
+                                        <asp:RadioButton ID="type1_rb" runat="server" Text="Recommendation" GroupName="Type" AutoPostBack="false" Enabled="false" Checked="true" />
+                                        <asp:RadioButton ID="type2_rb" runat="server" Text="Suggestion" GroupName="Type" AutoPostBack="false" Enabled="false" />
+                                    </div>
                                 </div>
                             </div>
                         </div>

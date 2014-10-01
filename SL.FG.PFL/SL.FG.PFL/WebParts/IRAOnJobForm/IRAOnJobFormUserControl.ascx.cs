@@ -22,9 +22,6 @@ namespace SL.FG.PFL.WebParts.IRAOnJobForm
             {
                 if (!Page.IsPostBack)
                 {
-
-
-
                     String IRAID = Page.Request.QueryString["IRID"];
 
                     FillDropdowns();

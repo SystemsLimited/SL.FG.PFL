@@ -34,10 +34,10 @@
         <Toolbar Type="Standard" />
         <XslLink Default="TRUE">main.xsl</XslLink>
         <JSLink>clienttemplates.js</JSLink>
-        <RowLimit Paged="TRUE">30</RowLimit>
+        <RowLimit Paged="TRUE">100</RowLimit>
         <ViewFields>
           
-        <FieldRef Name="LinkTitle"></FieldRef><FieldRef Name="IncidentCategory" /><FieldRef Name="InjuryCategory" /><FieldRef Name="DateOfIncident" /><FieldRef Name="TimeOfIncident" /><FieldRef Name="TitleOfIncident" /><FieldRef Name="Unit_x002f_Area" /><FieldRef Name="EmployeeType" /><FieldRef Name="EmployeeName" /><FieldRef Name="ViolationBy" /><FieldRef Name="VehicleNo" /><FieldRef Name="VehicleCategory" /><FieldRef Name="TypeOfViolation" /><FieldRef Name="NameOfInjured" /><FieldRef Name="PNo" /><FieldRef Name="OccupationTrade" /><FieldRef Name="IncidentDescription" /><FieldRef Name="ActionTaken" /><FieldRef Name="FRID" /><FieldRef Name="IsSaveAsDraft" /><FieldRef Name="Assignee" /><FieldRef Name="AuditedBy" /><FieldRef Name="EmpSection" /><FieldRef Name="EmpDepartment" /><FieldRef Name="SubmittedBy" /><FieldRef Name="Status" /><FieldRef Name="ApprovalAuthority" /><FieldRef Name="ApprovalDate" /><FieldRef Name="Reportviewed" /><FieldRef Name="UMHSEComments" /></ViewFields>
+        <FieldRef Name="IncidentCategory" /><FieldRef Name="InjuryCategory" /><FieldRef Name="DateOfIncident" /><FieldRef Name="TimeOfIncident" /><FieldRef Name="TitleOfIncident" /><FieldRef Name="Unit_x002f_Area" /><FieldRef Name="EmployeeType" /><FieldRef Name="EmployeeName" /><FieldRef Name="ViolationBy" /><FieldRef Name="VehicleNo" /><FieldRef Name="VehicleCategory" /><FieldRef Name="TypeOfViolation" /><FieldRef Name="NameOfInjured" /><FieldRef Name="PNo" /><FieldRef Name="OccupationTrade" /><FieldRef Name="IncidentDescription" /><FieldRef Name="ActionTaken" /><FieldRef Name="FRID" /><FieldRef Name="IsSaveAsDraft" /><FieldRef Name="Assignee" /><FieldRef Name="AuditedBy" /><FieldRef Name="EmpSection" /><FieldRef Name="EmpDepartment" /><FieldRef Name="SubmittedBy" /><FieldRef Name="Status" /><FieldRef Name="ApprovalAuthority" /><FieldRef Name="ApprovalDate" /><FieldRef Name="Reportviewed" /><FieldRef Name="UMHSEComments" /></ViewFields>
         <Query>
           <OrderBy>
             

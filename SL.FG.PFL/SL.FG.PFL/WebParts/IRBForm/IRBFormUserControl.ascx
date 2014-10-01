@@ -114,7 +114,10 @@
                 var spanTemp = '<span class="errorMsg">' + errorMsg + '</span>';
 
                 $(tempControl).append(spanTemp);
-                $(tempControl).focus();
+
+                $('html, body').animate({
+                    scrollTop: $(tempControl).offset().top
+                }, 'slow');
             }
             if (hdnCauseOfIncident_PR == "") {
                 errorFlag = true;
@@ -1013,7 +1016,7 @@
     <asp:HiddenField ID="hdnIsChangesAllowed" runat="server" Value="1" />
     <asp:HiddenField ID="hdnApprovalAuthority" runat="server" Value="" />
     <asp:HiddenField ID="hdnFRID" runat="server" Value="" />
-    <asp:HiddenField ID="hdnIR1ID" runat="server" Value="" />
+    <asp:HiddenField ID="hdnIRA_Id" runat="server" Value="" />
     <asp:HiddenField ID="hdnIRB_Id" runat="server" Value="" />
     <asp:HiddenField ID="hdnIdList" runat="server" Value="" />
     <asp:HiddenField ID="hdnKeyFindingsList" runat="server" Value="" />
