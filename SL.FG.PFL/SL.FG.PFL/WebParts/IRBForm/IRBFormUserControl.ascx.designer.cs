@@ -175,13 +175,13 @@ namespace SL.FG.PFL.WebParts.IRBForm {
         protected global::System.Web.UI.WebControls.HiddenField hdnProcedureRelatedCause_Proc_R;
         
         /// <summary>
-        /// procedureRelatedCause_Per_R_ddl control.
+        /// procedureRelatedCause_Perm_R_ddl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect procedureRelatedCause_Per_R_ddl;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect procedureRelatedCause_Perm_R_ddl;
         
         /// <summary>
         /// hdnProcedureRelatedCause_Perm_R control.
@@ -425,6 +425,24 @@ namespace SL.FG.PFL.WebParts.IRBForm {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Microsoft.SharePoint.WebControls.DateTimeControl approvalDate_dtc;
+        
+        /// <summary>
+        /// recommendInvestigationYes_rb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton recommendInvestigationYes_rb;
+        
+        /// <summary>
+        /// recommendInvestigationNo_rb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton recommendInvestigationNo_rb;
         
         /// <summary>
         /// incidentTeam_div control.

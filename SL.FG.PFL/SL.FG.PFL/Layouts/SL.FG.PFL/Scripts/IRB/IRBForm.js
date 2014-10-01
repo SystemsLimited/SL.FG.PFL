@@ -396,9 +396,9 @@ $(document).ready(function () {
         });
     });
 
-    $('[id$=procedureRelatedCause_Per_R_ddl]').on('change', function () {
-        $("[id$=procedureRelatedCause_Per_R_ddl]").each(function () {
-            $("[id$=hdnProcedureRelatedCause_Per_R]").val($(this).val());
+    $('[id$=procedureRelatedCause_Perm_R_ddl]').on('change', function () {
+        $("[id$=procedureRelatedCause_Perm_R_ddl]").each(function () {
+            $("[id$=hdnProcedureRelatedCause_Perm_R]").val($(this).val());
         });
     });
 

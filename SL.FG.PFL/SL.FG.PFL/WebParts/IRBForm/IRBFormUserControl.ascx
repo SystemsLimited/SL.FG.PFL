@@ -114,12 +114,8 @@
                 var spanTemp = '<span class="errorMsg">' + errorMsg + '</span>';
 
                 $(tempControl).append(spanTemp);
-
-                $('html, body').animate({
-                    scrollTop: $(tempControl).offset().top
-                }, 'slow');
             }
-            if (hdnCauseOfIncident_PR == "") {
+            if (hdnCauseOfIncident_PR == "" && hdnCauseOfIncident_ER == "") {
                 errorFlag = true;
 
                 var tempControl = $('[id$=hdnCauseOfIncident_PR]').parent().parent().parent().parent();
@@ -127,17 +123,6 @@
                 var spanTemp = '<span class="errorMsg">' + errorMsg + '</span>';
 
                 $(tempControl).append(spanTemp);
-                $(tempControl).focus();
-            }
-            if (hdnCauseOfIncident_ER == "") {
-                errorFlag = true;
-
-                var tempControl = $('[id$=hdnCauseOfIncident_ER]').parent().parent().parent().parent();
-
-                var spanTemp = '<span class="errorMsg">' + errorMsg + '</span>';
-
-                $(tempControl).append(spanTemp);
-                $(tempControl).focus();
             }
             if (hdnSupervisionAtTimeOfIncident == "") {
                 errorFlag = true;
@@ -147,9 +132,8 @@
                 var spanTemp = '<span class="errorMsg">' + errorMsg + '</span>';
 
                 $(tempControl).append(spanTemp);
-                $(tempControl).focus();
             }
-            if (hdnProcedureRelatedCause_Proc_R == "") {
+            if (hdnProcedureRelatedCause_Proc_R == "" && hdnProcedureRelatedCause_Perm_R == "") {
                 errorFlag = true;
 
                 var tempControl = $('[id$=hdnProcedureRelatedCause_Proc_R]').parent().parent().parent().parent();
@@ -157,17 +141,6 @@
                 var spanTemp = '<span class="errorMsg">' + errorMsg + '</span>';
 
                 $(tempControl).append(spanTemp);
-                $(tempControl).focus();
-            }
-            if (hdnProcedureRelatedCause_Perm_R == "") {
-                errorFlag = true;
-
-                var tempControl = $('[id$=hdnProcedureRelatedCause_Perm_R]').parent().parent().parent().parent();
-
-                var spanTemp = '<span class="errorMsg">' + errorMsg + '</span>';
-
-                $(tempControl).append(spanTemp);
-                $(tempControl).focus();
             }
             if (hdnPSMsViolated == "") {
                 errorFlag = true;
@@ -177,7 +150,6 @@
                 var spanTemp = '<span class="errorMsg">' + errorMsg + '</span>';
 
                 $(tempControl).append(spanTemp);
-                $(tempControl).focus();
             }
             if (hdnResultantHealthEffect == "") {
                 errorFlag = true;
@@ -205,7 +177,6 @@
                         var spanTemp = '<span class="errorMsg">' + errorMsg + '</span>';
 
                         $(tempControl).append(spanTemp);
-                        $(tempControl).focus();
                     }
                 }
                 catch (ex) {
@@ -459,7 +430,7 @@
                                 <div class="panel-body">
                                     <div class="form-group row">
                                         <div class="col-lg-6">
-                                            <label>Please Select(People Related)</label>
+                                            <label>Please Select (People Related)</label>
                                             <select id="causeOfIncident_PR_ddl" class="select2 col-lg-12" multiple="true" runat="server">
                                                 <option>Lack of Communication</option>
                                                 <option>Lack of Training</option>
@@ -471,7 +442,7 @@
                                             <asp:HiddenField ID="hdnCauseOfIncident_PR" runat="server" Value="" />
                                         </div>
                                         <div class="col-lg-6">
-                                            <label>Please Select(Equipment/Material Related)</label>
+                                            <label>Please Select (Equipment/Material)</label>
                                             <select id="causeOfIncident_ER_ddl" class="select2 col-lg-12" multiple="true" runat="server">
                                                 <option>Design</option>
                                                 <option>Manufacturing Defect</option>
@@ -519,7 +490,7 @@
                                 <div class="panel-body">
                                     <div class="form-group row">
                                         <div class="col-lg-6">
-                                            <label>Please Select(Procedure Related)</label>
+                                            <label>Please Select (Procedure Related)</label>
                                             <select id="procedureRelatedCause_Proc_R_ddl" class="select2 col-lg-12" multiple="true" runat="server">
                                                 <option>Not Available</option>
                                                 <option>Not Followed</option>
@@ -531,8 +502,8 @@
                                             <asp:HiddenField ID="hdnProcedureRelatedCause_Proc_R" runat="server" Value="" />
                                         </div>
                                         <div class="col-lg-6">
-                                            <label>Please Select(Permit Related)</label>
-                                            <select id="procedureRelatedCause_Per_R_ddl" class="select2 col-lg-12" multiple="true" runat="server">
+                                            <label>Please Select (Permit Related)</label>
+                                            <select id="procedureRelatedCause_Perm_R_ddl" class="select2 col-lg-12" multiple="true" runat="server">
                                                 <option>Permit-Not raised</option>
                                                 <option>Inadequate</option>
                                                 <option>Violated</option>
@@ -845,12 +816,10 @@
                                     <label>Do you recommend further investigations?</label>
                                     <div class="form-group">
                                         <div class="form-inline col-lg-6">
-                                            <label>Yes</label>
-                                            <input type="radio" name="recommendInvestigations" id="recommendInvestigationsYes_rb" value="Yes">
+                                            <asp:RadioButton ID="recommendInvestigationYes_rb" runat="server" Text="Yes" GroupName="recommendInvestigation" AutoPostBack="false" />
                                         </div>
                                         <div class="form-inline col-lg-6">
-                                            <label>No</label>
-                                            <input type="radio" name="recommendInvestigations" id="recommendInvestigationsNo_rb" value="No" checked>
+                                            <asp:RadioButton ID="recommendInvestigationNo_rb"  runat="server" Text="No" GroupName="recommendInvestigation" AutoPostBack="false" />
                                         </div>
                                     </div>
                                 </div>

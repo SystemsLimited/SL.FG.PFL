@@ -873,8 +873,10 @@ namespace SL.FG.PFL.WebParts.IRBForm
                 this.hdnIsChangesAllowed.Value = "0";
 
                 DisableDropdown(this.PSMsViolated_ddl);
+                DisableDropdown(this.resultantHealthEffect_ddl);
+                DisableDropdown(this.supervisionAtTimeOfIncident_ddl);
                 DisableDropdown(this.procedureRelatedCause_Proc_R_ddl);
-                DisableDropdown(this.procedureRelatedCause_Per_R_ddl);
+                DisableDropdown(this.procedureRelatedCause_Perm_R_ddl);
                 DisableDropdown(this.causeOfIncident_PR_ddl);
                 DisableDropdown(this.causeOfIncident_ER_ddl);
                 DisableDropdown(this.basicActivityInProgress_ddl);
@@ -1175,47 +1177,62 @@ namespace SL.FG.PFL.WebParts.IRBForm
 
                                 if (spListIRB != null)
                                 {
+                                    char delimeter = ',';
+
                                     if (!String.IsNullOrEmpty(Convert.ToString(spListItemIRB["Conclusion"])))
                                     {
                                         this.conclusion_ta.Value = Convert.ToString(spListItemIRB["Conclusion"]);
                                     }
+                                    DisableDropdown(this.causeOfIncident_PR_ddl);
+                                    DisableDropdown(this.causeOfIncident_ER_ddl);
+                                    if (!String.IsNullOrEmpty(Convert.ToString(spListItemIRB["BasicActivityInProgress"])))
+                                    {
+                                        this.hdnBasicActivityInProgress.Value = Convert.ToString(spListItemIRB["BasicActivityInProgress"]);
 
-                                    //if (!String.IsNullOrEmpty(Convert.ToString(spListItemIRB["ActualOrPotentialInquiry"])))
-                                    //{
-                                    //    this.hdnActualOrPotentialInquiry.Value = Convert.ToString(spListItemIRB["ActualOrPotentialInquiry"]);
+                                        FillSelectedValues(this.basicActivityInProgress_ddl, this.hdnBasicActivityInProgress.Value, delimeter);
+                                    }
+                                    if (!String.IsNullOrEmpty(Convert.ToString(spListItemIRB["ProcedureRelatedCausePermR"])))
+                                    {
+                                        this.hdnProcedureRelatedCause_Perm_R.Value = Convert.ToString(spListItemIRB["ProcedureRelatedCausePermR"]);
 
-                                    //    FillSelectedValues(this.actualOrPotentialInquiry_ddl, this.hdnActualOrPotentialInquiry.Value, delimeter);
-                                    //}
-                                    //if (!String.IsNullOrEmpty(Convert.ToString(spListItemIRB["ProcessSafetyIncidents"])))
-                                    //{
-                                    //    this.hdnProcessSafetyIncidents.Value = Convert.ToString(spListItemIRB["ProcessSafetyIncidents"]);
+                                        FillSelectedValues(this.procedureRelatedCause_Perm_R_ddl, this.hdnProcedureRelatedCause_Perm_R.Value, delimeter);
+                                    }
+                                    if (!String.IsNullOrEmpty(Convert.ToString(spListItemIRB["ProcedureRelatedCauseProcR"])))
+                                    {
+                                        this.hdnProcedureRelatedCause_Proc_R.Value = Convert.ToString(spListItemIRB["ProcedureRelatedCauseProcR"]);
 
-                                    //    FillSelectedValues(this.processSafetyIncidents_ddl, this.hdnProcessSafetyIncidents.Value, delimeter);
-                                    //}
-                                    //if (!String.IsNullOrEmpty(Convert.ToString(spListItemIRB["MiscellaneousIncidents"])))
-                                    //{
-                                    //    this.hdnMiscellaneousIncidents.Value = Convert.ToString(spListItemIRB["MiscellaneousIncidents"]);
+                                        FillSelectedValues(this.procedureRelatedCause_Proc_R_ddl, this.hdnProcedureRelatedCause_Proc_R.Value, delimeter);
+                                    }
+                                    if (!String.IsNullOrEmpty(Convert.ToString(spListItemIRB["PSMsViolated"])))
+                                    {
+                                        this.hdnPSMsViolated.Value = Convert.ToString(spListItemIRB["PSMsViolated"]);
 
-                                    //    FillSelectedValues(this.miscellaneousIncidents_ddl, this.hdnMiscellaneousIncidents.Value, delimeter);
-                                    //}
-                                    //if (!String.IsNullOrEmpty(Convert.ToString(spListItemIRB["BasicActivityInProgress"])))
-                                    //{
-                                    //    this.hdnBasicActivityInProgress.Value = Convert.ToString(spListItemIRB["BasicActivityInProgress"]);
+                                        FillSelectedValues(this.PSMsViolated_ddl, this.hdnPSMsViolated.Value, delimeter);
+                                    }
+                                    if (!String.IsNullOrEmpty(Convert.ToString(spListItemIRB["ResultantHealthEffect"])))
+                                    {
+                                        this.hdnResultantHealthEffect.Value = Convert.ToString(spListItemIRB["ResultantHealthEffect"]);
 
-                                    //    FillSelectedValues(this.basicActivityInProgress_ddl, this.hdnBasicActivityInProgress.Value, delimeter);
-                                    //}
-                                    //if (!String.IsNullOrEmpty(Convert.ToString(spListItemIRB["RiskBasedElements"])))
-                                    //{
-                                    //    this.hdnRiskBasedElements.Value = Convert.ToString(spListItemIRB["RiskBasedElements"]);
+                                        FillSelectedValues(this.resultantHealthEffect_ddl, this.hdnResultantHealthEffect.Value, delimeter);
+                                    }
+                                    if (!String.IsNullOrEmpty(Convert.ToString(spListItemIRB["SupervisionAtTimeOfIncident"])))
+                                    {
+                                        this.hdnSupervisionAtTimeOfIncident.Value = Convert.ToString(spListItemIRB["SupervisionAtTimeOfIncident"]);
 
-                                    //    FillSelectedValues(this.riskBasedElements_ddl, this.hdnRiskBasedElements.Value, delimeter);
-                                    //}
-                                    //if (!String.IsNullOrEmpty(Convert.ToString(spListItemIRB["CulturalBasedElements"])))
-                                    //{
-                                    //    this.hdnCulturalBasedElements.Value = Convert.ToString(spListItemIRB["CulturalBasedElements"]);
+                                        FillSelectedValues(this.supervisionAtTimeOfIncident_ddl, this.hdnSupervisionAtTimeOfIncident.Value, delimeter);
+                                    }
+                                    if (!String.IsNullOrEmpty(Convert.ToString(spListItemIRB["CauseOfIncidentPR"])))
+                                    {
+                                        this.hdnCauseOfIncident_PR.Value = Convert.ToString(spListItemIRB["CauseOfIncidentPR"]);
 
-                                    //    FillSelectedValues(this.culturalBasedElements_ddl, this.hdnCulturalBasedElements.Value, delimeter);
-                                    //}
+                                        FillSelectedValues(this.causeOfIncident_PR_ddl, this.hdnCauseOfIncident_PR.Value, delimeter);
+                                    }
+                                    if (!String.IsNullOrEmpty(Convert.ToString(spListItemIRB["CauseOfIncidentER"])))
+                                    {
+                                        this.hdnCauseOfIncident_ER.Value = Convert.ToString(spListItemIRB["CauseOfIncidentER"]);
+
+                                        FillSelectedValues(this.causeOfIncident_ER_ddl, this.hdnCauseOfIncident_ER.Value, delimeter);
+                                    }
 
                                     if (spListItemIRB["IsSubmitted"] != null && !String.IsNullOrEmpty(Convert.ToString(spListItemIRB["IsSubmitted"])))
                                     {
@@ -1478,6 +1495,16 @@ namespace SL.FG.PFL.WebParts.IRBForm
                                         this.incidentDescription_ta.Value = Convert.ToString(spListItemFR["DescriptionOfIncident"]);
                                     }
 
+                                    if (!String.IsNullOrEmpty(Convert.ToString(spListItemFR["DescriptionOfIncident"])))
+                                    {
+                                        this.incidentDescription_ta.Value = Convert.ToString(spListItemFR["DescriptionOfIncident"]);
+                                    }
+
+                                    if (!String.IsNullOrEmpty(Convert.ToString(spListItemFR["ReportNo"])))
+                                    {
+                                        this.reportNo_tf.Value = Convert.ToString(spListItemFR["ReportNo"]);
+                                    }
+
                                     SPUser approvalAuthority = null;
 
                                     if (!String.IsNullOrEmpty(Convert.ToString(spListItemFR["ApprovingAuthority"])))
@@ -1614,20 +1641,20 @@ namespace SL.FG.PFL.WebParts.IRBForm
 
                                             string spListNameIRA = "IRAOnJob";
 
-                                            SPList spListIR1A = oSPWeb.GetList(string.Format("{0}/Lists/{1}/AllItems.aspx", oSPWeb.Url, spListNameIRA));
+                                            SPList spListIRA = oSPWeb.GetList(string.Format("{0}/Lists/{1}/AllItems.aspx", oSPWeb.Url, spListNameIRA));
 
-                                            if (spListIR1A != null)
+                                            if (spListIRA != null)
                                             {
-                                                SPListItem spListItemIRDI = spListIR1A.GetItemById(IRAID);
+                                                SPListItem spListItemIRA = spListIRA.GetItemById(IRAID);
 
-                                                if (!String.IsNullOrEmpty(Convert.ToString(spListItemIRDI["TitleOfIncident"])))
+                                                if (!String.IsNullOrEmpty(Convert.ToString(spListItemIRA["TitleOfIncident"])))
                                                 {
-                                                    this.incidentTitle_tf.Value = Convert.ToString(spListItemIRDI["TitleOfIncident"]);
+                                                    this.incidentTitle_tf.Value = Convert.ToString(spListItemIRA["TitleOfIncident"]);
                                                 }
 
-                                                if (!String.IsNullOrEmpty(Convert.ToString(spListItemIRDI["SubmittedBy"])))
+                                                if (!String.IsNullOrEmpty(Convert.ToString(spListItemIRA["SubmittedBy"])))
                                                 {
-                                                    string submittedBy = Convert.ToString(spListItemIRDI["SubmittedBy"]);
+                                                    string submittedBy = Convert.ToString(spListItemIRA["SubmittedBy"]);
 
                                                     if (!String.IsNullOrEmpty(submittedBy))
                                                     {
@@ -1640,14 +1667,14 @@ namespace SL.FG.PFL.WebParts.IRBForm
                                                     }
                                                 }
 
-                                                if (spListItemIRDI["DateOFSubmission"] != null && !String.IsNullOrEmpty(Convert.ToString(spListItemIRDI["DateOFSubmission"])))
+                                                if (spListItemIRA["DateOFSubmission"] != null && !String.IsNullOrEmpty(Convert.ToString(spListItemIRA["DateOFSubmission"])))
                                                 {
                                                     DateTime date;
-                                                    bool bValid = DateTime.TryParse(Convert.ToString(spListItemIRDI["DateOFSubmission"]), new CultureInfo("en-GB"), DateTimeStyles.AssumeLocal, out date);
+                                                    bool bValid = DateTime.TryParse(Convert.ToString(spListItemIRA["DateOFSubmission"]), new CultureInfo("en-GB"), DateTimeStyles.AssumeLocal, out date);
 
                                                     if (!bValid)
                                                     {
-                                                        date = Convert.ToDateTime(spListItemIRDI["DateOFSubmission"]);
+                                                        date = Convert.ToDateTime(spListItemIRA["DateOFSubmission"]);
                                                     }
 
                                                     this.investigationDate_dtc.SelectedDate = date;
@@ -1671,10 +1698,6 @@ namespace SL.FG.PFL.WebParts.IRBForm
                             {
                                 this.incidentDescription_ta.Value = Convert.ToString(spListItemIRB["IncidentDescription"]);
                             }
-                            //if (!String.IsNullOrEmpty(Convert.ToString(spListItemIRB["IncidentActionTaken"])))
-                            //{
-                            //    this.incidentActionsTaken_ta.Value = Convert.ToString(spListItemIRB["IncidentActionTaken"]);
-                            //}
                         }
 
                         return true;
@@ -2226,61 +2249,34 @@ namespace SL.FG.PFL.WebParts.IRBForm
                                 {
                                     if (!isForwardCase)
                                     {
-                                        spListItem["KeyFindings"] = keyFindings;
-                                        spListItem["PeopleInterviewed"] = peopleInterviewed;
-                                        spListItem["RootCauses"] = rootCauses;
+                                        spListItem["FactsLeadingToConclusion"] = keyFindings;
+                                        spListItem["SuggestionsForImprovements"] = peopleInterviewed;
+                                        spListItem["SequenceOfEvents"] = rootCauses;
 
-
-                                        if (!String.IsNullOrEmpty(this.incidentDescription_ta.Value))
+                                        if (this.hdnIsChangesAllowed.Value.Equals("1"))
                                         {
                                             spListItem["IncidentDescription"] = this.incidentDescription_ta.Value;
-                                        }
 
-                                        if (!String.IsNullOrEmpty(this.incidentTitle_tf.Value))
-                                        {
                                             spListItem["IncidentTitle"] = this.incidentTitle_tf.Value;
-                                        }
 
-                                        if (!String.IsNullOrEmpty(this.conclusion_ta.Value))
-                                        {
                                             spListItem["Conclusion"] = this.conclusion_ta.Value;
-                                        }
 
-                                        if (!String.IsNullOrEmpty(this.hdnBasicActivityInProgress.Value))
-                                        {
                                             spListItem["BasicActivityInProgress"] = this.hdnBasicActivityInProgress.Value;
-                                        }
-                                        if (!String.IsNullOrEmpty(this.hdnCauseOfIncident_ER.Value))
-                                        {
-                                            spListItem["CauseOfIncident_ER"] = this.hdnCauseOfIncident_ER.Value;
-                                        }
-                                        if (!String.IsNullOrEmpty(this.hdnCauseOfIncident_PR.Value))
-                                        {
-                                            spListItem["CauseOfIncident_PR"] = this.hdnCauseOfIncident_PR.Value;
-                                        }
-                                        if (!String.IsNullOrEmpty(this.hdnProcedureRelatedCause_Perm_R.Value))
-                                        {
-                                            spListItem["ProcedureRelatedCause_Perm_R"] = this.hdnProcedureRelatedCause_Perm_R.Value;
-                                        }
-                                        if (!String.IsNullOrEmpty(this.hdnProcedureRelatedCause_Proc_R.Value))
-                                        {
-                                            spListItem["ProcedureRelatedCause_Proc_R"] = this.hdnProcedureRelatedCause_Proc_R.Value;
-                                        }
-                                        if (!String.IsNullOrEmpty(this.hdnPSMsViolated.Value))
-                                        {
-                                            spListItem["PSMsViolated"] = this.hdnPSMsViolated.Value;
-                                        }
-                                        if (!String.IsNullOrEmpty(this.hdnResultantHealthEffect.Value))
-                                        {
-                                            spListItem["ResultantHealthEffect"] = this.hdnResultantHealthEffect.Value;
-                                        }
-                                        if (!String.IsNullOrEmpty(this.hdnSupervisionAtTimeOfIncident.Value))
-                                        {
-                                            spListItem["SupervisionAtTimeOfIncident"] = this.hdnSupervisionAtTimeOfIncident.Value;
-                                        }
 
-                                        if (!String.IsNullOrEmpty(this.hdnFRID.Value))
-                                        {
+                                            spListItem["CauseOfIncidentER"] = this.hdnCauseOfIncident_ER.Value;
+
+                                            spListItem["CauseOfIncidentPR"] = this.hdnCauseOfIncident_PR.Value;
+
+                                            spListItem["ProcedureRelatedCausePermR"] = this.hdnProcedureRelatedCause_Perm_R.Value;
+
+                                            spListItem["ProcedureRelatedCauseProcR"] = this.hdnProcedureRelatedCause_Proc_R.Value;
+
+                                            spListItem["PSMsViolated"] = this.hdnPSMsViolated.Value;
+
+                                            spListItem["ResultantHealthEffect"] = this.hdnResultantHealthEffect.Value;
+
+                                            spListItem["SupervisionAtTimeOfIncident"] = this.hdnSupervisionAtTimeOfIncident.Value;
+
                                             spListItem["FlashReportID"] = this.hdnFRID.Value;
                                         }
 
@@ -2318,15 +2314,11 @@ namespace SL.FG.PFL.WebParts.IRBForm
                                             }
                                         }
 
-                                        if (!String.IsNullOrEmpty(this.rvf_reportViewed_ta.Value))
-                                        {
-                                            spListItem["HSEApprover"] = this.rvf_reportViewed_ta.Value;
-                                        }
 
-                                        if (!String.IsNullOrEmpty(this.UM_HSE_Comments_ta.Value))
-                                        {
-                                            spListItem["HSEComments"] = this.UM_HSE_Comments_ta.Value;
-                                        }
+                                        spListItem["HSEApprover"] = this.rvf_reportViewed_ta.Value;
+
+                                        spListItem["HSEComments"] = this.UM_HSE_Comments_ta.Value;
+
                                     }
 
                                     //new 
@@ -2362,16 +2354,11 @@ namespace SL.FG.PFL.WebParts.IRBForm
                                     spListItem["IsApproved"] = isApproveCase;
                                     spListItem["IsClosed"] = isLastSave;
 
-                                    if (!String.IsNullOrEmpty(this.IRRCQualityScore_ta.Value))
-                                    {
-                                        spListItem["IRRCQualityScore"] = this.IRRCQualityScore_ta.Value;
-                                    }
 
-                                    if (!String.IsNullOrEmpty(this.IRRCQualityAccessedBy_ta.Value))
-                                    {
-                                        spListItem["QualityAssessedBy"] = this.IRRCQualityAccessedBy_ta.Value;
-                                    }
+                                    spListItem["IRRCQualityScore"] = this.IRRCQualityScore_ta.Value;
 
+                                    spListItem["QualityAssessedBy"] = this.IRRCQualityAccessedBy_ta.Value;
+                                    
                                     //new 
                                     if (isAlreadySaved == false)
                                     {
@@ -2499,7 +2486,7 @@ namespace SL.FG.PFL.WebParts.IRBForm
 
                 if (oSPWeb != null)
                 {
-                    string listName = "IIRRecommendationOnJob";
+                    string listName = "IRRecommendationOnJob";
 
                     // Fetch the List
                     SPList spList = oSPWeb.GetList(string.Format("{0}/Lists/{1}/AllItems.aspx", oSPWeb.Url, listName));
@@ -2627,7 +2614,7 @@ namespace SL.FG.PFL.WebParts.IRBForm
                                 return null;
                             }
 
-                            itemToAdd["IIRDescription"] = item.Description;
+                            itemToAdd["IRDescription"] = item.Description;
                             itemToAdd["ResponsibleSection"] = item.SectionId;
                             itemToAdd["ResponsibleDepartment"] = item.DepartmentId;
 

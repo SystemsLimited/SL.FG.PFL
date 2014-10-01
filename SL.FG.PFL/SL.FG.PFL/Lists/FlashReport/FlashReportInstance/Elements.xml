@@ -16,7 +16,7 @@
           <Field Name="SubmittedBy">Lahore\Hafiz.Muhammadusama</Field>
           <Field Name="Assignee">Lahore\Hafiz.Muhammadusama</Field>
           <Field Name="AuditedBy">Lahore\Hafiz.Muhammadusama</Field>
-          <Field Name="IRID">1</Field>
+          <Field Name="IRAID">1</Field>
           <Field Name="ActionRequired">IR-1</Field>
           <Field Name="ResponcibleSection_x002f_Unit">Utilities West</Field>
           <Field Name="ResponcibleDepartment">Test 1</Field>
@@ -25,6 +25,7 @@
           <Field Name="ApprovingAuthority">Lahore\rizwan.mahfooz</Field>
           <Field Name="Description">Flash Report Description 1</Field>
           <Field Name="TeamLead">Lahore\rizwan.mahfooz</Field>
+          <Field Name="ReportNo">Sec-Dept-1</Field>
         </Row>
       </Rows>
     </Data>
