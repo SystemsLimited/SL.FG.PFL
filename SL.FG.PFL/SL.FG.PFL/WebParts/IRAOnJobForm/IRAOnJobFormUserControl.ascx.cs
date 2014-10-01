@@ -22,21 +22,24 @@ namespace SL.FG.PFL.WebParts.IRAOnJobForm
             {
                 if (!Page.IsPostBack)
                 {
+
+
+
                     String IRAID = Page.Request.QueryString["IRID"];
 
                     FillDropdowns();
 
                     if (!String.IsNullOrEmpty(IRAID))
                     {
-                         PageLoadOnUserBases();
+                        PageLoadOnUserBases();
                     }
                     else
                     {
-                        this.btnSave.Visible = false;
-                        this.btnSaveAsDraft.Visible = false;
-                        this.btnMOSave.Visible = false;
-                        //this.btnHSESave.Visible = false;
-
+                       
+                        //this.btnSave.Visible = false;
+                        //this.btnSaveAsDraft.Visible = false;
+                        //this.btnMOSave.Visible = false;
+                       
                     }
                 }
 
@@ -68,7 +71,7 @@ namespace SL.FG.PFL.WebParts.IRAOnJobForm
                             Boolean checkSupervisor = CheckCurrentUserIsSupervisor(oSPWeb);
                             Boolean checkAdmin = CheckCurrentUserIsAdmin(oSPWeb);
 
-                            SPListItemCollection IR_1InfoList = oSPWeb.Lists["IR-1-Off"].Items;
+                            SPListItemCollection IR_1InfoList = oSPWeb.Lists["IRAOnJob"].Items;
                             if (IR_1InfoList != null)
                             {
                                 SPListItem imiItem = IR_1InfoList.GetItemById(Convert.ToInt32(IRID));
@@ -80,7 +83,7 @@ namespace SL.FG.PFL.WebParts.IRAOnJobForm
 
                                     if (checkAdmin)
                                     {
-                                      //  LoadPageFromDraft(imiItem, oSPWeb, IRID);
+                                        LoadPageFromDraft(imiItem, oSPWeb, IRID);
                                         DisableUnableFieldsForAssigneeHSEMembers();
                                     }
                                     else if (CheckAssignee(imiItem, oSPWeb))
@@ -88,29 +91,29 @@ namespace SL.FG.PFL.WebParts.IRAOnJobForm
 
                                         if (checkMo && checkAudittedBy && SaveAsDraft)
                                         {
-                                         //   LoadPageFromDraft(imiItem, oSPWeb, IRID);
+                                            LoadPageFromDraft(imiItem, oSPWeb, IRID);
                                             DisableFieldsForNewPerson();
                                         }
 
                                         else if (checkMo && checkSubmittedBy && checkAudittedBy)
                                         {
-                                         //   LoadPageFromDraft(imiItem, oSPWeb, IRID);
+                                            LoadPageFromDraft(imiItem, oSPWeb, IRID);
                                             DisableUnableFieldsForMO();
                                         }
-                                        else if (checkMo && checkAudittedBy)
-                                        {
-                                         //   LoadPageFromDraft(imiItem, oSPWeb, IRID);
-                                            DisableFieldsForNewPerson();
-                                        }
+                                        //else if (checkMo && checkAudittedBy)
+                                        //{
+                                        //    LoadPageFromDraft(imiItem, oSPWeb, IRID);
+                                        //    DisableFieldsForNewPerson();
+                                        //}
                                         else if (checkMo)
                                         {
-                                         //   LoadPageFromDraft(imiItem, oSPWeb, IRID);
+                                            LoadPageFromDraft(imiItem, oSPWeb, IRID);
                                             DisableUnableFieldsForMO();
                                         }
                                         else if (checkHSEMember && checkAudittedBy)
                                         {
 
-                                       //     LoadPageFromDraft(imiItem, oSPWeb, IRID);
+                                            LoadPageFromDraft(imiItem, oSPWeb, IRID);
                                             DisableFieldsForNewPerson();
 
 
@@ -125,7 +128,7 @@ namespace SL.FG.PFL.WebParts.IRAOnJobForm
                                         else
                                         {
 
-                                        //    LoadPageFromDraft(imiItem, oSPWeb, IRID);
+                                            LoadPageFromDraft(imiItem, oSPWeb, IRID);
                                             DisableFieldsForNewPerson();
 
                                         }
@@ -135,7 +138,7 @@ namespace SL.FG.PFL.WebParts.IRAOnJobForm
                                     else if (checkHSEMember)
                                     {
 
-                                     //   LoadPageFromDraft(imiItem, oSPWeb, IRID);
+                                        LoadPageFromDraft(imiItem, oSPWeb, IRID);
                                         DisableUnableFieldsForHSEMembers();
                                     }
                                     else
@@ -160,7 +163,7 @@ namespace SL.FG.PFL.WebParts.IRAOnJobForm
                                             this.btnSave.Visible = false;
                                             this.btnSaveAsDraft.Visible = false;
                                             this.btnMOSave.Visible = false;
-                                          //  this.btnHSESave.Visible = false;
+                                            //  this.btnHSESave.Visible = false;
                                         }
                                     }
 
@@ -333,7 +336,7 @@ namespace SL.FG.PFL.WebParts.IRAOnJobForm
 
             this.InjuryCategory_ta.Disabled = true;
 
-            this.EmployeeType_ddl.Disabled = true;          
+            this.EmployeeType_ddl.Disabled = true;
 
             this.MOName_div.Attributes.Add("style", "display:none");
 
@@ -349,13 +352,13 @@ namespace SL.FG.PFL.WebParts.IRAOnJobForm
 
             this.TimeOfIncident_dtc.Enabled = false;
 
-            this.Unit_Area_ddl.Disabled = true;        
+            this.Unit_Area_ddl.Disabled = true;
 
             this.SubmissionDate_dtc.Enabled = false;
 
             this.Title_tf.Disabled = true;
 
-            this.Description_ta.Disabled = true;        
+            this.Description_ta.Disabled = true;
 
             this.SubmittedBy_div.Attributes.Add("style", "display:none");
 
@@ -364,7 +367,7 @@ namespace SL.FG.PFL.WebParts.IRAOnJobForm
             this.SubmittedBy_tf.Disabled = true;
 
             this.outside_cb.Disabled = true;
-        
+
             this.btnSaveAsDraft.Visible = false;
 
             this.btnSave.Visible = false;
@@ -468,7 +471,7 @@ namespace SL.FG.PFL.WebParts.IRAOnJobForm
             this.MOName_tf.Visible = true;
 
             this.MOName_tf.Disabled = true;
-    
+
             this.MOName_PeopleEditor.Enabled = false;
 
             this.DateOfIncident_dtc.Enabled = false;
@@ -666,13 +669,54 @@ namespace SL.FG.PFL.WebParts.IRAOnJobForm
                 using (SPWeb oSPWeb = oSPsite.OpenWeb())
                 {
                     FillArea(oSPWeb);
+                    FillDepartment(oSPWeb);
                     FillSection(oSPWeb);
                     FillIncidentCategory(oSPWeb);
                     FillInjuryCategory(oSPWeb);
                     FillCauseOfInjury(oSPWeb);
+                    FillTypeOfInjury(oSPWeb);
                 }
             }
         }
+
+        private void FillDepartment(SPWeb oSPWeb)
+        {
+            try
+            {
+              
+                        string listName = "Department";
+
+                        // Fetch the List
+                        SPList spList = oSPWeb.GetList(string.Format("{0}/Lists/{1}/AllItems.aspx", oSPWeb.Url, listName));
+
+                        SPQuery query = new SPQuery();
+                        SPListItemCollection spListItems;
+                        // Include only the fields you will use.
+                        query.ViewFields = "<FieldRef Name='ID'/><FieldRef Name='Title'/>";
+                        query.ViewFieldsOnly = true;
+                        //query.RowLimit = 200; // Only select the top 200.
+                        StringBuilder sb = new StringBuilder();
+                        sb.Append("<Where><Eq><FieldRef Name='DepartmentDescription' /><Value Type='Note'>HOD</Value></Eq></Where><OrderBy Override='TRUE';><FieldRef Name='Title'/></OrderBy>");
+                        query.Query = sb.ToString();
+                        spListItems = spList.GetItems(query);
+
+                        this.Department_Injury_ddl.DataSource = spListItems;
+                        this.Department_Injury_ddl.DataTextField = "Title";
+                        this.Department_Injury_ddl.DataValueField = "Title";
+                        this.Department_Injury_ddl.DataBind();
+
+                        this.Department_Injury_ddl.Items.Insert(0, new ListItem("Please Select", "0"));
+
+                   
+            }
+            catch (Exception ex)
+            {
+                SPDiagnosticsService.Local.WriteTrace(0, new SPDiagnosticsCategory("SL.FG.PFL(IRA)nJobJobForm->FillDepartment)", TraceSeverity.Unexpected, EventSeverity.Error), TraceSeverity.Unexpected, ex.Message, ex.StackTrace);
+            }
+
+
+        }
+
 
         private void FillArea(SPWeb oSPWeb)
         {
@@ -693,7 +737,7 @@ namespace SL.FG.PFL.WebParts.IRAOnJobForm
                 query.ViewFieldsOnly = true;
                 //query.RowLimit = 200; // Only select the top 200.
                 StringBuilder sb = new StringBuilder();
-                sb.Append("<OrderBy Override='TRUE;><FieldRef Name='Title'/></OrderBy>");
+                sb.Append("<OrderBy Override='TRUE';><FieldRef Name='Title'/></OrderBy>");
                 query.Query = sb.ToString();
                 spListItems = spList.GetItems(query);
 
@@ -729,7 +773,7 @@ namespace SL.FG.PFL.WebParts.IRAOnJobForm
                 query.ViewFieldsOnly = true;
                 //query.RowLimit = 200; // Only select the top 200.
                 StringBuilder sb = new StringBuilder();
-                sb.Append("<OrderBy Override='TRUE;><FieldRef Name='Title'/></OrderBy>");
+                sb.Append("<OrderBy Override='TRUE';><FieldRef Name='Title'/></OrderBy>");
                 query.Query = sb.ToString();
                 spListItems = spList.GetItems(query);
 
@@ -761,7 +805,7 @@ namespace SL.FG.PFL.WebParts.IRAOnJobForm
                 query.ViewFieldsOnly = true;
                 //query.RowLimit = 200; // Only select the top 200.
                 StringBuilder sb = new StringBuilder();
-                sb.Append("<OrderBy Override='TRUE;><FieldRef Name='Title'/></OrderBy>");
+                sb.Append("<OrderBy Override='TRUE';><FieldRef Name='Title'/></OrderBy>");
                 query.Query = sb.ToString();
                 spListItems = spList.GetItems(query);
 
@@ -795,7 +839,7 @@ namespace SL.FG.PFL.WebParts.IRAOnJobForm
                 query.ViewFieldsOnly = true;
                 //query.RowLimit = 200; // Only select the top 200.
                 StringBuilder sb = new StringBuilder();
-                sb.Append("<OrderBy Override='TRUE;><FieldRef Name='Title'/></OrderBy>");
+                sb.Append("<OrderBy Override='TRUE';><FieldRef Name='Title'/></OrderBy>");
                 query.Query = sb.ToString();
                 spListItems = spList.GetItems(query);
 
@@ -827,34 +871,30 @@ namespace SL.FG.PFL.WebParts.IRAOnJobForm
             try
             {
 
-                //string listName = "CauseOfInjury";
+                string listName = "CauseOfInjury";
 
-                //// Fetch the List
-                //SPList spList = oSPWeb.GetList(string.Format("{0}/Lists/{1}/AllItems.aspx", oSPWeb.Url, listName));
+                // Fetch the List
+                SPList spList = oSPWeb.GetList(string.Format("{0}/Lists/{1}/AllItems.aspx", oSPWeb.Url, listName));
 
-                //SPQuery query = new SPQuery();
-                //SPListItemCollection spListItems;
-                //// Include only the fields you will use.
-                //query.ViewFields = "<FieldRef Name='ID'/><FieldRef Name='Title'/>";
-                //query.ViewFieldsOnly = true;
-                ////query.RowLimit = 200; // Only select the top 200.
-                //StringBuilder sb = new StringBuilder();
-                //sb.Append("<OrderBy Override='TRUE;><FieldRef Name='Title'/></OrderBy>");
-                //query.Query = sb.ToString();
-                //spListItems = spList.GetItems(query);
+                SPQuery query = new SPQuery();
+                SPListItemCollection spListItems;
+                // Include only the fields you will use.
+                query.ViewFields = "<FieldRef Name='ID'/><FieldRef Name='Title'/>";
+                query.ViewFieldsOnly = true;
+                //query.RowLimit = 200; // Only select the top 200.
+                StringBuilder sb = new StringBuilder();
+                sb.Append("<OrderBy Override='TRUE';><FieldRef Name='Title'/></OrderBy>");
+                query.Query = sb.ToString();
+                spListItems = spList.GetItems(query);
 
-                ////this.Section_Violation_ddl.DataSource = spListItems;
-                ////this.Section_Violation_ddl.DataTextField = "Title";
-                ////this.Section_Violation_ddl.DataValueField = "Title";
-                ////this.Section_Violation_ddl.DataBind();
-                ////this.Section_Violation_ddl.Items.Insert(0, new ListItem("Please Select", "0"));
+                this.CauseOfInjury_ddl.DataSource = spListItems;
+                this.CauseOfInjury_ddl.DataTextField = "Title";
+                this.CauseOfInjury_ddl.DataValueField = "Title";
+                this.CauseOfInjury_ddl.DataBind();
+                this.CauseOfInjury_ddl.Items.Insert(0, new ListItem("Please Select", "0"));
 
 
-                //this.Section_Injury_ddl.DataSource = spListItems;
-                //this.Section_Injury_ddl.DataTextField = "Title";
-                //this.Section_Injury_ddl.DataValueField = "Title";
-                //this.Section_Injury_ddl.DataBind();
-                //this.Section_Injury_ddl.Items.Insert(0, new ListItem("Please Select", "0"));
+               
 
             }
             catch (Exception ex)
@@ -871,34 +911,28 @@ namespace SL.FG.PFL.WebParts.IRAOnJobForm
             try
             {
 
-                //string listName = "CauseOfInjury";
+                string listName = "TypeOfInjury";
 
-                //// Fetch the List
-                //SPList spList = oSPWeb.GetList(string.Format("{0}/Lists/{1}/AllItems.aspx", oSPWeb.Url, listName));
+                // Fetch the List
+                SPList spList = oSPWeb.GetList(string.Format("{0}/Lists/{1}/AllItems.aspx", oSPWeb.Url, listName));
 
-                //SPQuery query = new SPQuery();
-                //SPListItemCollection spListItems;
-                //// Include only the fields you will use.
-                //query.ViewFields = "<FieldRef Name='ID'/><FieldRef Name='Title'/>";
-                //query.ViewFieldsOnly = true;
-                ////query.RowLimit = 200; // Only select the top 200.
-                //StringBuilder sb = new StringBuilder();
-                //sb.Append("<OrderBy Override='TRUE;><FieldRef Name='Title'/></OrderBy>");
-                //query.Query = sb.ToString();
-                //spListItems = spList.GetItems(query);
+                SPQuery query = new SPQuery();
+                SPListItemCollection spListItems;
+                // Include only the fields you will use.
+                query.ViewFields = "<FieldRef Name='ID'/><FieldRef Name='Title'/>";
+                query.ViewFieldsOnly = true;
+                //query.RowLimit = 200; // Only select the top 200.
+                StringBuilder sb = new StringBuilder();
+                sb.Append("<OrderBy Override='TRUE';><FieldRef Name='Title'/></OrderBy>");
+                query.Query = sb.ToString();
+                spListItems = spList.GetItems(query);
 
-                ////this.Section_Violation_ddl.DataSource = spListItems;
-                ////this.Section_Violation_ddl.DataTextField = "Title";
-                ////this.Section_Violation_ddl.DataValueField = "Title";
-                ////this.Section_Violation_ddl.DataBind();
-                ////this.Section_Violation_ddl.Items.Insert(0, new ListItem("Please Select", "0"));
+                this.TypeOfInjury_ddl.DataSource = spListItems;
+                this.TypeOfInjury_ddl.DataTextField = "Title";
+                this.TypeOfInjury_ddl.DataValueField = "Title";
+                this.TypeOfInjury_ddl.DataBind();
+                this.TypeOfInjury_ddl.Items.Insert(0, new ListItem("Please Select", "0"));
 
-
-                //this.Section_Injury_ddl.DataSource = spListItems;
-                //this.Section_Injury_ddl.DataTextField = "Title";
-                //this.Section_Injury_ddl.DataValueField = "Title";
-                //this.Section_Injury_ddl.DataBind();
-                //this.Section_Injury_ddl.Items.Insert(0, new ListItem("Please Select", "0"));
 
             }
             catch (Exception ex)
@@ -920,7 +954,7 @@ namespace SL.FG.PFL.WebParts.IRAOnJobForm
 
                         if (oWebSite != null)
                         {
-                            
+
 
                             string listName = "IRAOnJob";
 
@@ -939,7 +973,7 @@ namespace SL.FG.PFL.WebParts.IRAOnJobForm
                                 if (spListItem != null)
                                 {
 
-                                          UpdateIR_AValues(spListItem, false, oWebSite);
+                                    UpdateIR_AValues(spListItem, false, oWebSite);
 
                                 }
                             }
@@ -952,7 +986,7 @@ namespace SL.FG.PFL.WebParts.IRAOnJobForm
                                 if (spListItem != null)
                                 {
 
-                                          UpdateIR_AValues(spListItem, false, oWebSite);
+                                    UpdateIR_AValues(spListItem, false, oWebSite);
 
                                 }
                             }
@@ -992,7 +1026,7 @@ namespace SL.FG.PFL.WebParts.IRAOnJobForm
             }
         }
 
-        protected void btnSaveAsDraft_Click()
+        protected void btnSaveAsDraft_Click(object sender, EventArgs e)
         {
 
             try
@@ -1004,9 +1038,9 @@ namespace SL.FG.PFL.WebParts.IRAOnJobForm
 
                         if (oWebSite != null)
                         {
-                         
 
-                            string listName = "IRAONJob";
+
+                            string listName = "IRAOnJob";
 
                             // Fetch the List
                             SPList list = oWebSite.GetList(string.Format("{0}/Lists/{1}/AllItems.aspx", oWebSite.Url, listName));
@@ -1103,10 +1137,10 @@ namespace SL.FG.PFL.WebParts.IRAOnJobForm
 
                                     spListItem.Update();
 
-                                  
-                                   // SendEmailToHSE(spListItem);
 
-                                   
+                                    // SendEmailToHSE(spListItem);
+
+
 
                                 }
                             }
@@ -1172,7 +1206,7 @@ namespace SL.FG.PFL.WebParts.IRAOnJobForm
 
                     }
 
-                   
+
 
 
                     if (!String.IsNullOrEmpty(Convert.ToString(imiItem["Unit_x002f_Area"])))
@@ -1230,7 +1264,7 @@ namespace SL.FG.PFL.WebParts.IRAOnJobForm
 
                             // Add PickerEntity to People Picker control
                             this.NameOfContractor_PeopleEditor.AddEntities(new List<PickerEntity> { UserEntity });
-                            
+
                         }
 
 
@@ -1309,12 +1343,26 @@ namespace SL.FG.PFL.WebParts.IRAOnJobForm
                     }
 
 
-//------------------------------------------------------------------------------------
+                    if (!String.IsNullOrEmpty(Convert.ToString(imiItem["CauseOfInjury"])))
+                    {
+                        this.CauseOfInjury_ddl.Items.FindByValue(Convert.ToString(imiItem["CauseOfInjury"])).Selected = true;
+                        this.CauseOfInjury_hdn.Value = Convert.ToString(imiItem["CauseOfInjury"]);
+                    }
 
 
+                    if (!String.IsNullOrEmpty(Convert.ToString(imiItem["TypeOfInjury"])))
+                    {
+                        this.TypeOfInjury_ddl.Items.FindByValue(Convert.ToString(imiItem["TypeOfInjury"])).Selected = true;
+                        this.TypeOfInjury_hdn.Value = Convert.ToString(imiItem["TypeOfInjury"]);
+                    }
 
 
+                    if (!String.IsNullOrEmpty(Convert.ToString(imiItem["OutsideForMedical"])))
 
+                        if (Convert.ToString(imiItem["OutsideForMedical"]) == "Yes")
+                            this.outside_cb.Checked = true;
+                        else
+                            this.outside_cb.Checked = false;
 
 
 
@@ -1346,9 +1394,38 @@ namespace SL.FG.PFL.WebParts.IRAOnJobForm
                     }
 
 
-                   
 
-                  
+                    if (!String.IsNullOrEmpty(Convert.ToString(imiItem["MORemarks"])))
+
+                        this.MORemarks_ta.Value = Convert.ToString(imiItem["MORemarks"]);
+
+
+
+                    if (!String.IsNullOrEmpty(Convert.ToString(imiItem["DescriptionOfIncident"])))
+
+                        this.Description_ta.Value = Convert.ToString(imiItem["DescriptionOfIncident"]);
+
+
+
+                    if (!String.IsNullOrEmpty(Convert.ToString(imiItem["DateOfOccurrenceOfIncident"])))
+                    {
+                        DateTime Date;
+                        bool bValid = DateTime.TryParse(Convert.ToString(imiItem["DateOfOccurrenceOfIncident"]), new CultureInfo("en-GB"), DateTimeStyles.AssumeLocal, out Date);
+
+                        if (!bValid)
+                        {
+                            Date = Convert.ToDateTime(imiItem["DateOfOccurrenceOfIncident"]);
+                        }
+
+                        this.DateOfOccurenceOfIncident_dtc.SelectedDate = Date;
+                    }
+
+
+                    if (!String.IsNullOrEmpty(Convert.ToString(imiItem["ReasonsForLate"])))
+
+                        this.ReasoneSendingReportlate_ta.Value = Convert.ToString(imiItem["ReasonsForLate"]);
+
+
 
                     if (!String.IsNullOrEmpty(Convert.ToString(imiItem["SubmittedBy"])))
                     {
@@ -1386,26 +1463,6 @@ namespace SL.FG.PFL.WebParts.IRAOnJobForm
                         this.SubmissionDate_dtc.SelectedDate = Date;
                     }
 
-
-
-                 
-
-                    if (!String.IsNullOrEmpty(Convert.ToString(imiItem["IncidentDescription"])))
-
-                        this.Description_ta.Value = Convert.ToString(imiItem["IncidentDescription"]);
-
-                  
-                    if (!String.IsNullOrEmpty(Convert.ToString(imiItem["IsInvestigationTeamRequired?"])))
-
-                        if (Convert.ToString(imiItem["IsInvestigationTeamRequired?"]) == "Yes")
-                            this.outside_cb.Checked = true;
-                        else
-                            this.outside_cb.Checked = false;
-
-
-                    if (!String.IsNullOrEmpty(Convert.ToString(imiItem["MORemarks"])))
-
-                        this.MORemarks_ta.Value = Convert.ToString(imiItem["MORemarks"]);
 
                 }
 
@@ -1543,14 +1600,27 @@ namespace SL.FG.PFL.WebParts.IRAOnJobForm
                     }
 
 
-                    if (!String.IsNullOrEmpty(Convert.ToString(this.MORemarks_ta.Value )))
+                    if (!String.IsNullOrEmpty(Convert.ToString(this.MORemarks_ta.Value)))
 
-                     imiItem["MORemarks"] = this.MORemarks_ta.Value;
+                        imiItem["MORemarks"] = this.MORemarks_ta.Value;
 
 
                     if (!String.IsNullOrEmpty(Convert.ToString(this.Description_ta.Value)))
 
                         imiItem["DescriptionOfIncident"] = this.Description_ta.Value;
+
+
+                    if (!String.IsNullOrEmpty(Convert.ToString(this.DateOfOccurenceOfIncident_dtc.SelectedDate)))
+                    {
+                        DateTime date;
+                        bool bValid = DateTime.TryParse(this.DateOfOccurenceOfIncident_dtc.SelectedDate.ToShortDateString(), new CultureInfo("en-GB"), DateTimeStyles.AssumeLocal, out date);
+
+
+                        if (bValid)
+                            imiItem["DateOfOccurrenceOfIncident"] = date;
+                        else
+                            imiItem["DateOfOccurrenceOfIncident"] = Convert.ToDateTime(this.DateOfOccurenceOfIncident_dtc.SelectedDate);
+                    }
 
 
                     if (!String.IsNullOrEmpty(Convert.ToString(this.ReasoneSendingReportlate_ta.Value)))
@@ -1596,7 +1666,7 @@ namespace SL.FG.PFL.WebParts.IRAOnJobForm
                         imiItem["Status"] = "Inprogress";
 
                         imiItem.Update();
-                    }                   
+                    }
                     else
                     {
 
@@ -1635,7 +1705,7 @@ namespace SL.FG.PFL.WebParts.IRAOnJobForm
 
                             imiItem.Update();
 
-                         //   SendEmailToMO(imiItem);
+                            //   SendEmailToMO(imiItem);
                         }
                         else
                         {
@@ -1643,8 +1713,8 @@ namespace SL.FG.PFL.WebParts.IRAOnJobForm
                             imiItem["Status"] = "Completed";
 
                             imiItem.Update();
-                         // SendEmailToSupervisor(imiItem);
-                         //   SendEmailToHSE(imiItem);
+                            // SendEmailToSupervisor(imiItem);
+                            //   SendEmailToHSE(imiItem);
 
 
 
@@ -1658,6 +1728,6 @@ namespace SL.FG.PFL.WebParts.IRAOnJobForm
             }
         }
 
-     
+
     }
 }

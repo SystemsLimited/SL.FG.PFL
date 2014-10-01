@@ -1,4 +1,70 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Elements xmlns="http://schemas.microsoft.com/sharepoint/">
-  <ListInstance Title="IncidentCategory" OnQuickLaunch="FALSE" TemplateType="80001" Url="Lists/IncidentCategory" Description="My List Instance"></ListInstance>
+  <ListInstance Title="IncidentCategory" OnQuickLaunch="FALSE" TemplateType="80001" Url="Lists/IncidentCategory" Description="My List Instance">
+    <Data>
+      <Rows>
+        <Row>
+          <Field Name="Title">Injury</Field>
+          <Field Name="IncidentID">1</Field>
+        </Row>
+        <Row>
+          <Field Name="Title">FAC</Field>
+          <Field Name="IncidentID">2</Field>
+        </Row>
+        <Row>
+          <Field Name="Title">MTC</Field>
+          <Field Name="IncidentID">3</Field>
+        </Row>
+        <Row>
+          <Field Name="Title">RWC</Field>
+          <Field Name="IncidentID">4</Field>
+        </Row>
+        <Row>
+          <Field Name="Title">LTI</Field>
+          <Field Name="IncidentID">5</Field>
+        </Row>
+        <Row>
+          <Field Name="Title">FTY</Field>
+          <Field Name="IncidentID">6</Field>
+        </Row>
+        <Row>
+          <Field Name="Title">FPSI</Field>
+          <Field Name="IncidentID">7</Field>
+        </Row>
+        <Row>
+          <Field Name="Title">OU</Field>
+          <Field Name="IncidentID">8</Field>
+        </Row>
+        <Row>
+          <Field Name="Title">PU</Field>
+          <Field Name="IncidentID">9</Field>
+        </Row>
+        <Row>
+          <Field Name="Title">EFI</Field>
+          <Field Name="IncidentID">10</Field>
+        </Row>
+        <Row>
+          <Field Name="Title">VSP</Field>
+          <Field Name="IncidentID">11</Field>
+        </Row>
+        <Row>
+          <Field Name="Title">VI</Field>
+          <Field Name="IncidentID">12</Field>
+        </Row>
+        <Row>
+          <Field Name="Title">EI</Field>
+          <Field Name="IncidentID">13</Field>
+        </Row>
+        <Row>
+          <Field Name="Title">Fire</Field>
+          <Field Name="IncidentID">14</Field>
+        </Row>
+        <Row>
+          <Field Name="Title">OTH</Field>
+          <Field Name="IncidentID">15</Field>
+        </Row>
+      </Rows>
+    </Data>
+    
+  </ListInstance>
 </Elements>

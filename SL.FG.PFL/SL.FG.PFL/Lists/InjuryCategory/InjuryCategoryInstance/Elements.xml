@@ -1,4 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Elements xmlns="http://schemas.microsoft.com/sharepoint/">
-  <ListInstance Title="InjuryCategory" OnQuickLaunch="FALSE" TemplateType="80002" Url="Lists/InjuryCategory" Description="My List Instance"></ListInstance>
+  <ListInstance Title="InjuryCategory" OnQuickLaunch="FALSE" TemplateType="80002" Url="Lists/InjuryCategory" Description="My List Instance">
+    <Data>
+      <Rows>
+        <Row>
+          <Field Name="Title">Fatality</Field>
+          <Field Name="InjuryID">1</Field>
+        </Row>
+        <Row>
+          <Field Name="Title">First Aid Case</Field>
+          <Field Name="InjuryID">2</Field>
+        </Row>
+        <Row>
+          <Field Name="Title">LTI</Field>
+          <Field Name="InjuryID">3</Field>
+        </Row>
+        <Row>
+          <Field Name="Title">RWC</Field>
+          <Field Name="InjuryID">4</Field>
+        </Row>
+        <Row>
+          <Field Name="Title">MTC</Field>
+          <Field Name="InjuryID">5</Field>
+        </Row>
+      </Rows>
+    </Data>
+  </ListInstance>
+
 </Elements>

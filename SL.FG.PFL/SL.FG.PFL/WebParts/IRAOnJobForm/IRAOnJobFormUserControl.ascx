@@ -293,7 +293,7 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <label>Injury To<span style="color: red">&nbsp;*</span></label>
-                                        <select id="InjuryTo_ddl" class="form-control" runat="server" disabled>
+                                        <select id="InjuryTo_ddl" class="form-control" runat="server" >
                                             <option value="0">Please Select</option>
                                             <option>PFL</option>
                                             <option>Contractor</option>
@@ -515,15 +515,11 @@
 
 
 
-    <div class="form-group pull-right">
-        <asp:Button ID="btnSaveAsDraft" runat="server" Text="Save" CssClass="btnSaveAsDraft" />
-        <asp:Button ID="btnSave" runat="server" Text="Submit" CssClass="btnSave" />
-         <asp:Button ID="btnMOSave" runat="server" Text="Submit" OnClick="btnMOSave_Click" Visible="false" CssClass="btnSave" />
-        <%--    <asp:Button ID="btnApprovingAuthoritySave" runat="server" Visible="false" Text="Save" CssClass="btnApprove" />
-        <asp:Button ID="btnApprovingAuthorityApprove" runat="server" Visible="false" Text="Approve" CssClass="btnApprove" />
-        <asp:Button ID="btnApprovingAuthorityDisApprove" runat="server" Visible="false" Text="Reject" CssClass="btnReject" />
-        <asp:Button ID="btnHSEApprove" runat="server" Visible="false" Text="Approve And Send Recomendation" CssClass="btnApprove" />--%>
-        <asp:Button ID="btnCancel" runat="server" Text="Cancel" CssClass="btnCancel" />
+    <div class="form-group pull-right">      
+        <asp:Button ID="btnSaveAsDraft" runat="server" Text="Save" OnClick="btnSaveAsDraft_Click" />
+        <asp:Button ID="btnSave" runat="server" Text="Submit" OnClick="btnSave_Click"  />
+        <asp:Button ID="btnMOSave" runat="server" Text="Submit" OnClick="btnMOSave_Click" Visible="false" />
+        <asp:Button ID="btnCancel" runat="server" Text="Cancel" OnClick="btnCancel_Click" />
     </div>
 
 </div>

@@ -3,6 +3,29 @@
   <ListInstance Title="Department" OnQuickLaunch="FALSE" TemplateType="10003" Url="Lists/Department" Description="Department List">
     <Data>
       <Rows>
+        <!--Test 3-->
+        <Row>
+          <Field Name="Title">Test 3</Field>
+          <Field Name="DepartmentCode">Test</Field>
+          <Field Name="HOD">Hafiz Usama</Field>
+          <Field Name="HODEmail">hafiz.muhammadusama@systemsltd.com</Field>
+          <Field Name="DepartmentDescription">Unit Manager</Field>
+        </Row>
+        <Row>
+          <Field Name="Title">Test 3</Field>
+          <Field Name="DepartmentCode">Test</Field>
+          <Field Name="HOD">Hafiz Usama</Field>
+          <Field Name="HODEmail">hafiz.muhammadusama@systemsltd.com</Field>
+          <Field Name="DepartmentDescription">HOD</Field>
+        </Row>
+        <Row>
+          <Field Name="Title">Test 3</Field>
+          <Field Name="DepartmentCode">Test</Field>
+          <Field Name="HOD">Hafiz Usama</Field>
+          <Field Name="HODEmail">hafiz.muhammadusama@systemsltd.com</Field>
+          <Field Name="DepartmentDescription">DO</Field>
+        </Row>
+        <!--End-->
         <!--Test 2-->
         <Row>
           <Field Name="Title">Test 2</Field>

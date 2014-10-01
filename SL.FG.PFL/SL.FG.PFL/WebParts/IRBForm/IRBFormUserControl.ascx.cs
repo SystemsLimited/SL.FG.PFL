@@ -909,7 +909,7 @@ namespace SL.FG.PFL.WebParts.IRBForm
                 query.ViewFieldsOnly = true;
                 //query.RowLimit = 200; // Only select the top 200.
                 StringBuilder sb = new StringBuilder();
-                sb.Append("<OrderBy Override='TRUE;><FieldRef Name='Title'/></OrderBy>");
+                sb.Append("<OrderBy Override='TRUE';><FieldRef Name='Title'/></OrderBy>");
                 query.Query = sb.ToString();
                 spListItems = spList.GetItems(query);
 
