@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <ListInstance Title="IRRecommendationOffJob" OnQuickLaunch="TRUE" TemplateType="80010" Url="Lists/IRRecommendationOffJob" Description="My List Instance"></ListInstance>
+</Elements>

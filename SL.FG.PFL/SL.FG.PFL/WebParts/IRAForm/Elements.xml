@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/" >
+  <Module Name="IRAForm" List="113" Url="_catalogs/wp">
+    <File Path="IRAForm\IRAForm.webpart" Url="SL.FG.PFL_IRAForm.webpart" Type="GhostableInLibrary" >
+      <Property Name="Group" Value="Custom" />
+    </File>
+  </Module>
+</Elements>

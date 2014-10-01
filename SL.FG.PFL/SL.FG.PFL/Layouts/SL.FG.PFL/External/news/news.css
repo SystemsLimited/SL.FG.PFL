@@ -1,0 +1,31 @@
+
+.news-demo {
+  background: #fff;
+  padding: 20px;
+}
+
+.news-demo h1 {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  color: #777;
+  margin-bottom: 40px;
+}
+
+.news-demo .p {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: 22px;
+  margin-top: 70px;
+}
+
+.news-demo .p ~ p {
+  margin-top: 0;
+}
+
+.news-demo .p a {
+  text-decoration: underline;
+}
+
+.news-demo .p a:hover {
+  color: red;
+}
