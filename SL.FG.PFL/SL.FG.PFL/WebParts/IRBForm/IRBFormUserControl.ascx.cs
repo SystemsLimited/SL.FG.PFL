@@ -1309,7 +1309,7 @@ namespace SL.FG.PFL.WebParts.IRBForm
                                     }
 
                                     //Recommendations
-                                    List<IRRecommendation_OnJob> lstRecommendation = GetFormattedRecommendationsByIRDI_Id(oSPWeb, IRBId);
+                                    List<IRRecommendationOnJob> lstRecommendation = GetFormattedRecommendationsByIRDI_Id(oSPWeb, IRBId);
 
                                     StringBuilder ids = new StringBuilder();
 
@@ -1336,7 +1336,7 @@ namespace SL.FG.PFL.WebParts.IRBForm
                                             HtmlTableCell responsibleDepartment = new HtmlTableCell();
                                             HtmlTableCell responsibleDepartmentId = new HtmlTableCell();
                                             HtmlTableCell targetDate = new HtmlTableCell();
-                                            HtmlTableCell concurrenceOfRP = new HtmlTableCell();
+                                            HtmlTableCell type = new HtmlTableCell();
                                             HtmlTableCell status = new HtmlTableCell();
 
                                             string actions = "<span class='btn btn-default editRecommendation' ><i class='glyphicon glyphicon-pencil'></i></span><span class='btn btn-danger removeRecommendation'><i class='glyphicon glyphicon-remove'></i></span>";
@@ -1366,7 +1366,7 @@ namespace SL.FG.PFL.WebParts.IRBForm
 
                                             targetDate.InnerHtml = "<span class='targetDate'>" + Convert.ToString(recommendation.TargetDate) + "</span>";
 
-                                            concurrenceOfRP.InnerHtml = "<span class='concurrenceOfRP'>" + ((recommendation.ConcurrenceOfRP == true) ? "Yes" : "No") + "</span>";
+                                            type.InnerHtml = "<span class='type'>" + recommendation.Type + "</span>";
                                             status.InnerHtml = "<span class='status'>" + Convert.ToString(recommendation.Status) + "</span>";
 
                                             tRow.Cells.Add(recommendationId);
@@ -1377,7 +1377,7 @@ namespace SL.FG.PFL.WebParts.IRBForm
                                             tRow.Cells.Add(responsibleDepartment);
                                             tRow.Cells.Add(responsibleDepartmentId);
                                             tRow.Cells.Add(targetDate);
-                                            tRow.Cells.Add(concurrenceOfRP);
+                                            tRow.Cells.Add(type);
                                             tRow.Cells.Add(status);
 
                                             tRow.Cells.Add(new HtmlTableCell() { InnerHtml = actions });
@@ -1709,15 +1709,15 @@ namespace SL.FG.PFL.WebParts.IRBForm
             }
             return false;
         }
-        private List<IRRecommendation_OnJob> GetFormattedRecommendationsByIRDI_Id(SPWeb oSPWeb, int IRDI_Id)
+        private List<IRRecommendationOnJob> GetFormattedRecommendationsByIRDI_Id(SPWeb oSPWeb, int IRDI_Id)
         {
             try
             {
-                string spListName = "IIRRecommendationOnJob";
+                string spListName = "IRRecommendationOnJob";
                 // Fetch the List
                 SPList spListIIRRecommedation_OnJob = oSPWeb.GetList(string.Format("{0}/Lists/{1}/AllItems.aspx", oSPWeb.Url, spListName));
 
-                List<IRRecommendation_OnJob> lstIIRRecommedation_OnJob = new List<IRRecommendation_OnJob>();
+                List<IRRecommendationOnJob> lstIIRRecommedation_OnJob = new List<IRRecommendationOnJob>();
 
                 if (spListIIRRecommedation_OnJob != null)
                 {
@@ -1728,14 +1728,14 @@ namespace SL.FG.PFL.WebParts.IRBForm
                     vf.Append("<FieldRef Name='ID'/>")
                         .Append("<FieldRef Name='RecommendationNo'/>")
                         .Append("<FieldRef Name='TargetDate'/>")
-                        .Append("<FieldRef Name='IIRDescription'/>")
+                        .Append("<FieldRef Name='IRDescription'/>")
                         .Append("<FieldRef Name='TypeOfVoilation'/>")
                         .Append("<FieldRef Name='ResponsiblePerson'/>")
                         .Append("<FieldRef Name='AssigneeEmail'/>")
                         .Append("<FieldRef Name='Assignee'/>")
                         .Append("<FieldRef Name='ResponsibleSection'/>")
                         .Append("<FieldRef Name='ResponsibleDepartment'/>")
-                        .Append("<FieldRef Name='ConcurrenceOfRP'/>")
+                        .Append("<FieldRef Name='Type'/>")
                         .Append("<FieldRef Name='Status'/>");
 
                     query.ViewFields = vf.ToString();
@@ -1754,7 +1754,7 @@ namespace SL.FG.PFL.WebParts.IRBForm
                     for (int i = 0; i < spListItems.Count; i++)
                     {
                         SPListItem listItem = spListItems[i];
-                        IRRecommendation_OnJob recommendation = new IRRecommendation_OnJob();
+                        IRRecommendationOnJob recommendation = new IRRecommendationOnJob();
                         recommendation.RecommendationId = Convert.ToInt32(listItem["ID"]);
                         recommendation.RecommendationNo = Convert.ToString(listItem["RecommendationNo"]);
 
@@ -1775,12 +1775,12 @@ namespace SL.FG.PFL.WebParts.IRBForm
                             }
                         }
 
-                        recommendation.Description = Convert.ToString(listItem["IIRDescription"]);
+                        recommendation.Description = Convert.ToString(listItem["IRDescription"]);
                         recommendation.RPUsername = Convert.ToString(listItem["ResponsiblePerson"]);
                         recommendation.RPEmail = Convert.ToString(listItem["AssigneeEmail"]);
                         recommendation.AssigneeUsername = Convert.ToString(listItem["Assignee"]);
                         recommendation.AssigneeEmail = Convert.ToString(listItem["AssigneeEmail"]);
-                        recommendation.ConcurrenceOfRP = Convert.ToBoolean(listItem["ConcurrenceOfRP"]);
+                        recommendation.Type = Convert.ToString(listItem["Type"]);
                         recommendation.Status = Convert.ToString(listItem["Status"]);
 
                         if (listItem["ResponsibleSection"] != null)
@@ -1844,11 +1844,11 @@ namespace SL.FG.PFL.WebParts.IRBForm
             }
             return null;
         }
-        private List<IRRecommendation_OnJob> GetFormattedRecommendations(string recommendatons, String[] pattern1, String[] pattern2)
+        private List<IRRecommendationOnJob> GetFormattedRecommendations(string recommendatons, String[] pattern1, String[] pattern2)
         {
             try
             {
-                List<IRRecommendation_OnJob> lstIRRRecommendation_OnJob = new List<IRRecommendation_OnJob>();
+                List<IRRecommendationOnJob> lstIRRRecommendation_OnJob = new List<IRRecommendationOnJob>();
 
                 var lstRecommendation = recommendatons.Split(pattern1, StringSplitOptions.None);
 
@@ -1859,7 +1859,7 @@ namespace SL.FG.PFL.WebParts.IRBForm
                         var recommendationStr = item.Split(pattern2, StringSplitOptions.None);
                         if (recommendationStr.Length > 0)
                         {
-                            IRRecommendation_OnJob recommendation = new IRRecommendation_OnJob();
+                            IRRecommendationOnJob recommendation = new IRRecommendationOnJob();
 
                             recommendation.RecommendationId = String.IsNullOrEmpty(recommendationStr[0]) ? 0 : Int32.Parse(recommendationStr[0]);
                             recommendation.Description = recommendationStr[1];
@@ -1872,7 +1872,7 @@ namespace SL.FG.PFL.WebParts.IRBForm
                             recommendation.DepartmentId = String.IsNullOrEmpty(recommendationStr[6]) ? 0 : Int32.Parse(recommendationStr[6]);
                             recommendation.DepartmentName = recommendationStr[7];
                             recommendation.TargetDate = recommendationStr[8];
-                            recommendation.ConcurrenceOfRP = recommendationStr[9].Equals("yes", StringComparison.OrdinalIgnoreCase) ? true : false;
+                            recommendation.Type = recommendationStr[9];
                             recommendation.Status = recommendationStr[10];
                             recommendation.RecommendationNo = recommendationStr[11];
                             recommendation.IsSavedAsDraft = recommendationStr[12].Equals("true", StringComparison.OrdinalIgnoreCase) ? true : false;
@@ -2008,7 +2008,7 @@ namespace SL.FG.PFL.WebParts.IRBForm
             }
             return false;
         }
-        private bool FillRecommendationGrid(List<IRRecommendation_OnJob> lstRecommendation)
+        private bool FillRecommendationGrid(List<IRRecommendationOnJob> lstRecommendation)
         {
             try
             {
@@ -2033,7 +2033,7 @@ namespace SL.FG.PFL.WebParts.IRBForm
                         HtmlTableCell responsibleDepartment = new HtmlTableCell();
                         HtmlTableCell responsibleDepartmentId = new HtmlTableCell();
                         HtmlTableCell targetDate = new HtmlTableCell();
-                        HtmlTableCell concurrenceOfRP = new HtmlTableCell();
+                        HtmlTableCell type = new HtmlTableCell();
                         HtmlTableCell status = new HtmlTableCell();
 
                         string actions = "<span class='btn btn-default editRecommendation' ><i class='glyphicon glyphicon-pencil'></i></span><span class='btn btn-danger removeRecommendation'><i class='glyphicon glyphicon-remove'></i></span>";
@@ -2063,7 +2063,7 @@ namespace SL.FG.PFL.WebParts.IRBForm
 
                         targetDate.InnerHtml = "<span class='targetDate'>" + Convert.ToString(recommendation.TargetDate) + "</span>";
 
-                        concurrenceOfRP.InnerHtml = "<span class='concurrenceOfRP'>" + ((recommendation.ConcurrenceOfRP == true) ? "Yes" : "No") + "</span>";
+                        type.InnerHtml = "<span class='type'>" + Convert.ToString(recommendation.Type) + "</span>";
                         status.InnerHtml = "<span class='status'>" + Convert.ToString(recommendation.Status) + "</span>";
 
                         tRow.Cells.Add(recommendationId);
@@ -2074,7 +2074,7 @@ namespace SL.FG.PFL.WebParts.IRBForm
                         tRow.Cells.Add(responsibleDepartment);
                         tRow.Cells.Add(responsibleDepartmentId);
                         tRow.Cells.Add(targetDate);
-                        tRow.Cells.Add(concurrenceOfRP);
+                        tRow.Cells.Add(type);
                         tRow.Cells.Add(status);
 
                         tRow.Cells.Add(new HtmlTableCell() { InnerHtml = actions });
@@ -2116,7 +2116,7 @@ namespace SL.FG.PFL.WebParts.IRBForm
             }
             return false;
         }
-        private bool IsValid_IRDI_Data(SPWeb oSPWeb, List<IRRecommendation_OnJob> recommendationList)
+        private bool IsValid_IRDI_Data(SPWeb oSPWeb, List<IRRecommendationOnJob> recommendationList)
         {
             bool isValid = true;
 
@@ -2177,7 +2177,7 @@ namespace SL.FG.PFL.WebParts.IRBForm
             }
             return isValid;
         }
-        private bool SaveIRDetailedIncidenceDetails(List<IRRecommendation_OnJob> recommendations, bool isSavedAsDraft, bool isSubmitCase, bool isApproveCase, bool isForwardCase, bool isLastSave, String[] pattern1, String[] pattern2, int? IRB_ID = null)
+        private bool SaveIRDetailedIncidenceDetails(List<IRRecommendationOnJob> recommendations, bool isSavedAsDraft, bool isSubmitCase, bool isApproveCase, bool isForwardCase, bool isLastSave, String[] pattern1, String[] pattern2, int? IRB_ID = null)
         {
             bool isSaved = false;
             try
@@ -2257,31 +2257,39 @@ namespace SL.FG.PFL.WebParts.IRBForm
                                         {
                                             spListItem["Conclusion"] = this.conclusion_ta.Value;
                                         }
-                                        //if (!String.IsNullOrEmpty(this.hdnCulturalBasedElements.Value))
-                                        //{
-                                        //    spListItem["CulturalBasedElements"] = this.hdnCulturalBasedElements.Value;
-                                        //}
-                                        //if (!String.IsNullOrEmpty(this.hdnRiskBasedElements.Value))
-                                        //{
-                                        //    spListItem["RiskBasedElements"] = this.hdnRiskBasedElements.Value;
-                                        //}
-                                        //if (!String.IsNullOrEmpty(this.hdnBasicActivityInProgress.Value))
-                                        //{
-                                        //    spListItem["BasicActivityInProgress"] = this.hdnBasicActivityInProgress.Value;
-                                        //}
-                                        //if (!String.IsNullOrEmpty(this.hdnMiscellaneousIncidents.Value))
-                                        //{
-                                        //    spListItem["MiscellaneousIncidents"] = this.hdnMiscellaneousIncidents.Value;
-                                        //}
-                                        //if (!String.IsNullOrEmpty(this.hdnProcessSafetyIncidents.Value))
-                                        //{
-                                        //    spListItem["ProcessSafetyIncidents"] = this.hdnProcessSafetyIncidents.Value;
-                                        //}
-                                        //if (!String.IsNullOrEmpty(this.hdnActualOrPotentialInquiry.Value))
-                                        //{
-                                        //    spListItem["ActualOrPotentialInquiry"] = this.hdnActualOrPotentialInquiry.Value;
-                                        //}
 
+                                        if (!String.IsNullOrEmpty(this.hdnBasicActivityInProgress.Value))
+                                        {
+                                            spListItem["BasicActivityInProgress"] = this.hdnBasicActivityInProgress.Value;
+                                        }
+                                        if (!String.IsNullOrEmpty(this.hdnCauseOfIncident_ER.Value))
+                                        {
+                                            spListItem["CauseOfIncident_ER"] = this.hdnCauseOfIncident_ER.Value;
+                                        }
+                                        if (!String.IsNullOrEmpty(this.hdnCauseOfIncident_PR.Value))
+                                        {
+                                            spListItem["CauseOfIncident_PR"] = this.hdnCauseOfIncident_PR.Value;
+                                        }
+                                        if (!String.IsNullOrEmpty(this.hdnProcedureRelatedCause_Perm_R.Value))
+                                        {
+                                            spListItem["ProcedureRelatedCause_Perm_R"] = this.hdnProcedureRelatedCause_Perm_R.Value;
+                                        }
+                                        if (!String.IsNullOrEmpty(this.hdnProcedureRelatedCause_Proc_R.Value))
+                                        {
+                                            spListItem["ProcedureRelatedCause_Proc_R"] = this.hdnProcedureRelatedCause_Proc_R.Value;
+                                        }
+                                        if (!String.IsNullOrEmpty(this.hdnPSMsViolated.Value))
+                                        {
+                                            spListItem["PSMsViolated"] = this.hdnPSMsViolated.Value;
+                                        }
+                                        if (!String.IsNullOrEmpty(this.hdnResultantHealthEffect.Value))
+                                        {
+                                            spListItem["ResultantHealthEffect"] = this.hdnResultantHealthEffect.Value;
+                                        }
+                                        if (!String.IsNullOrEmpty(this.hdnSupervisionAtTimeOfIncident.Value))
+                                        {
+                                            spListItem["SupervisionAtTimeOfIncident"] = this.hdnSupervisionAtTimeOfIncident.Value;
+                                        }
 
                                         if (!String.IsNullOrEmpty(this.hdnFRID.Value))
                                         {
@@ -2495,7 +2503,7 @@ namespace SL.FG.PFL.WebParts.IRBForm
             }
             return isSaved;
         }
-        public List<Message> SaveRecommendations(SPWeb oSPWeb, List<IRRecommendation_OnJob> recommendations, int IRB_ID, string sentFrom, List<int> recommendationIds = null)
+        public List<Message> SaveRecommendations(SPWeb oSPWeb, List<IRRecommendationOnJob> recommendations, int IRB_ID, string sentFrom, List<int> recommendationIds = null)
         {
             try
             {
@@ -2651,13 +2659,9 @@ namespace SL.FG.PFL.WebParts.IRBForm
                                 }
                             }
 
-                            itemToAdd["ConcurrenceOfRP"] = item.ConcurrenceOfRP;
+                            itemToAdd["Type"] = item.Type;
                             itemToAdd["Status"] = item.Status;
                             itemToAdd["IsSavedAsDraft"] = item.IsSavedAsDraft;
-
-                            //Is From IR01DI
-                            itemToAdd["IsFromIR01DI"] = false;
-                            //End
 
                             oSPWeb.AllowUnsafeUpdates = true;
                             itemToAdd.Update();
@@ -2722,7 +2726,7 @@ namespace SL.FG.PFL.WebParts.IRBForm
                                     message.To = item.RPEmail;
                                 }
 
-                                message.Subject = "IR01DI_ON_From_FB_To_RP_S";
+                                message.Subject = "IRB_ON_From_FB_To_RP_S";
                                 var subject = Utility.GetValueByKey(message.Subject);
 
                                 if (!String.IsNullOrEmpty(subject))

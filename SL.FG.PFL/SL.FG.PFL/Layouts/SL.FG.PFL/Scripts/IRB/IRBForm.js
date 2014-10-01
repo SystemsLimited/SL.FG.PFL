@@ -263,7 +263,7 @@ $(document).ready(function () {
 
                         if (targetDate != null && FRDate != null && FRDate > targetDate) {
                             errorFlag = true;
-                            alert("IR Recommendation Target Date should be greater than Flash Report Target Date");
+                            alert("IR Recommendation/Suggestion Target Date should be greater than Flash Report Target Date");
 
                             message = "";
                         }
@@ -301,11 +301,11 @@ $(document).ready(function () {
 
             var recommendationId = $('#recommendationId_hd').val();;
 
-            var concurrenceOfRP = "Yes";
+            var type = "Recommendation";
 
-            var selected1 = $("input[type='radio'][name='concurrenceOfRP']:checked");
+            var selected1 = $("input[type='radio'][name='type']:checked");
             if (selected1.length > 0) {
-                concurrenceOfRP = selected1.val();
+                type = selected1.val();
             }
 
             var targetDate = $('[id$=targetDate_dtcDate]').val();
@@ -315,7 +315,7 @@ $(document).ready(function () {
             if (true) {
                 var count = $("[id$=recommendationDetails_table] tr.recommendationItem").length + 1;
                 var actions = "<span class='btn btn-default editRecommendation' ><i class='glyphicon glyphicon-pencil'></i></span><span class='btn btn-danger removeRecommendation'><i class='glyphicon glyphicon-remove'></i></span>";
-                var data = "<tr class='recommendationItem'><td>" + count + "</td><td style='display:none;'><span class='recommendationId'>" + recommendationId + "</span></td><td class='td-description'><span class='description'>" + description + "</span></td><td><span class='username'>" + responsiblePersonUsername + "</span></td><td style='display:none;'><span class='email'>" + responsiblePersonEmail + "</td><td><span class='sectionName'>" + responsibleSection + "</span></td><td style='display:none'><span class='sectionId'>" + responsibleSectionId + "</span></td><td><span class='departmentName'>" + responsibleDepartment + "</span></td><td style='display:none'><span class='departmentId'>" + responsibleDepartmentId + "</span></td><td><span class='targetDate'>" + targetDate + "</span></td><td><span class='concurrenceOfRP'>" + concurrenceOfRP + "</span></td><td><span class='status'>" + status + "</span></td><td style='display:none;'><span class='recommendationNo'>" + "" + "</span></td><td>" + actions + "</td></tr>";
+                var data = "<tr class='recommendationItem'><td>" + count + "</td><td style='display:none;'><span class='recommendationId'>" + recommendationId + "</span></td><td class='td-description'><span class='description'>" + description + "</span></td><td><span class='username'>" + responsiblePersonUsername + "</span></td><td style='display:none;'><span class='email'>" + responsiblePersonEmail + "</td><td><span class='sectionName'>" + responsibleSection + "</span></td><td style='display:none'><span class='sectionId'>" + responsibleSectionId + "</span></td><td><span class='departmentName'>" + responsibleDepartment + "</span></td><td style='display:none'><span class='departmentId'>" + responsibleDepartmentId + "</span></td><td><span class='targetDate'>" + targetDate + "</span></td><td><span class='type'>" + type + "</span></td><td><span class='status'>" + status + "</span></td><td style='display:none;'><span class='recommendationNo'>" + "" + "</span></td><td>" + actions + "</td></tr>";
                 $("[id$=recommendationDetails_table]").append(data);
 
                 $('[id$=recommendationNo_tf]').val("");
@@ -331,7 +331,7 @@ $(document).ready(function () {
             $('.sp-peoplepicker-delImage[id$=_DeleteUserLink]').trigger('click');
             $('[id$=responsiblePersonEmail_tf]').val("");
             $('[id$=responsiblePersonUsername_hd]').val("");
-            $('[id$=detailedReportNo_rb]').prop("checked", "checked");
+            $('[id$=typeRecommendation_rb]').prop("checked", "checked");
 
             var currentDateTime = new Date();
             var currentDate = currentDateTime.format("dd/MM/yyyy");
@@ -343,7 +343,8 @@ $(document).ready(function () {
             $('#collapse3').collapse('hide');
             $('#panel-title3').attr('data-toggle', 'collapse');
 
-            alert('Recommendation added successfully!');
+
+            alert('IR-Recommendation/Suggestion added successfully!');
         }
         else
             ValidationSummary(message, controlList);

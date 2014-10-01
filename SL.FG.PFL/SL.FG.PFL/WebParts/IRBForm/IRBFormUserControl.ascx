@@ -1,10 +1,10 @@
 ﻿<%@ Assembly Name="$SharePoint.Project.AssemblyFullName$" %>
-<%@ Assembly Name="Microsoft.Web.CommandUI, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %> 
-<%@ Register Tagprefix="SharePoint" Namespace="Microsoft.SharePoint.WebControls" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %> 
-<%@ Register Tagprefix="Utilities" Namespace="Microsoft.SharePoint.Utilities" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
-<%@ Register Tagprefix="asp" Namespace="System.Web.UI" Assembly="System.Web.Extensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" %>
-<%@ Import Namespace="Microsoft.SharePoint" %> 
-<%@ Register Tagprefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
+<%@ Assembly Name="Microsoft.Web.CommandUI, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
+<%@ Register TagPrefix="SharePoint" Namespace="Microsoft.SharePoint.WebControls" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
+<%@ Register TagPrefix="Utilities" Namespace="Microsoft.SharePoint.Utilities" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
+<%@ Register TagPrefix="asp" Namespace="System.Web.UI" Assembly="System.Web.Extensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" %>
+<%@ Import Namespace="Microsoft.SharePoint" %>
+<%@ Register TagPrefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="IRBFormUserControl.ascx.cs" Inherits="SL.FG.PFL.WebParts.IRBForm.IRBFormUserControl" %>
 
 
@@ -236,6 +236,8 @@
                 var departmentName = $this.find("span.departmentName").html();
                 var targetDate = $this.find("span.targetDate").html();
                 var status = $this.find("span.status").html();
+                var type = $this.find("span.type").html();
+
 
                 if (typeof recommendationId == 'undefined') {
                     recommendationId = 0;
@@ -268,6 +270,9 @@
                 if (typeof targetDate == 'undefined') {
                     targetDate = "";
                 }
+                if (typeof type == 'undefined') {
+                    type = "Recommendation";
+                }
                 if (typeof status == 'undefined') {
                     status = "";
                 }
@@ -284,6 +289,7 @@
                     targetDate + "*|*" +
                     status + "*|*" +
                     recommendationNo + "*|*" +
+                    type + "*|*" +
                     isSavedAsDraft + "~|~";
             });
 
@@ -731,13 +737,29 @@
                                                 <SharePoint:DateTimeControl ID="targetDate_dtc" runat="server" DateOnly="true" CssClassTextBox="form-control" AutoPostBack="false" UseTimeZoneAdjustment="false" LocaleId="2057" />
                                             </div>
                                         </div>
-                                        <div class="col-lg-3">
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-lg-6">
+                                            <label>Type</label>
+                                            <div class="form-group">
+                                                <div class="form-inline col-lg-6">
+                                                    <label>Recommendation</label>
+                                                    <input type="radio" name="type" id="typeRecommendation_rb" value="Recommendation" checked>
+                                                </div>
+                                                <div class="form-inline col-lg-6">
+                                                    <label>Suggestion</label>
+                                                    <input type="radio" name="type" id="typeSuggestion_rb" value="Suggestion">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
                                             <label>&nbsp</label>
                                             <div class="form-group">
                                                 <input type="button" value="Add" class="btnAdd pull-right" id="addRecommendation_btn" />
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="panel panel-success">
                                         <div class="panel-body">
                                             <div class="form-group table-responsive" style="overflow-x: scroll;">
@@ -749,6 +771,7 @@
                                                         <th>Responsible Unit</th>
                                                         <th>Responsible Department</th>
                                                         <th>Target Date</th>
+                                                        <th>Type</th>
                                                         <th>Status</th>
                                                         <th>Actions</th>
                                                     </tr>
@@ -852,7 +875,7 @@
                                 <div class="panel-body">
                                     <div class="form-group row">
                                         <div class="col-lg-12">
-                                            <label>Do you have concurrence of responsible individuals on action items completion dates</label>
+                                            <label>Do you have concurrence of responsible individual on action items completion date</label>
                                             <div class="form-group">
                                                 <div class="form-inline col-lg-6">
                                                     <label>Yes</label>
@@ -983,6 +1006,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 
     <asp:HiddenField ID="hdnSentFrom" runat="server" Value="" />
@@ -1013,7 +1037,6 @@
         <asp:Button ID="btnCancel" runat="server" Text="Cancel" OnClick="btnCancel_Click" OnClientClick="return isActionConfirmed();" CssClass="btnCancel" />
     </div>
 </div>
-
 
 <script src="/_layouts/15/SL.FG.PFL/Scripts/MicrosoftAjax.js" type="text/javascript">
 </script>

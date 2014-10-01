@@ -80,7 +80,7 @@ namespace SL.FG.PFL.Layouts.SL.FG.PFL.Common
         public int SortOrder { get; set; }
     }
 
-    public class IRRecommendation_OnJob
+    public class IRRecommendationOnJob
     {
         public int RecommendationId { get; set; }
         public string RecommendationNo { get; set; }
@@ -93,7 +93,7 @@ namespace SL.FG.PFL.Layouts.SL.FG.PFL.Common
         public string DepartmentName { get; set; }
         public string TargetDate { get; set; }
         public string Status { get; set; }
-        public bool ConcurrenceOfRP { get; set; }
+        public string Type { get; set; }
         public bool IsSavedAsDraft { get; set; }
         public string AssigneeUsername { get; set; }
         public string AssigneeEmail { get; set; }
