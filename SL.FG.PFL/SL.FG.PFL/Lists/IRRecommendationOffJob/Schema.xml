@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<List xmlns:ows="Microsoft SharePoint" Title="IRRecommendationOffJob" FolderCreation="FALSE" Direction="$Resources:Direction;" Url="Lists/IRRecommendationOffJob" BaseType="0" xmlns="http://schemas.microsoft.com/sharepoint/">
+  <MetaData>
+    <ContentTypes>
+      
+      
+    <ContentType ID="0x0100a2fc0b5d20c04aaa8804c5d08e9bc083" Name="ListFieldsContentType"><FieldRefs><FieldRef ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Name="Title" /><FieldRef ID="{cc9206e2-833d-4cab-bfed-4ae25884d5cc}" Name="RecommendationNo" /><FieldRef ID="{bb8650ad-279c-495d-af97-710fd7eb1dbc}" Name="ResponsiblePerson" /><FieldRef ID="{e64ec4bb-84ad-4008-9fd2-1bc38767ffcd}" Name="ResponsibleDepartment" /><FieldRef ID="{9a0658bf-c420-4c7d-af51-b7e6bc53ba04}" Name="ResponsibleSection" /><FieldRef ID="{71e0543d-d0b1-431b-82f9-fcb6d5ea7db6}" Name="TargetDate" /><FieldRef ID="{595972a8-942c-402c-a424-b1f745f703d6}" Name="Status" /><FieldRef ID="{86d89416-c56f-4948-9040-7bc36470bb3b}" Name="Description1" /><FieldRef ID="{d3c23461-059b-467d-87e8-391e468f62c9}" Name="LastStatement" /><FieldRef ID="{8f2afb24-c470-4ca9-a5f7-3c6f29cb8e97}" Name="ClosureJustification" /><FieldRef ID="{3acc516e-633e-4ab9-8539-3372ae834b40}" Name="ClosureDate" /><FieldRef ID="{b8e1e24a-d44a-44b5-b3f9-f41d85531e52}" Name="ApprovedBy" /><FieldRef ID="{21abfbed-957b-472c-935c-a4eec3f5e345}" Name="Assignee" /><FieldRef ID="{79bdcaa4-a2d6-4286-bc5d-3243e643ed33}" Name="AssigneeEmail" /><FieldRef ID="{11ff3ffd-915d-42a8-a3e5-f7001c47d185}" Name="IsSuggestion" /><FieldRef ID="{3e92c58d-79ab-4079-9991-9473e27405b4}" Name="IsSavedAsDraft" /><FieldRef ID="{bb8be37d-ff15-4110-869d-4678288b1185}" Name="WaivedTargetDate1" /><FieldRef ID="{37d2d0d5-5245-4965-9a48-7615f4a96308}" Name="WaivedTargetDate2" /><FieldRef ID="{9c22828f-0c3a-4ae0-a02e-d93ee903b150}" Name="IRID" /></FieldRefs></ContentType><ContentTypeRef ID="0x01">
+        <Folder TargetName="Item" />
+      </ContentTypeRef><ContentTypeRef ID="0x0120" /></ContentTypes>
+    <Fields>
+      
+    <Field ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Type="Text" Name="Title" DisplayName="$Resources:core,Title;" Required="FALSE" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="Title" MaxLength="255" /><Field Name="RecommendationNo" ID="{cc9206e2-833d-4cab-bfed-4ae25884d5cc}" DisplayName="RecommendationNo" Type="Text" /><Field Name="ResponsiblePerson" ID="{bb8650ad-279c-495d-af97-710fd7eb1dbc}" DisplayName="ResponsiblePerson" Type="Text" /><Field Name="ResponsibleDepartment" ID="{e64ec4bb-84ad-4008-9fd2-1bc38767ffcd}" DisplayName="ResponsibleDepartment" Type="Text" /><Field Name="ResponsibleSection" ID="{9a0658bf-c420-4c7d-af51-b7e6bc53ba04}" DisplayName="ResponsibleSection" Type="Text" /><Field Name="TargetDate" ID="{71e0543d-d0b1-431b-82f9-fcb6d5ea7db6}" DisplayName="TargetDate" Type="DateTime" /><Field Name="Status" ID="{595972a8-942c-402c-a424-b1f745f703d6}" DisplayName="Status" Type="Text" /><Field Name="Description1" ID="{86d89416-c56f-4948-9040-7bc36470bb3b}" DisplayName="Description" Type="Note" /><Field Name="LastStatement" ID="{d3c23461-059b-467d-87e8-391e468f62c9}" DisplayName="LastStatement" Type="Note" /><Field Name="ClosureJustification" ID="{8f2afb24-c470-4ca9-a5f7-3c6f29cb8e97}" DisplayName="ClosureJustification" Type="Note" /><Field Name="ClosureDate" ID="{3acc516e-633e-4ab9-8539-3372ae834b40}" DisplayName="ClosureDate" Type="DateTime" /><Field Name="ApprovedBy" ID="{b8e1e24a-d44a-44b5-b3f9-f41d85531e52}" DisplayName="ApprovedBy" Type="Text" /><Field Name="Assignee" ID="{21abfbed-957b-472c-935c-a4eec3f5e345}" DisplayName="Assignee" Type="Text" /><Field Name="AssigneeEmail" ID="{79bdcaa4-a2d6-4286-bc5d-3243e643ed33}" DisplayName="AssigneeEmail" Type="Text" /><Field Name="IsSuggestion" ID="{11ff3ffd-915d-42a8-a3e5-f7001c47d185}" DisplayName="IsSuggestion" Type="Boolean" /><Field Name="IsSavedAsDraft" ID="{3e92c58d-79ab-4079-9991-9473e27405b4}" DisplayName="IsSavedAsDraft" Type="Boolean" /><Field Name="WaivedTargetDate1" ID="{bb8be37d-ff15-4110-869d-4678288b1185}" DisplayName="WaivedTargetDate1" Type="DateTime" /><Field Name="WaivedTargetDate2" ID="{37d2d0d5-5245-4965-9a48-7615f4a96308}" DisplayName="WaivedTargetDate2" Type="DateTime" /><Field Name="IRID" ID="{9c22828f-0c3a-4ae0-a02e-d93ee903b150}" DisplayName="IRID" Type="Text" /></Fields>
+    <Views>
+      
+      
+    <View BaseViewID="0" Type="HTML" MobileView="TRUE" TabularView="FALSE">
+        <Toolbar Type="Standard" />
+        <XslLink Default="TRUE">main.xsl</XslLink>
+        <RowLimit Paged="TRUE">30</RowLimit>
+        <ViewFields>
+          
+        <FieldRef Name="LinkTitleNoMenu"></FieldRef></ViewFields>
+        <Query>
+          <OrderBy>
+            
+          <FieldRef Name="Modified" Ascending="FALSE"></FieldRef></OrderBy>
+        </Query>
+        <ParameterBindings>
+          <ParameterBinding Name="AddNewAnnouncement" Location="Resource(wss,addnewitem)" />
+          <ParameterBinding Name="NoAnnouncements" Location="Resource(wss,noXinviewofY_LIST)" />
+          <ParameterBinding Name="NoAnnouncementsHowTo" Location="Resource(wss,noXinviewofY_ONET_HOME)" />
+        </ParameterBindings>
+      </View><View BaseViewID="1" Type="HTML" WebPartZoneID="Main" DisplayName="$Resources:core,objectiv_schema_mwsidcamlidC24;" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" SetupPath="pages\viewpage.aspx" ImageUrl="/_layouts/15/images/generic.png?rev=23" Url="AllItems.aspx">
+        <Toolbar Type="Standard" />
+        <XslLink Default="TRUE">main.xsl</XslLink>
+        <JSLink>clienttemplates.js</JSLink>
+        <RowLimit Paged="TRUE">30</RowLimit>
+        <ViewFields>
+          
+        <FieldRef Name="LinkTitle"></FieldRef><FieldRef Name="RecommendationNo" /><FieldRef Name="ResponsiblePerson" /><FieldRef Name="ResponsibleDepartment" /><FieldRef Name="ResponsibleSection" /><FieldRef Name="TargetDate" /><FieldRef Name="Status" /><FieldRef Name="Description1" /><FieldRef Name="LastStatement" /><FieldRef Name="ClosureJustification" /><FieldRef Name="ClosureDate" /><FieldRef Name="ApprovedBy" /><FieldRef Name="Assignee" /><FieldRef Name="AssigneeEmail" /><FieldRef Name="IsSuggestion" /><FieldRef Name="IsSavedAsDraft" /><FieldRef Name="WaivedTargetDate1" /><FieldRef Name="WaivedTargetDate2" /><FieldRef Name="IRID" /></ViewFields>
+        <Query>
+          <OrderBy>
+            
+          <FieldRef Name="ID"></FieldRef></OrderBy>
+        </Query>
+        <ParameterBindings>
+          <ParameterBinding Name="NoAnnouncements" Location="Resource(wss,noXinviewofY_LIST)" />
+          <ParameterBinding Name="NoAnnouncementsHowTo" Location="Resource(wss,noXinviewofY_DEFAULT)" />
+        </ParameterBindings>
+      </View></Views>
+    <Forms>
+      <Form Type="DisplayForm" Url="DispForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+      <Form Type="EditForm" Url="EditForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+      <Form Type="NewForm" Url="NewForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+    </Forms>
+  </MetaData>
+</List>

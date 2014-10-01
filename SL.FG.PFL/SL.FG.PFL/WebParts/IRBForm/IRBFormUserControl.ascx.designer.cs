@@ -184,13 +184,13 @@ namespace SL.FG.PFL.WebParts.IRBForm {
         protected global::System.Web.UI.HtmlControls.HtmlSelect procedureRelatedCause_Per_R_ddl;
         
         /// <summary>
-        /// hdnProcedureRelatedCause_Per_R control.
+        /// hdnProcedureRelatedCause_Perm_R control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdnProcedureRelatedCause_Per_R;
+        protected global::System.Web.UI.WebControls.HiddenField hdnProcedureRelatedCause_Perm_R;
         
         /// <summary>
         /// PSMsViolated_ddl control.

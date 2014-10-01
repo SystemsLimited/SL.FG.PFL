@@ -29,14 +29,13 @@ namespace SL.FG.PFL.WebParts.MSAForm
             try
             {
                 if (!Page.IsPostBack)
-                {
-                    SPDiagnosticsService.Local.WriteTrace(0, new SPDiagnosticsCategory("1-Page_Load)", TraceSeverity.Unexpected, EventSeverity.Error), TraceSeverity.Unexpected, "1", "1");
+                {                    
                     FillDropdowns();//Fill Dropdowns values
-                    SPDiagnosticsService.Local.WriteTrace(0, new SPDiagnosticsCategory("2-Page_Load)", TraceSeverity.Unexpected, EventSeverity.Error), TraceSeverity.Unexpected, "1", "1");
+                    
                     if (!String.IsNullOrEmpty(Page.Request.QueryString["SID"]))
                     {
                         this.hdnScheduleId.Value = Page.Request.QueryString["SID"];
-                        SPDiagnosticsService.Local.WriteTrace(0, new SPDiagnosticsCategory("3-Page_Load)", TraceSeverity.Unexpected, EventSeverity.Error), TraceSeverity.Unexpected, "1", "1");
+                        
                         SPUser auditedBy = null;
 
                         SPUser currentUser = null;
@@ -46,18 +45,15 @@ namespace SL.FG.PFL.WebParts.MSAForm
                             using (SPWeb oSPWeb = oSPsite.OpenWeb())
                             {
                                 currentUser = oSPWeb.CurrentUser;
-                                SPDiagnosticsService.Local.WriteTrace(0, new SPDiagnosticsCategory("4-Page_Load)", TraceSeverity.Unexpected, EventSeverity.Error), TraceSeverity.Unexpected, "1", "1");
+
                                 int msaId = GetSubmittedMSAId(oSPWeb, Convert.ToInt32(this.hdnScheduleId.Value));
-                                SPDiagnosticsService.Local.WriteTrace(0, new SPDiagnosticsCategory("5-Page_Load)", TraceSeverity.Unexpected, EventSeverity.Error), TraceSeverity.Unexpected, "1", "1");
+
                                 if (msaId <= 0)
                                 {
-                                    SPDiagnosticsService.Local.WriteTrace(0, new SPDiagnosticsCategory("6-Page_Load)", TraceSeverity.Unexpected, EventSeverity.Error), TraceSeverity.Unexpected, "1", "1");
                                     auditedBy = UpdateMSAScheduleControls(oSPWeb);
-                                    SPDiagnosticsService.Local.WriteTrace(0, new SPDiagnosticsCategory("7-Page_Load)", TraceSeverity.Unexpected, EventSeverity.Error), TraceSeverity.Unexpected, "1", "1");
                                 }
                                 else
                                 {
-                                    SPDiagnosticsService.Local.WriteTrace(0, new SPDiagnosticsCategory("8-Page_Load)", TraceSeverity.Unexpected, EventSeverity.Error), TraceSeverity.Unexpected, "1", "1");
                                     this.hdnMSAId.Value = Convert.ToString(msaId);
                                 }
                             }
@@ -65,15 +61,13 @@ namespace SL.FG.PFL.WebParts.MSAForm
 
                         if (currentUser != null && auditedBy != null)
                         {
-                            SPDiagnosticsService.Local.WriteTrace(0, new SPDiagnosticsCategory("9-Page_Load)", TraceSeverity.Unexpected, EventSeverity.Error), TraceSeverity.Unexpected, "1", "1");
                             if (!Utility.CompareUsers(currentUser, auditedBy))
                             {
-                                SPDiagnosticsService.Local.WriteTrace(0, new SPDiagnosticsCategory("10-Page_Load)", TraceSeverity.Unexpected, EventSeverity.Error), TraceSeverity.Unexpected, "1", "1");
                                 DisableControls();
-                                SPDiagnosticsService.Local.WriteTrace(0, new SPDiagnosticsCategory("11-Page_Load)", TraceSeverity.Unexpected, EventSeverity.Error), TraceSeverity.Unexpected, "1", "1");
+
                                 if (!CheckPermission())
                                 {
-                                    SPDiagnosticsService.Local.WriteTrace(0, new SPDiagnosticsCategory("12-Page_Load)", TraceSeverity.Unexpected, EventSeverity.Error), TraceSeverity.Unexpected, "1", "1");
+
                                     string accessDeniedUrl = Utility.GetRedirectUrl("Access_Denied");
 
                                     if (!String.IsNullOrEmpty(accessDeniedUrl))
@@ -83,22 +77,22 @@ namespace SL.FG.PFL.WebParts.MSAForm
                                     }
                                 }
                             }
-                            SPDiagnosticsService.Local.WriteTrace(0, new SPDiagnosticsCategory("13-Page_Load)", TraceSeverity.Unexpected, EventSeverity.Error), TraceSeverity.Unexpected, "1", "1");
+
                         }
                         else
                         {
-                            SPDiagnosticsService.Local.WriteTrace(0, new SPDiagnosticsCategory("14-Page_Load)", TraceSeverity.Unexpected, EventSeverity.Error), TraceSeverity.Unexpected, "1", "1");
+
                             DisableControls();
-                            SPDiagnosticsService.Local.WriteTrace(0, new SPDiagnosticsCategory("15-Page_Load)", TraceSeverity.Unexpected, EventSeverity.Error), TraceSeverity.Unexpected, "1", "1");
+
                         }
                     }
-                    SPDiagnosticsService.Local.WriteTrace(0, new SPDiagnosticsCategory("16-Page_Load)", TraceSeverity.Unexpected, EventSeverity.Error), TraceSeverity.Unexpected, "1", "1");
+
                     if (CheckPermission())
                     {
-                        SPDiagnosticsService.Local.WriteTrace(0, new SPDiagnosticsCategory("17-Page_Load)", TraceSeverity.Unexpected, EventSeverity.Error), TraceSeverity.Unexpected, "1", "1");
+
                         this.msaQualityScore_div.Visible = true;
                     }
-                    SPDiagnosticsService.Local.WriteTrace(0, new SPDiagnosticsCategory("18-Page_Load)", TraceSeverity.Unexpected, EventSeverity.Error), TraceSeverity.Unexpected, "1", "1");
+
                     if (!String.IsNullOrEmpty(Page.Request.QueryString["Status"]))
                     {
                         if (Page.Request.QueryString["Status"].Equals("1"))
@@ -125,7 +119,7 @@ namespace SL.FG.PFL.WebParts.MSAForm
                     }
                     else
                     {
-                        SPDiagnosticsService.Local.WriteTrace(0, new SPDiagnosticsCategory("20-Page_Load)", TraceSeverity.Unexpected, EventSeverity.Error), TraceSeverity.Unexpected, "1", "1");
+
                         if (!CheckPermission_Authenticated_Users())
                         {
                             DisableControls();
@@ -485,14 +479,6 @@ namespace SL.FG.PFL.WebParts.MSAForm
                     noOfPositivePoint_temp = 5;
                 }
 
-
-                int noOfAreaImprovement_temp = 0;
-
-                if (noOfAreaImprovement > 0)
-                {
-                    noOfAreaImprovement_temp = 5;
-                }
-
                 double noOfFatalityPoints_temp = 0;
 
                 if (noOfFatalityPoints * 20 >= 40)
@@ -515,7 +501,6 @@ namespace SL.FG.PFL.WebParts.MSAForm
                     noOfSeriusInjury_temp = noOfSeriusInjury * 10;
                 }
 
-
                 if (noOfFatalityPoints_temp + noOfSeriusInjury_temp < 40)
                 {
                     observation_marks = noOfFatalityPoints_temp + noOfSeriusInjury_temp;
@@ -525,16 +510,14 @@ namespace SL.FG.PFL.WebParts.MSAForm
                     observation_marks = 40;
                 }
 
-
-                if (observation_marks + noOfPositivePoint_temp + noOfAreaImprovement_temp < 40)
+                if (observation_marks + noOfPositivePoint_temp < 40)
                 {
-                    observation_marks += noOfPositivePoint_temp + noOfAreaImprovement_temp;
+                    observation_marks += noOfPositivePoint_temp;
                 }
                 else
                 {
                     observation_marks = 40;
                 }
-
 
                 if (noOfClosureObservations >= 2)
                 {
@@ -545,7 +528,7 @@ namespace SL.FG.PFL.WebParts.MSAForm
                     closureOfObservation_marks = 5;
                 }
 
-                if (noOfConsentTaken >= 3)
+                if (noOfConsentTaken >= 2)
                 {
                     communicationOfAreas_marks = 10;
                 }
@@ -1522,7 +1505,7 @@ namespace SL.FG.PFL.WebParts.MSAForm
                         string accompaniedBy = this.accompaniedBy_tf.Value;
                         string designation = this.designation_tf.Value;
                         SPUser auditedBy = null;
-                        string areaAudited = null;
+                        string areaAudited = "";
                         string startTimeStr = this.startTime_dtc.SelectedDate != null ? this.startTime_dtc.SelectedDate.ToShortTimeString() : null;
                         string endTimeStr = this.endTime_dtc.SelectedDate != null ? this.endTime_dtc.SelectedDate.ToShortTimeString() : null;
                         //start
@@ -1734,15 +1717,15 @@ namespace SL.FG.PFL.WebParts.MSAForm
                                         string tempUsername = Utility.GetUsername(auditedBy.LoginName, true);
                                         spListItem["AuditedBy"] = tempUsername;
                                     }
-                                    if (!String.IsNullOrEmpty(areaAudited))
+                                    if (!String.IsNullOrEmpty(areaAudited) || msaId != null)
                                     {
                                         spListItem["AreaAudited"] = areaAudited;
                                     }
-                                    if (!String.IsNullOrEmpty(accompaniedBy))
+                                    if (!String.IsNullOrEmpty(accompaniedBy) || msaId != null)
                                     {
                                         spListItem["AccompaniedBy"] = accompaniedBy;
                                     }
-                                    if (!String.IsNullOrEmpty(designation))
+                                    if (!String.IsNullOrEmpty(designation) || msaId != null)
                                     {
                                         spListItem["Designation"] = designation;
                                     }
@@ -2423,7 +2406,7 @@ namespace SL.FG.PFL.WebParts.MSAForm
 
                                 lstMessage.Add(message);
 
-                                if(item.InjuryClass.Equals("Fatality", StringComparison.OrdinalIgnoreCase))
+                                if (item.InjuryClass.Equals("Fatality", StringComparison.OrdinalIgnoreCase))
                                 {
                                     Message msgTemp = new Message();
                                     msgTemp.Body = message.Body;

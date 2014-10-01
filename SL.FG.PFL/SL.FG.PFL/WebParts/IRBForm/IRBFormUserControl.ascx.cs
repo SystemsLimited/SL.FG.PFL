@@ -888,8 +888,6 @@ namespace SL.FG.PFL.WebParts.IRBForm
                 using (SPWeb oSPWeb = oSPsite.OpenWeb())
                 {
                     FillArea(oSPWeb);
-                    //FillIncidentCategory(oSPWeb);
-                    //FillInjuryCategory(oSPWeb);
                 }
             }
         }
@@ -936,87 +934,6 @@ namespace SL.FG.PFL.WebParts.IRBForm
                 DisableControls(true);
             }
         }
-
-        //private void FillIncidentCategory(SPWeb oSPWeb)
-        //{
-        //    try
-        //    {
-        //        string listName = "IncidentCategory";
-
-        //        // Fetch the List
-        //        SPList spList = oSPWeb.GetList(string.Format("{0}/Lists/{1}/AllItems.aspx", oSPWeb.Url, listName));
-
-        //        SPQuery query = new SPQuery();
-        //        SPListItemCollection spListItems;
-        //        // Include only the fields you will use.
-        //        query.ViewFields = "<FieldRef Name='ID'/><FieldRef Name='Title'/>";
-        //        query.ViewFieldsOnly = true;
-        //        //query.RowLimit = 200; // Only select the top 200.
-        //        StringBuilder sb = new StringBuilder();
-        //        sb.Append("<OrderBy Override='TRUE;><FieldRef Name='Title'/></OrderBy>");
-        //        query.Query = sb.ToString();
-        //        spListItems = spList.GetItems(query);
-
-        //        this.IncidentCategory_ddl.DataSource = spListItems;
-        //        this.IncidentCategory_ddl.DataTextField = "Title";
-        //        this.IncidentCategory_ddl.DataValueField = "Title";
-        //        this.IncidentCategory_ddl.DataBind();
-
-        //        for (int i = 0; i < IncidentCategory_ddl.Items.Count; i++)
-        //        {
-        //            IncidentCategory_ddl.Items[i].Enabled = false;
-        //            IncidentCategory_ddl.Items[i].Attributes.Add("disabled", "disabled");
-
-        //            IncidentCategory_ddl.Items[i].Attributes.Add("style", "background-color: white");
-        //        }
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        SPDiagnosticsService.Local.WriteTrace(0, new SPDiagnosticsCategory("SL.FG.PFL(IRB->FillIncidentCategory)", TraceSeverity.Unexpected, EventSeverity.Error), TraceSeverity.Unexpected, ex.Message, ex.StackTrace);
-        //    }
-        //}
-
-
-        //private void FillInjuryCategory(SPWeb oSPWeb)
-        //{
-        //    try
-        //    {
-        //        string listName = "InjuryCategory";
-
-        //        // Fetch the List
-        //        SPList spList = oSPWeb.GetList(string.Format("{0}/Lists/{1}/AllItems.aspx", oSPWeb.Url, listName));
-
-        //        SPQuery query = new SPQuery();
-        //        SPListItemCollection spListItems;
-        //        // Include only the fields you will use.
-        //        query.ViewFields = "<FieldRef Name='ID'/><FieldRef Name='Title'/>";
-        //        query.ViewFieldsOnly = true;
-        //        //query.RowLimit = 200; // Only select the top 200.
-        //        StringBuilder sb = new StringBuilder();
-        //        sb.Append("<OrderBy Override='TRUE;><FieldRef Name='Title'/></OrderBy>");
-        //        query.Query = sb.ToString();
-        //        spListItems = spList.GetItems(query);
-
-        //        this.InjuryCategory_ddl.DataSource = spListItems;
-        //        this.InjuryCategory_ddl.DataTextField = "Title";
-        //        this.InjuryCategory_ddl.DataValueField = "Title";
-        //        this.InjuryCategory_ddl.DataBind();
-
-        //        for (int i = 0; i < InjuryCategory_ddl.Items.Count; i++)
-        //        {
-        //            InjuryCategory_ddl.Items[i].Enabled = false;
-        //            InjuryCategory_ddl.Items[i].Attributes.Add("disabled", "disabled");
-
-        //            IncidentCategory_ddl.Items[i].Attributes.Add("style", "background-color: white");
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        SPDiagnosticsService.Local.WriteTrace(0, new SPDiagnosticsCategory("SL.FG.PFL(IRB->FillInjuryCategory)", TraceSeverity.Unexpected, EventSeverity.Error), TraceSeverity.Unexpected, ex.Message, ex.StackTrace);
-        //    }
-        //}
-
 
         private void FillSelectedValues(HtmlSelect control_ddl, string data, char delimeter)
         {
@@ -1250,8 +1167,6 @@ namespace SL.FG.PFL.WebParts.IRBForm
 
                             if (spListIRB != null)
                             {
-                                char delimeter = ',';
-
                                 this.hdnIRB_Id.Value = Convert.ToString(IRB_ID);
 
                                 int IRBId = Convert.ToInt32(this.hdnIRB_Id.Value);

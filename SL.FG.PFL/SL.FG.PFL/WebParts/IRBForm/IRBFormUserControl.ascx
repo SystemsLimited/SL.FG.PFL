@@ -92,45 +92,20 @@
 
 
         if (action != "SaveAsDraft") {
-            var hdnActualOrPotentialInquiry = $('[id$=hdnActualOrPotentialInquiry]').val();
-            var hdnProcessSafetyIncidents = $('[id$=hdnProcessSafetyIncidents]').val();
-            var hdnMiscellaneousIncidents = $('[id$=hdnMiscellaneousIncidents]').val();
+
             var hdnBasicActivityInProgress = $('[id$=hdnBasicActivityInProgress]').val();
-            var hdnRiskBasedElements = $('[id$=hdnRiskBasedElements]').val();
-            var hdnCulturalBasedElements = $('[id$=hdnCulturalBasedElements]').val();
+            var hdnCauseOfIncident_PR = $('[id$=hdnCauseOfIncident_PR]').val();
+            var hdnCauseOfIncident_ER = $('[id$=hdnCauseOfIncident_ER]').val();
+            var hdnSupervisionAtTimeOfIncident = $('[id$=hdnSupervisionAtTimeOfIncident]').val();
+            var hdnProcedureRelatedCause_Proc_R = $('[id$=hdnProcedureRelatedCause_Proc_R]').val();
+            var hdnProcedureRelatedCause_Perm_R = $('[id$=hdnProcedureRelatedCause_Perm_R]').val();
+            var hdnPSMsViolated = $('[id$=hdnPSMsViolated]').val();
+            var hdnResultantHealthEffect = $('[id$=hdnResultantHealthEffect]').val();
+
 
             var errorMsg = 'Please Select atleast one';
 
-            if (hdnActualOrPotentialInquiry == "") {
-                errorFlag = true;
 
-                var tempControl = $('[id$=hdnActualOrPotentialInquiry]').parent().parent().parent().parent();
-
-                var spanTemp = '<span class="errorMsg">' + errorMsg + '</span>';
-
-                $(tempControl).append(spanTemp);
-                tempControl.focus();
-            }
-            if (hdnProcessSafetyIncidents == "") {
-                errorFlag = true;
-
-                var tempControl = $('[id$=hdnProcessSafetyIncidents]').parent().parent().parent().parent();
-
-                var spanTemp = '<span class="errorMsg">' + errorMsg + '</span>';
-
-                $(tempControl).append(spanTemp);
-                tempControl.focus();
-            }
-            if (hdnMiscellaneousIncidents == "") {
-                errorFlag = true;
-
-                var tempControl = $('[id$=hdnMiscellaneousIncidents]').parent().parent().parent().parent();
-
-                var spanTemp = '<span class="errorMsg">' + errorMsg + '</span>';
-
-                $(tempControl).append(spanTemp);
-                tempControl.focus();
-            }
             if (hdnBasicActivityInProgress == "") {
                 errorFlag = true;
 
@@ -139,27 +114,77 @@
                 var spanTemp = '<span class="errorMsg">' + errorMsg + '</span>';
 
                 $(tempControl).append(spanTemp);
-                tempControl.focus();
+                $(tempControl).focus();
             }
-            if (hdnRiskBasedElements == "") {
+            if (hdnCauseOfIncident_PR == "") {
                 errorFlag = true;
 
-                var tempControl = $('[id$=hdnRiskBasedElements]').parent().parent().parent().parent();
+                var tempControl = $('[id$=hdnCauseOfIncident_PR]').parent().parent().parent().parent();
 
                 var spanTemp = '<span class="errorMsg">' + errorMsg + '</span>';
 
                 $(tempControl).append(spanTemp);
-                tempControl.focus();
+                $(tempControl).focus();
             }
-            if (hdnCulturalBasedElements == "") {
+            if (hdnCauseOfIncident_ER == "") {
                 errorFlag = true;
 
-                var tempControl = $('[id$=hdnCulturalBasedElements]').parent().parent().parent().parent();
+                var tempControl = $('[id$=hdnCauseOfIncident_ER]').parent().parent().parent().parent();
 
                 var spanTemp = '<span class="errorMsg">' + errorMsg + '</span>';
 
                 $(tempControl).append(spanTemp);
-                tempControl.focus();
+                $(tempControl).focus();
+            }
+            if (hdnSupervisionAtTimeOfIncident == "") {
+                errorFlag = true;
+
+                var tempControl = $('[id$=hdnSupervisionAtTimeOfIncident]').parent().parent().parent().parent();
+
+                var spanTemp = '<span class="errorMsg">' + errorMsg + '</span>';
+
+                $(tempControl).append(spanTemp);
+                $(tempControl).focus();
+            }
+            if (hdnProcedureRelatedCause_Proc_R == "") {
+                errorFlag = true;
+
+                var tempControl = $('[id$=hdnProcedureRelatedCause_Proc_R]').parent().parent().parent().parent();
+
+                var spanTemp = '<span class="errorMsg">' + errorMsg + '</span>';
+
+                $(tempControl).append(spanTemp);
+                $(tempControl).focus();
+            }
+            if (hdnProcedureRelatedCause_Perm_R == "") {
+                errorFlag = true;
+
+                var tempControl = $('[id$=hdnProcedureRelatedCause_Perm_R]').parent().parent().parent().parent();
+
+                var spanTemp = '<span class="errorMsg">' + errorMsg + '</span>';
+
+                $(tempControl).append(spanTemp);
+                $(tempControl).focus();
+            }
+            if (hdnPSMsViolated == "") {
+                errorFlag = true;
+
+                var tempControl = $('[id$=hdnPSMsViolated]').parent().parent().parent().parent();
+
+                var spanTemp = '<span class="errorMsg">' + errorMsg + '</span>';
+
+                $(tempControl).append(spanTemp);
+                $(tempControl).focus();
+            }
+            if (hdnResultantHealthEffect == "") {
+                errorFlag = true;
+
+                var tempControl = $('[id$=hdnResultantHealthEffect]').parent().parent().parent().parent();
+
+                var spanTemp = '<span class="errorMsg">' + errorMsg + '</span>';
+
+                $(tempControl).append(spanTemp);
+                $(tempControl).focus();
             }
 
             if ($("[id$=reportDueOnDateDate]").val() != "") {
@@ -177,7 +202,7 @@
                         var spanTemp = '<span class="errorMsg">' + errorMsg + '</span>';
 
                         $(tempControl).append(spanTemp);
-                        tempControl.focus();
+                        $(tempControl).focus();
                     }
                 }
                 catch (ex) {
@@ -210,7 +235,6 @@
                 var departmentId = $this.find("span.departmentId").html();
                 var departmentName = $this.find("span.departmentName").html();
                 var targetDate = $this.find("span.targetDate").html();
-                var observationSpot = $this.find("span.concurrenceOfRP").html();
                 var status = $this.find("span.status").html();
 
                 if (typeof recommendationId == 'undefined') {
@@ -244,9 +268,6 @@
                 if (typeof targetDate == 'undefined') {
                     targetDate = "";
                 }
-                if (typeof concurrenceOfRP == 'undefined') {
-                    concurrenceOfRP = "no";
-                }
                 if (typeof status == 'undefined') {
                     status = "";
                 }
@@ -261,7 +282,6 @@
                     departmentId + "*|*" +
                     departmentName + "*|*" +
                     targetDate + "*|*" +
-                    concurrenceOfRP + "*|*" +
                     status + "*|*" +
                     recommendationNo + "*|*" +
                     isSavedAsDraft + "~|~";
@@ -509,7 +529,7 @@
                                                 <option>Violated</option>
                                                 <option>Not Applicable</option>
                                             </select>
-                                            <asp:HiddenField ID="hdnProcedureRelatedCause_Per_R" runat="server" Value="" />
+                                            <asp:HiddenField ID="hdnProcedureRelatedCause_Perm_R" runat="server" Value="" />
                                         </div>
                                     </div>
                                 </div>

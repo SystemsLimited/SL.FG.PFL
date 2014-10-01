@@ -32,9 +32,14 @@
     <projectItemReference itemId="3c5b29d4-32ee-4897-9317-2a179e9dff15" />
     <projectItemReference itemId="8e5aed19-fa3a-40ef-bc38-cfa5aabf0978" />
     <projectItemReference itemId="2fad8b8e-4c0b-47ba-a41b-d647ac314d37" />
-    <projectItemReference itemId="836afdf1-b804-4176-a03d-178948459b1d" />
-    <projectItemReference itemId="1ccfc6da-2e8b-4bf6-b90e-83ad137a6ae2" />
     <projectItemReference itemId="2a298ab5-a9f3-4c99-86a2-5a4b97a5bd49" />
+    <projectItemReference itemId="1ccfc6da-2e8b-4bf6-b90e-83ad137a6ae2" />
     <projectItemReference itemId="c59b5d3e-ffe8-4170-8bb4-7af5b9a92b08" />
+    <projectItemReference itemId="836afdf1-b804-4176-a03d-178948459b1d" />
+    <projectItemReference itemId="451264cd-4eb6-40b3-b286-f67ce26f2050" />
+    <projectItemReference itemId="7b586ac0-23d0-4ed6-93bb-4726896b3192" />
+    <projectItemReference itemId="9b4970fd-c39b-4014-8274-0611e74d5ab4" />
+    <projectItemReference itemId="11cb2e93-b560-4d24-b855-7f1cbde660ee" />
+    <projectItemReference itemId="88a6892d-8a6c-4ba7-8b05-c275714db937" />
   </projectItems>
 </feature>

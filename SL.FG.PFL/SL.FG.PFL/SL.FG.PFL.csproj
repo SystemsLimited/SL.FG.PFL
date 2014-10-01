@@ -81,6 +81,14 @@
     <Compile Include="WebParts\IRBForm\IRBFormUserControl.ascx.designer.cs">
       <DependentUpon>IRBFormUserControl.ascx.cs</DependentUpon>
     </Compile>
+    <Compile Include="WebParts\IRRecommendationForm\IRRecommendationForm.cs" />
+    <Compile Include="WebParts\IRRecommendationForm\IRRecommendationFormUserControl.ascx.cs">
+      <DependentUpon>IRRecommendationFormUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebParts\IRRecommendationForm\IRRecommendationFormUserControl.ascx.designer.cs">
+      <DependentUpon>IRRecommendationFormUserControl.ascx.cs</DependentUpon>
+    </Compile>
     <Compile Include="WebParts\MSAForm\MSAForm.cs" />
     <Compile Include="WebParts\MSAForm\MSAFormUserControl.ascx.cs">
       <DependentUpon>MSAFormUserControl.ascx</DependentUpon>
@@ -149,6 +157,18 @@
     </None>
     <None Include="Lists\IRB\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{1ccfc6da-2e8b-4bf6-b90e-83ad137a6ae2}</SharePointProjectItemId>
+    </None>
+    <None Include="Lists\IRRecommendationOffJob\IRRecommendationOffJobInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{11cb2e93-b560-4d24-b855-7f1cbde660ee}</SharePointProjectItemId>
+    </None>
+    <None Include="Lists\IRRecommendationOffJob\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{88a6892d-8a6c-4ba7-8b05-c275714db937}</SharePointProjectItemId>
+    </None>
+    <None Include="Lists\IRRecommendationOnJob\IRRecommendationOnJobInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{7b586ac0-23d0-4ed6-93bb-4726896b3192}</SharePointProjectItemId>
+    </None>
+    <None Include="Lists\IRRecommendationOnJob\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{9b4970fd-c39b-4014-8274-0611e74d5ab4}</SharePointProjectItemId>
     </None>
     <None Include="Lists\MSAContactDetail\MSAContactDetailInstance\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{977b6368-877e-484e-9863-f859bf24994e}</SharePointProjectItemId>
@@ -226,6 +246,10 @@
     <None Include="WebParts\IRBForm\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{836afdf1-b804-4176-a03d-178948459b1d}</SharePointProjectItemId>
     </None>
+    <None Include="WebParts\IRRecommendationForm\IRRecommendationForm.webpart" />
+    <None Include="WebParts\IRRecommendationForm\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{451264cd-4eb6-40b3-b286-f67ce26f2050}</SharePointProjectItemId>
+    </None>
     <None Include="WebParts\MSAForm\MSAForm.webpart" />
     <None Include="WebParts\MSAForm\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{2577d96f-bc15-4fda-92bb-50922820bd4a}</SharePointProjectItemId>
@@ -293,6 +317,12 @@
     <Content Include="Lists\IRB\Elements.xml" />
     <Content Include="Lists\IRB\IRBInstance\Elements.xml" />
     <Content Include="Lists\IRB\Schema.xml" />
+    <Content Include="Lists\IRRecommendationOffJob\Elements.xml" />
+    <Content Include="Lists\IRRecommendationOffJob\IRRecommendationOffJobInstance\Elements.xml" />
+    <Content Include="Lists\IRRecommendationOffJob\Schema.xml" />
+    <Content Include="Lists\IRRecommendationOnJob\Elements.xml" />
+    <Content Include="Lists\IRRecommendationOnJob\IRRecommendationOnJobInstance\Elements.xml" />
+    <Content Include="Lists\IRRecommendationOnJob\Schema.xml" />
     <Content Include="Lists\MSAContactDetail\Elements.xml" />
     <Content Include="Lists\MSAContactDetail\MSAContactDetailInstance\Elements.xml" />
     <Content Include="Lists\MSAContactDetail\Schema.xml" />
@@ -327,6 +357,8 @@
     <Content Include="WebParts\IRAForm\IRAFormUserControl.ascx" />
     <Content Include="WebParts\IRBForm\Elements.xml" />
     <Content Include="WebParts\IRBForm\IRBFormUserControl.ascx" />
+    <Content Include="WebParts\IRRecommendationForm\Elements.xml" />
+    <Content Include="WebParts\IRRecommendationForm\IRRecommendationFormUserControl.ascx" />
     <Content Include="WebParts\MSAForm\Elements.xml" />
     <Content Include="WebParts\MSAForm\MSAFormUserControl.ascx" />
     <Content Include="WebParts\MSARecommendationForm\Elements.xml" />
