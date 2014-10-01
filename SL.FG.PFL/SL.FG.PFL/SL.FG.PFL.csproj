@@ -69,9 +69,18 @@
     <Compile Include="WebParts\IRAForm\IRAForm.cs" />
     <Compile Include="WebParts\IRAForm\IRAFormUserControl.ascx.cs">
       <DependentUpon>IRAFormUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="WebParts\IRAForm\IRAFormUserControl.ascx.designer.cs">
       <DependentUpon>IRAFormUserControl.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WebParts\IRAOnJobForm\IRAOnJobForm.cs" />
+    <Compile Include="WebParts\IRAOnJobForm\IRAOnJobFormUserControl.ascx.cs">
+      <DependentUpon>IRAOnJobFormUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebParts\IRAOnJobForm\IRAOnJobFormUserControl.ascx.designer.cs">
+      <DependentUpon>IRAOnJobFormUserControl.ascx.cs</DependentUpon>
     </Compile>
     <Compile Include="WebParts\IRBForm\IRBForm.cs" />
     <Compile Include="WebParts\IRBForm\IRBFormUserControl.ascx.cs">
@@ -140,6 +149,12 @@
     <None Include="Lists\Area\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{20777a03-16ef-4bba-b1f9-dbe7adbb917e}</SharePointProjectItemId>
     </None>
+    <None Include="Lists\CauseOfInjury\CauseOfInjuryInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{ce079dbb-74ae-4dfc-80c2-d4d92f6cec9c}</SharePointProjectItemId>
+    </None>
+    <None Include="Lists\CauseOfInjury\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{1ea06e03-cf3e-41d2-92ca-496ebba9c852}</SharePointProjectItemId>
+    </None>
     <None Include="Lists\CommonDictionary\CommonDictionaryInstance\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{57448585-519b-42ea-8661-31b0c3337159}</SharePointProjectItemId>
     </None>
@@ -152,12 +167,49 @@
     <None Include="Lists\Department\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{fcc1d242-e107-4ffb-99d6-2550bde14721}</SharePointProjectItemId>
     </None>
+    <None Include="Lists\FlashReportOff\FlashReportOffInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{93890ae9-881a-46d8-92c4-64f1dbb3fd3a}</SharePointProjectItemId>
+    </None>
+    <None Include="Lists\FlashReportOff\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{abd5d428-e45b-4b20-aa01-96ecfb22d291}</SharePointProjectItemId>
+    </None>
+    <None Include="Lists\FlashReport\FlashReportInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{f84ab88d-3d4e-4eec-89f3-c58ce013a3be}</SharePointProjectItemId>
+    </None>
+    <None Include="Lists\FlashReport\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{aace9c69-4f6f-40e2-ad05-00e4fcaa8470}</SharePointProjectItemId>
+    </None>
+    <None Include="Lists\IncidentCategory\IncidentCategoryInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{0af481de-56fa-4595-8723-99136d3ed590}</SharePointProjectItemId>
+    </None>
+    <None Include="Lists\IncidentCategory\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{a19b8920-dddf-4fa6-b6e7-55fa1a9c73ea}</SharePointProjectItemId>
+    </None>
+    <None Include="Lists\InjuryCategory\InjuryCategoryInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{b9b52174-b08f-47df-818a-a65a6771620a}</SharePointProjectItemId>
+    </None>
+    <None Include="Lists\InjuryCategory\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{95584194-20ec-40f8-a276-ba5da1bf52ca}</SharePointProjectItemId>
+    </None>
+    <None Include="Lists\IRAOffJob\IRAOffJobInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{f08ab838-b01e-429a-b9d3-8dbc6c3acab8}</SharePointProjectItemId>
+    </None>
+    <None Include="Lists\IRAOffJob\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{c6aa6df0-d874-4834-884a-bd208fd87954}</SharePointProjectItemId>
+    </None>
+    <None Include="Lists\IRAOnJob\IRAOnJobInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{0ac79ff0-bd5c-4a35-a3bf-0950306a2636}</SharePointProjectItemId>
+    </None>
+    <None Include="Lists\IRAOnJob\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{2b37d723-991f-48db-97f1-30552888077d}</SharePointProjectItemId>
+    </None>
     <None Include="Lists\IRB\IRBInstance\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{2a298ab5-a9f3-4c99-86a2-5a4b97a5bd49}</SharePointProjectItemId>
     </None>
     <None Include="Lists\IRB\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{1ccfc6da-2e8b-4bf6-b90e-83ad137a6ae2}</SharePointProjectItemId>
     </None>
+<<<<<<< Updated upstream
     <None Include="Lists\IRRecommendationOffJob\IRRecommendationOffJobInstance\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{11cb2e93-b560-4d24-b855-7f1cbde660ee}</SharePointProjectItemId>
     </None>
@@ -169,6 +221,13 @@
     </None>
     <None Include="Lists\IRRecommendationOnJob\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{9b4970fd-c39b-4014-8274-0611e74d5ab4}</SharePointProjectItemId>
+=======
+    <None Include="Lists\IRD\IRDInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{6a9d3902-0963-4de8-b75d-ebf324a74da4}</SharePointProjectItemId>
+    </None>
+    <None Include="Lists\IRD\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{265bd115-d1de-4942-bc72-448420ed2400}</SharePointProjectItemId>
+>>>>>>> Stashed changes
     </None>
     <None Include="Lists\MSAContactDetail\MSAContactDetailInstance\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{977b6368-877e-484e-9863-f859bf24994e}</SharePointProjectItemId>
@@ -199,6 +258,12 @@
     </None>
     <None Include="Lists\Section\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{54f2909b-2fa0-46fd-ab2a-7f17532b5697}</SharePointProjectItemId>
+    </None>
+    <None Include="Lists\TypeOfInjury\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{f7ba8204-4bc2-4636-b858-e418a29a6eed}</SharePointProjectItemId>
+    </None>
+    <None Include="Lists\TypeOfInjury\TypeOfInjuryInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{a742af94-68fa-45a6-b1e5-545d17aee67a}</SharePointProjectItemId>
     </None>
     <None Include="MasterPage\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{2fad8b8e-4c0b-47ba-a41b-d647ac314d37}</SharePointProjectItemId>
@@ -241,6 +306,10 @@
     <None Include="WebParts\IRAForm\IRAForm.webpart" />
     <None Include="WebParts\IRAForm\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{c59b5d3e-ffe8-4170-8bb4-7af5b9a92b08}</SharePointProjectItemId>
+    </None>
+    <None Include="WebParts\IRAOnJobForm\IRAOnJobForm.webpart" />
+    <None Include="WebParts\IRAOnJobForm\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{bc669fb1-64e3-4387-8c6a-ab3565464389}</SharePointProjectItemId>
     </None>
     <None Include="WebParts\IRBForm\IRBForm.webpart" />
     <None Include="WebParts\IRBForm\SharePointProjectItem.spdata">
@@ -308,21 +377,48 @@
     <Content Include="Lists\Area\AreaInstance\Elements.xml" />
     <Content Include="Lists\Area\Elements.xml" />
     <Content Include="Lists\Area\Schema.xml" />
+    <Content Include="Lists\CauseOfInjury\CauseOfInjuryInstance\Elements.xml" />
+    <Content Include="Lists\CauseOfInjury\Elements.xml" />
+    <Content Include="Lists\CauseOfInjury\Schema.xml" />
     <Content Include="Lists\CommonDictionary\CommonDictionaryInstance\Elements.xml" />
     <Content Include="Lists\CommonDictionary\Elements.xml" />
     <Content Include="Lists\CommonDictionary\Schema.xml" />
     <Content Include="Lists\Department\DepartmentInstance\Elements.xml" />
     <Content Include="Lists\Department\Elements.xml" />
     <Content Include="Lists\Department\Schema.xml" />
+    <Content Include="Lists\FlashReportOff\Elements.xml" />
+    <Content Include="Lists\FlashReportOff\FlashReportOffInstance\Elements.xml" />
+    <Content Include="Lists\FlashReportOff\Schema.xml" />
+    <Content Include="Lists\FlashReport\Elements.xml" />
+    <Content Include="Lists\FlashReport\FlashReportInstance\Elements.xml" />
+    <Content Include="Lists\FlashReport\Schema.xml" />
+    <Content Include="Lists\IncidentCategory\Elements.xml" />
+    <Content Include="Lists\IncidentCategory\IncidentCategoryInstance\Elements.xml" />
+    <Content Include="Lists\IncidentCategory\Schema.xml" />
+    <Content Include="Lists\InjuryCategory\Elements.xml" />
+    <Content Include="Lists\InjuryCategory\InjuryCategoryInstance\Elements.xml" />
+    <Content Include="Lists\InjuryCategory\Schema.xml" />
+    <Content Include="Lists\IRAOffJob\Elements.xml" />
+    <Content Include="Lists\IRAOffJob\IRAOffJobInstance\Elements.xml" />
+    <Content Include="Lists\IRAOffJob\Schema.xml" />
+    <Content Include="Lists\IRAOnJob\Elements.xml" />
+    <Content Include="Lists\IRAOnJob\IRAOnJobInstance\Elements.xml" />
+    <Content Include="Lists\IRAOnJob\Schema.xml" />
     <Content Include="Lists\IRB\Elements.xml" />
     <Content Include="Lists\IRB\IRBInstance\Elements.xml" />
     <Content Include="Lists\IRB\Schema.xml" />
+<<<<<<< Updated upstream
     <Content Include="Lists\IRRecommendationOffJob\Elements.xml" />
     <Content Include="Lists\IRRecommendationOffJob\IRRecommendationOffJobInstance\Elements.xml" />
     <Content Include="Lists\IRRecommendationOffJob\Schema.xml" />
     <Content Include="Lists\IRRecommendationOnJob\Elements.xml" />
     <Content Include="Lists\IRRecommendationOnJob\IRRecommendationOnJobInstance\Elements.xml" />
     <Content Include="Lists\IRRecommendationOnJob\Schema.xml" />
+=======
+    <Content Include="Lists\IRD\Elements.xml" />
+    <Content Include="Lists\IRD\IRDInstance\Elements.xml" />
+    <Content Include="Lists\IRD\Schema.xml" />
+>>>>>>> Stashed changes
     <Content Include="Lists\MSAContactDetail\Elements.xml" />
     <Content Include="Lists\MSAContactDetail\MSAContactDetailInstance\Elements.xml" />
     <Content Include="Lists\MSAContactDetail\Schema.xml" />
@@ -338,6 +434,9 @@
     <Content Include="Lists\Section\Elements.xml" />
     <Content Include="Lists\Section\Schema.xml" />
     <Content Include="Lists\Section\SectionInstance\Elements.xml" />
+    <Content Include="Lists\TypeOfInjury\Elements.xml" />
+    <Content Include="Lists\TypeOfInjury\Schema.xml" />
+    <Content Include="Lists\TypeOfInjury\TypeOfInjuryInstance\Elements.xml" />
     <Content Include="MasterPage\Elements.xml" />
     <Content Include="SiteColumn\MSAFormLink\Elements.xml" />
     <Content Include="SiteColumn\MSAStatus\Elements.xml">
@@ -355,6 +454,8 @@
     <Content Include="WebParts\AddEventsToMSASchedule\Elements.xml" />
     <Content Include="WebParts\IRAForm\Elements.xml" />
     <Content Include="WebParts\IRAForm\IRAFormUserControl.ascx" />
+    <Content Include="WebParts\IRAOnJobForm\Elements.xml" />
+    <Content Include="WebParts\IRAOnJobForm\IRAOnJobFormUserControl.ascx" />
     <Content Include="WebParts\IRBForm\Elements.xml" />
     <Content Include="WebParts\IRBForm\IRBFormUserControl.ascx" />
     <Content Include="WebParts\IRRecommendationForm\Elements.xml" />

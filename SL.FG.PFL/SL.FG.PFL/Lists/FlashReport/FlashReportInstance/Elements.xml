@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <ListInstance Title="FlashReport" OnQuickLaunch="TRUE" TemplateType="80007" Url="Lists/FlashReport" Description="My List Instance"></ListInstance>
+</Elements>
