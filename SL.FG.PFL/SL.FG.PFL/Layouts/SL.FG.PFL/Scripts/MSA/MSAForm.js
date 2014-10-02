@@ -532,18 +532,4 @@ $(document).ready(function () {
     count = $("[id$=areaOfImprovement_table] tr.areaOfImprovementItem").length;
     $('[id$=noOfAreaOfImprovement_span]').text(count);
 
-    // Capturing when the user modifies a field
-    var warnMessage = 'You have unsaved changes on this page!';
-    var formModified = new Boolean();
-    formModified = false;
-    $('input:not(:button,:submit),textarea,select').on('change', function () {
-        formModified = true;
-    });
-    // Checking if the user has modified the form upon closing window
-    $('input:submit').on('click', function (e) {
-        formModified = false;
-    });
-    window.onbeforeunload = function () {
-        if (formModified != false) return warnMessage;
-    }
 });

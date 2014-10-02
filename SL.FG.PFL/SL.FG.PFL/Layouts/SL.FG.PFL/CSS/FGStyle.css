@@ -6,6 +6,10 @@
     max-width: 980px !important;
 }
 
+.btn-danger{
+	padding: 3px 6px;
+}
+
 .btnPrint {
     border-radius: 5px !important;
     background-color: #39a778 !important;

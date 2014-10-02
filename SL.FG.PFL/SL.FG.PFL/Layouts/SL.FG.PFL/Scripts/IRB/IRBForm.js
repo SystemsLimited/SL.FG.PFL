@@ -37,16 +37,6 @@ $(document).ready(function () {
         $('[id$=noOfKeyFindings_span]').text(count);
     }
 
-    function deletePeopleInterviewed() {
-        if ($('[id$=hdnIsChangesAllowed]').val() == "0") {
-            return;
-        }
-        var par = $(this).closest('tr');
-        par.remove();
-
-        var count = $("[id$=peopleInterviewed_table] tr.peopleInterviewedItem").length;
-        $('[id$=noOfPeopleInterviewed_span]').text(count);
-    }
 
     function deleteRootCauses() {
         if ($('[id$=hdnIsChangesAllowed]').val() == "0") {
@@ -104,27 +94,6 @@ $(document).ready(function () {
         }
     }
 
-    function addPeopleInterviewed() {
-        if ($('[id$=hdnIsChangesAllowed]').val() == "0") {
-            return;
-        }
-        var peopleInterviewed = $('[id$=peopleInterviewed_tf]').val();
-
-        if (peopleInterviewed != 'undefined' && peopleInterviewed != "") {
-
-            var count = $("[id$=peopleInterviewed_table] tr.peopleInterviewedItem").length + 1;
-            var actions = "<span class='btn btn-default editPeopleInterviewed'><i class='glyphicon glyphicon-pencil'></i></span><span class='btn btn-danger removePeopleInterviewed'><i class='glyphicon glyphicon-remove'></i></span>";
-            var data = "<tr class='peopleInterviewedItem'><td>" + count + "</td><td><span class='peopleInterviewedDescription'>" + peopleInterviewed + "</span></td><td>" + actions + "</td></tr>"
-            $("[id$=peopleInterviewed_table]").append(data);
-            $('[id$=peopleInterviewed_tf]').val("");
-
-            $('[id$=noOfPeopleInterviewed_span]').text(count);
-        }
-        else {
-            alert("Please enter valid data");
-            $('[id$=peopleInterviewed_tf]').focus();
-        }
-    }
 
     function addRootCauses() {
         if ($('[id$=hdnIsChangesAllowed]').val() == "0") {
@@ -150,7 +119,6 @@ $(document).ready(function () {
 
     $("[id$=recommendationDetails_table]").on("click", ".removeRecommendation", deleteRecommendation);
     $("[id$=rootCauses_table]").on("click", ".removeRootCauses", deleteRootCauses);
-    $("[id$=peopleInterviewed_table]").on("click", ".removePeopleInterviewed", deletePeopleInterviewed);
     $("[id$=keyFindings_table]").on("click", ".removeKeyFindings", deleteKeyFindings);
 
     //Attachment remove
@@ -174,17 +142,6 @@ $(document).ready(function () {
     $('[id$=keyFindings_tf]').on('keypress', function (e) {
         if (e.which == 13) {
             addKeyFindings();
-            e.preventDefault();
-        }
-    });
-
-    //Add People Interviewed in grid
-    $('[id$=peopleInterviewed_span]').on('click', function () {
-        addPeopleInterviewed();
-    });
-    $('[id$=peopleInterviewed_tf]').on('keypress', function (e) {
-        if (e.which == 13) {
-            addPeopleInterviewed();
             e.preventDefault();
         }
     });
@@ -360,9 +317,6 @@ $(document).ready(function () {
     count = $("[id$=recommendationDetails_table] tr.recommendationItem").length;
     $('[id$=noOfRecommendations_span]').text(count);
 
-    count = $("[id$=peopleInterviewed_table] tr.peopleInterviewedItem").length;
-    $('[id$=noOfPeopleInterviewed_span]').text(count);
-
     count = $("[id$=rootCauses_table] tr.rootCausesItem").length;
     $('[id$=noOfRootCauses_span]').text(count);
 
@@ -423,41 +377,5 @@ $(document).ready(function () {
             $("[id$=LateSubmition_spn]").show("fast");
         }
         else $("[id$=LateSubmition_spn]").hide("fast");
-    }
-
-    $(function () {
-        if (!$.support.placeholder) {
-            var active = document.activeElement;
-            $(':text').focus(function () {
-                if ($(this).attr('placeholder') != '' && $(this).val() == $(this).attr('placeholder')) {
-                    $(this).val('').removeClass('hasPlaceholder');
-                }
-            }).blur(function () {
-                if ($(this).attr('placeholder') != '' && ($(this).val() == '' || $(this).val() == $(this).attr('placeholder'))) {
-                    $(this).val($(this).attr('placeholder')).addClass('hasPlaceholder');
-                }
-            });
-            $(':text').blur();
-            $(active).focus();
-            $('form').submit(function () {
-                $(this).find('.hasPlaceholder').each(function () { $(this).val(''); });
-            });
-        }
-    });
-
-
-    // Capturing when the user modifies a field
-    var warnMessage = 'You have unsaved changes on this page!';
-    var formModified = new Boolean();
-    formModified = false;
-    $('input:not(:button,:submit),textarea,select').on('change', function () {
-        formModified = true;
-    });
-    // Checking if the user has modified the form upon closing window
-    $('input:submit').on('click', function (e) {
-        formModified = false;
-    });
-    window.onbeforeunload = function () {
-        if (formModified != false) return warnMessage;
     }
 });

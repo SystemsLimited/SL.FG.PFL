@@ -261,9 +261,9 @@
                     departmentId + "*|*" +
                     departmentName + "*|*" +
                     targetDate + "*|*" +
+                    type + "*|*" +
                     status + "*|*" +
                     recommendationNo + "*|*" +
-                    type + "*|*" +
                     isSavedAsDraft + "~|~";
             });
 
@@ -279,16 +279,6 @@
 
             $("[id$=hdnKeyFindingsList]").val(keyFindingsList);
 
-
-            var peopleInterviewedList = '';
-            $("[id$=peopleInterviewed_table] tr.peopleInterviewedItem").each(function () {
-                $this = $(this)
-                var peopleInterviewed = $this.find("span.peopleInterviewedDescription").html();
-
-                peopleInterviewedList = peopleInterviewedList + peopleInterviewed + "~|~";
-            });
-
-            $("[id$=hdnPeopleInterviewedList]").val(peopleInterviewedList);
 
             var rootCausesList = '';
             $("[id$=rootCauses_table] tr.rootCausesItem").each(function () {
@@ -317,10 +307,6 @@
     }
 
     .editKeyFindings {
-        display: none !important;
-    }
-
-    .editPeopleInterviewed {
         display: none !important;
     }
 
@@ -649,7 +635,7 @@
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-lg-9">
-                                        <h5>Recommendation Entry</h5>
+                                        <h5>Recommendations and Suggestions Entry Form</h5>
                                     </div>
                                     <div class="col-lg-3">
                                         <span id="panel-title3" class="panel-title pull-right"
@@ -662,98 +648,93 @@
                             </div>
                             <div id="collapse3" class="panel-collapse collapse">
                                 <div class="panel-body">
-                                    <div class="form-group">
-                                        <label>Description</label>
-                                        <textarea class="form-control" id="description_ta"></textarea>
-                                    </div>
                                     <div class="form-group row">
-                                        <div class="col-lg-6 table-responsive">
-                                            <label>Responsible Person<span style="color: red">&nbsp;*</span></label>
-                                            <SharePoint:ClientPeoplePicker runat="server" ID="responsiblePerson_PeopleEditor" Rows="1" VisibleSuggestions="3" AllowMultipleEntities="false" PrincipalAccountType="User" />
-                                            <input id="responsiblePersonUsername_hd" type="hidden" value="" />
-                                            <input id="recommendationId_hd" type="hidden" value="0" />
+                                        <div class="form-inline col-lg-6">
+                                            <label>Recommendation</label>
+                                            <input type="radio" name="type" id="typeRecommendation_rb" value="Recommendation" checked>
                                         </div>
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label>Responsible Department<span style="color: red">&nbsp;*</span></label>
-                                                <select name="responsibleDepartment_ddl" class="form-control" id="responsibleDepartment_ddl" runat="server">
-                                                </select>
-                                            </div>
+                                        <div class="form-inline col-lg-6">
+                                            <label>Suggestion</label>
+                                            <input type="radio" name="type" id="typeSuggestion_rb" value="Suggestion">
                                         </div>
                                     </div>
-                                    <div class="form-group row">
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label>Responsible Unit/Section</label>
-                                                <select name="responsibleSection_ddl" class="form-control" id="responsibleSection_ddl" runat="server">
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label>Responsible Person Email</label>
-                                                <input id="responsiblePersonEmail_tf" type='text' class="form-control disabled" disabled />
-                                            </div>
-                                        </div>
+                                <div class="form-group">
+                                    <label>Description</label>
+                                    <textarea class="form-control" id="description_ta"></textarea>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-lg-6 table-responsive">
+                                        <label>Responsible Person<span style="color: red">&nbsp;*</span></label>
+                                        <SharePoint:ClientPeoplePicker runat="server" ID="responsiblePerson_PeopleEditor" Rows="1" VisibleSuggestions="3" AllowMultipleEntities="false" PrincipalAccountType="User" />
+                                        <input id="responsiblePersonUsername_hd" type="hidden" value="" />
+                                        <input id="recommendationId_hd" type="hidden" value="0" />
                                     </div>
-                                    <div class="form-group row">
-                                        <div class="col-lg-6">
-                                            <label>Status</label>
-                                            <select class="form-control" id="status_ddl" disabled>
-                                                <option>Pending</option>
-                                                <option>In Progress</option>
-                                                <option>Completed</option>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Responsible Department<span style="color: red">&nbsp;*</span></label>
+                                            <select name="responsibleDepartment_ddl" class="form-control" id="responsibleDepartment_ddl" runat="server">
                                             </select>
                                         </div>
-                                        <div class="col-lg-3">
-                                            <label>Target Date<span style="color: red">&nbsp;*</span></label>
-                                            <div class="form-group">
-                                                <SharePoint:DateTimeControl ID="targetDate_dtc" runat="server" DateOnly="true" CssClassTextBox="form-control" AutoPostBack="false" UseTimeZoneAdjustment="false" LocaleId="2057" />
-                                            </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Responsible Unit/Section</label>
+                                            <select name="responsibleSection_ddl" class="form-control" id="responsibleSection_ddl" runat="server">
+                                            </select>
                                         </div>
                                     </div>
-                                    <div class="form-group row">
-                                        <div class="col-lg-6">
-                                            <label>Type</label>
-                                            <div class="form-group">
-                                                <div class="form-inline col-lg-6">
-                                                    <label>Recommendation</label>
-                                                    <input type="radio" name="type" id="typeRecommendation_rb" value="Recommendation" checked>
-                                                </div>
-                                                <div class="form-inline col-lg-6">
-                                                    <label>Suggestion</label>
-                                                    <input type="radio" name="type" id="typeSuggestion_rb" value="Suggestion">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <label>&nbsp</label>
-                                            <div class="form-group">
-                                                <input type="button" value="Add" class="btnAdd pull-right" id="addRecommendation_btn" />
-                                            </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Responsible Person Email</label>
+                                            <input id="responsiblePersonEmail_tf" type='text' class="form-control disabled" disabled />
                                         </div>
                                     </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-lg-6">
+                                        <label>Status</label>
+                                        <select class="form-control" id="status_ddl" disabled>
+                                            <option>Pending</option>
+                                            <option>In Progress</option>
+                                            <option>Completed</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <label>Target Date<span style="color: red">&nbsp;*</span></label>
+                                        <div class="form-group">
+                                            <SharePoint:DateTimeControl ID="targetDate_dtc" runat="server" DateOnly="true" CssClassTextBox="form-control" AutoPostBack="false" UseTimeZoneAdjustment="false" LocaleId="2057" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <label>&nbsp</label>
+                                        <div class="form-group">
+                                            <input type="button" value="Add" class="btnAdd pull-right" id="addRecommendation_btn" />
+                                        </div>
+                                    </div>
+                                </div>
 
-                                    <div class="panel panel-success">
-                                        <div class="panel-body">
-                                            <div class="form-group table-responsive" style="overflow-x: scroll;">
-                                                <table class="table" id="recommendationDetails_table" runat="server">
-                                                    <tr>
-                                                        <th>No</th>
-                                                        <th>Description</th>
-                                                        <th>Responsible Person</th>
-                                                        <th>Responsible Unit</th>
-                                                        <th>Responsible Department</th>
-                                                        <th>Target Date</th>
-                                                        <th>Type</th>
-                                                        <th>Status</th>
-                                                        <th>Actions</th>
-                                                    </tr>
-                                                </table>
-                                                No. of Recommendations <span id="noOfRecommendations_span" runat="server"></span>
-                                            </div>
+                                <div class="panel panel-success">
+                                    <div class="panel-body">
+                                        <div class="form-group table-responsive" style="overflow-x: scroll;">
+                                            <table class="table" id="recommendationDetails_table" runat="server">
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>Description</th>
+                                                    <th>Responsible Person</th>
+                                                    <th>Responsible Unit</th>
+                                                    <th>Responsible Department</th>
+                                                    <th>Target Date</th>
+                                                    <th>Type</th>
+                                                    <th>Status</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </table>
+                                            No. of Recommendations <span id="noOfRecommendations_span" runat="server"></span>
                                         </div>
                                     </div>
+                                </div>
                                 </div>
                             </div>
                         </div>
@@ -771,125 +752,40 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row" runat="server" id="suggestions_div">
-                                <div class="col-lg-12">
-                                    <div class="panel panel-success">
-                                        <div class="panel-body">
-                                            <div class="form-group">
-                                                <label>Suggestions for Improvements</label>
-                                                <div class="form-group">
-                                                    <div class='input-group'>
-                                                        <input type='text' class="form-control" id="peopleInterviewed_tf" runat="server" placeholder="Please Enter..." />
-                                                        <span id="peopleInterviewed_span" class="input-group-addon">&nbsp;Add
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group table-responsive" style="overflow-x: scroll;">
-                                                <table id="peopleInterviewed_table" class="table" runat="server">
-                                                    <tr>
-                                                        <th>No</th>
-                                                        <th>Description</th>
-                                                        <th>Actions</th>
-                                                    </tr>
-                                                </table>
-                                                Total: <span id="noOfPeopleInterviewed_span" runat="server"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="form-group row">
                                 <div class="col-lg-6">
                                     <label>Approval Authority</label>
                                     <input type='text' class="form-control" id="approvedBy_tf" runat="server" disabled />
                                 </div>
-                                <div class="col-lg-6" id="approvalDate_div" runat="server" visible="true">
+                                <div class="col-lg-6" id="approvalDate_div" runat="server" visible="false">
                                     <label>Approval Date<span style="color: red">&nbsp;*</span></label>
                                     <div class="form-group">
                                         <SharePoint:DateTimeControl ID="approvalDate_dtc" runat="server" DateOnly="true" CssClassTextBox="form-control" AutoPostBack="false" Enabled="false" UseTimeZoneAdjustment="false" LocaleId="2057" />
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group row">
+                            <div class="form-group row" id="recommendInvestigation_div" runat="server" visible="false">
                                 <div class="col-lg-6">
                                     <label>Do you recommend further investigations?</label>
                                     <div class="form-group">
                                         <div class="form-inline col-lg-6">
-                                            <asp:RadioButton ID="recommendInvestigationYes_rb" runat="server" Text="Yes" GroupName="recommendInvestigation" AutoPostBack="false" />
+                                            <asp:RadioButton ID="recommendInvestigationYes_rb" runat="server" Text="Yes" GroupName="recommendInvestigation" AutoPostBack="false" Enabled="false" />
                                         </div>
                                         <div class="form-inline col-lg-6">
-                                            <asp:RadioButton ID="recommendInvestigationNo_rb"  runat="server" Text="No" GroupName="recommendInvestigation" AutoPostBack="false" />
+                                            <asp:RadioButton ID="recommendInvestigationNo_rb" runat="server" Text="No" GroupName="recommendInvestigation" AutoPostBack="false" Checked="true" Enabled="false" />
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="form-group" id="approvingAuthorityComments_div" runat="server" visible="false">
+                                <label>Comments By Approving Authority</label>
+                                <textarea class="form-control" id="approvingAuthorityComments_ta" runat="server" rows="3" disabled></textarea>
                             </div>
                             <div class="form-group row">
                                 <span class="errorMsg" id="LateSubmition_spn">Late Submission</span>
                             </div>
                         </div>
-                        <div class="panel panel-success" id="incidentTeam_div" runat="server" visible="true">
-                            <div class="panel-heading">
-                                <div class="row">
-                                    <div class="col-lg-9">
-                                        <h5></h5>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <span class="panel-title pull-right"
-                                            data-toggle="collapse"
-                                            data-target="#collapse7">
-                                            <i class='glyphicon glyphicon-sort'></i>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="collapse7" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    <div class="form-group row">
-                                        <div class="col-lg-12">
-                                            <label>Do you have concurrence of responsible individual on action items completion date</label>
-                                            <div class="form-group">
-                                                <div class="form-inline col-lg-6">
-                                                    <label>Yes</label>
-                                                    <input type="radio" name="concurrenceOfRP" id="concurrenceOfRPYes_rb" value="Yes">
-                                                </div>
-                                                <div class="form-inline col-lg-6">
-                                                    <label>No</label>
-                                                    <input type="radio" name="concurrenceOfRP" id="concurrenceOfRPNo_rb" value="No" checked>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="col-lg-6">
-                                            <label>Date of Occurence of Incident</label>
-                                            <div class="form-group">
-                                                <SharePoint:DateTimeControl ID="incidentDateOfOccurence" runat="server" DateOnly="true" CssClassTextBox="form-control" AutoPostBack="false" Enabled="false" UseTimeZoneAdjustment="false" LocaleId="2057" />
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <label>Report due on(according to Flash report target Date)</label>
-                                            <div class="form-group">
-                                                <SharePoint:DateTimeControl ID="reportDueOnDate" runat="server" DateOnly="true" CssClassTextBox="form-control" AutoPostBack="false" Enabled="false" UseTimeZoneAdjustment="false" LocaleId="2057" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="col-lg-6">
-                                            <label>Team Lead</label>
-                                            <input type='text' class="form-control" id="Text1" runat="server" disabled />
-                                        </div>
-                                        <div class="col-lg-6" id="Div1" runat="server" visible="true">
-                                            <label>Approval Date<span style="color: red">&nbsp;*</span></label>
-                                            <div class="form-group">
-                                                <SharePoint:DateTimeControl ID="DateTimeControl1" runat="server" DateOnly="true" CssClassTextBox="form-control" AutoPostBack="false" Enabled="false" UseTimeZoneAdjustment="false" LocaleId="2057" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="panel panel-success" id="HSEDepartment_div" runat="server" visible="true">
+                        <div class="panel panel-success" id="HSEDepartment_div" runat="server" visible="false">
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-lg-9">
@@ -907,9 +803,44 @@
                             <div id="collapse4" class="panel-collapse collapse">
                                 <div class="panel-body">
                                     <div class="form-group row">
+                                        <div class="col-lg-12">
+                                            <label>Do you have concurrence of responsible individual on action items completion date?</label>
+                                            <div class="form-group">
+                                                <div class="form-inline col-lg-6">
+                                                    <asp:RadioButton ID="concurrenceOfRPYes_rb" runat="server" Text="Yes" GroupName="concurrenceOfRP" AutoPostBack="false" Enabled="false" />
+                                                </div>
+                                                <div class="form-inline col-lg-6">
+                                                    <asp:RadioButton ID="concurrenceOfRPNo_rb" runat="server" Text="No" GroupName="concurrenceOfRP" AutoPostBack="false" Checked="true" Enabled="false" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-lg-6">
+                                            <label>Date of Occurence of Incident</label>
+                                            <div class="form-group">
+                                                <SharePoint:DateTimeControl ID="incidentDateOfOccurence" runat="server" DateOnly="true" CssClassTextBox="form-control" AutoPostBack="false" Enabled="false" UseTimeZoneAdjustment="false" LocaleId="2057" />
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <label>Report-B due on (Based on Flash report Target Date/Due Date)</label>
+                                            <div class="form-group">
+                                                <SharePoint:DateTimeControl ID="reportDueOnDate" runat="server" DateOnly="true" CssClassTextBox="form-control" AutoPostBack="false" Enabled="false" UseTimeZoneAdjustment="false" LocaleId="2057" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Team Lead</label>
+                                        <input type='text' class="form-control" id="teamLead_tf" runat="server" disabled />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Team Members</label>
+                                        <textarea class="form-control" id="teamMembers_ta" runat="server" rows="3" disabled></textarea>
+                                    </div>
+                                    <div class="form-group row">
                                         <div class="col-lg-6">
                                             <div class="form-group">
-                                                <label>Report viewed (HSE Engineer/Unit Manager)</label>
+                                                <label>Report Reviewed (HSE Engineer/Unit Manager)</label>
                                                 <textarea class="form-control" id="rvf_reportViewed_ta" runat="server" rows="3" maxlength="30"></textarea>
                                             </div>
                                         </div>
@@ -921,7 +852,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="panel panel-success" id="IRRCQuality_div" runat="server" visible="true">
+                        <div class="panel panel-success" id="IRRCQuality_div" runat="server" visible="false">
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-lg-9">
@@ -989,7 +920,6 @@
     <asp:HiddenField ID="hdnIRB_Id" runat="server" Value="" />
     <asp:HiddenField ID="hdnIdList" runat="server" Value="" />
     <asp:HiddenField ID="hdnKeyFindingsList" runat="server" Value="" />
-    <asp:HiddenField ID="hdnPeopleInterviewedList" runat="server" Value="" />
     <asp:HiddenField ID="hdnRootCausesList" runat="server" Value="" />
     <asp:HiddenField ID="hdnRecommendationList" runat="server" Value="" />
 

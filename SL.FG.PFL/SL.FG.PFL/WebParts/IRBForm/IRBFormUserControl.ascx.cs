@@ -859,9 +859,10 @@ namespace SL.FG.PFL.WebParts.IRBForm
             {
                 this.rvf_reportViewed_ta.Disabled = true;
                 this.UM_HSE_Comments_ta.Disabled = true;
+                this.concurrenceOfRPNo_rb.Enabled = false;
+                this.concurrenceOfRPYes_rb.Enabled = false;
 
                 this.rootCauses_tf.Disabled = true;
-                this.peopleInterviewed_tf.Disabled = true;
                 this.keyFindings_tf.Disabled = true;
 
                 this.responsiblePerson_PeopleEditor.Enabled = false;
@@ -869,6 +870,11 @@ namespace SL.FG.PFL.WebParts.IRBForm
                 this.targetDate_dtc.Enabled = false;
 
                 this.conclusion_ta.Disabled = true;
+
+                this.recommendInvestigationNo_rb.Enabled = false;
+                this.recommendInvestigationYes_rb.Enabled = false;
+
+                this.approvingAuthorityComments_ta.Disabled = true;
 
                 this.hdnIsChangesAllowed.Value = "0";
 
@@ -1183,8 +1189,6 @@ namespace SL.FG.PFL.WebParts.IRBForm
                                     {
                                         this.conclusion_ta.Value = Convert.ToString(spListItemIRB["Conclusion"]);
                                     }
-                                    DisableDropdown(this.causeOfIncident_PR_ddl);
-                                    DisableDropdown(this.causeOfIncident_ER_ddl);
                                     if (!String.IsNullOrEmpty(Convert.ToString(spListItemIRB["BasicActivityInProgress"])))
                                     {
                                         this.hdnBasicActivityInProgress.Value = Convert.ToString(spListItemIRB["BasicActivityInProgress"]);
@@ -1249,19 +1253,15 @@ namespace SL.FG.PFL.WebParts.IRBForm
                                         this.hdnFRID.Value = Convert.ToString(spListItemIRB["FlashReportID"]);
                                     }
 
-                                    if (!String.IsNullOrEmpty(Convert.ToString(spListItemIRB["KeyFindings"])))
+                                    if (!String.IsNullOrEmpty(Convert.ToString(spListItemIRB["FactsLeadingToConclusion"])))
                                     {
-                                        this.hdnKeyFindingsList.Value = Convert.ToString(spListItemIRB["KeyFindings"]);
+                                        this.hdnKeyFindingsList.Value = Convert.ToString(spListItemIRB["FactsLeadingToConclusion"]);
                                     }
 
-                                    if (!String.IsNullOrEmpty(Convert.ToString(spListItemIRB["PeopleInterviewed"])))
-                                    {
-                                        this.hdnPeopleInterviewedList.Value = Convert.ToString(spListItemIRB["PeopleInterviewed"]);
-                                    }
 
-                                    if (!String.IsNullOrEmpty(Convert.ToString(spListItemIRB["RootCauses"])))
+                                    if (!String.IsNullOrEmpty(Convert.ToString(spListItemIRB["SequenceOfEvents"])))
                                     {
-                                        this.hdnRootCausesList.Value = Convert.ToString(spListItemIRB["RootCauses"]);
+                                        this.hdnRootCausesList.Value = Convert.ToString(spListItemIRB["SequenceOfEvents"]);
                                     }
 
                                     if (spListItemIRB["ApprovalDate1"] != null && !String.IsNullOrEmpty(Convert.ToString(spListItemIRB["ApprovalDate1"])))
@@ -1297,14 +1297,54 @@ namespace SL.FG.PFL.WebParts.IRBForm
                                         this.IRRCQualityAccessedBy_ta.Value = Convert.ToString(spListItemIRB["QualityAssessedBy"]);
                                     }
 
+                                    if (!String.IsNullOrEmpty(Convert.ToString(spListItemIRB["ApprovingAuthorityComments"])))
+                                    {
+                                        this.approvingAuthorityComments_ta.Value = Convert.ToString(spListItemIRB["ApprovingAuthorityComments"]);
+                                        this.approvingAuthorityComments_div.Visible = true;
+                                    }
+
+                                    if (spListItemIRB["RecommendFurtherInvestigations"] != null)
+                                    {
+                                        bool recommendFurtherInvestigations = Convert.ToBoolean(spListItemIRB["RecommendFurtherInvestigations"]);
+
+                                        if (recommendFurtherInvestigations)
+                                        {
+                                            this.recommendInvestigationYes_rb.Checked = true;
+                                            this.recommendInvestigationNo_rb.Checked = false;
+                                        }
+                                        else
+                                        {
+                                            this.recommendInvestigationNo_rb.Checked = true;
+                                            this.recommendInvestigationYes_rb.Checked = false;
+                                        }
+
+                                        this.recommendInvestigation_div.Visible = true;
+                                    }
+
+                                    if (spListItemIRB["ConcurrenceOfRP"] != null)
+                                    {
+                                        bool concurrenceOfRP = Convert.ToBoolean(spListItemIRB["ConcurrenceOfRP"]);
+
+                                        if (concurrenceOfRP)
+                                        {
+                                            this.concurrenceOfRPYes_rb.Checked = true;
+                                            this.concurrenceOfRPNo_rb.Checked = false;
+                                        }
+                                        else
+                                        {
+                                            this.concurrenceOfRPNo_rb.Checked = true;
+                                            this.concurrenceOfRPYes_rb.Checked = false;
+                                        }
+                                    }
+
+                                    
+
                                     string p1 = "~|~"; //separate records
                                     string p2 = "*|*"; //separate content with in a record
 
                                     //Key Findings List
                                     List<string> lstKeyFindings = Utility.GetFormattedDataList(this.hdnKeyFindingsList.Value, p1, true);
 
-                                    //People Interviewed List
-                                    List<string> lstPeopleInterviewed = Utility.GetFormattedDataList(this.hdnPeopleInterviewedList.Value, p1, true);
 
                                     //Root Causes List
                                     List<string> lstRootCauses = Utility.GetFormattedDataList(this.hdnRootCausesList.Value, p1, true);
@@ -1313,11 +1353,6 @@ namespace SL.FG.PFL.WebParts.IRBForm
                                     if (lstKeyFindings != null)
                                     {
                                         FillKeyFindingsGrid(lstKeyFindings);
-                                    }
-
-                                    if (lstPeopleInterviewed != null)
-                                    {
-                                        FillPeopleInterviewedGrid(lstPeopleInterviewed);
                                     }
 
                                     if (lstRootCauses != null)
@@ -1525,6 +1560,47 @@ namespace SL.FG.PFL.WebParts.IRBForm
                                     }
 
 
+                                    if (!String.IsNullOrEmpty(Convert.ToString(spListItemFR["TeamLead"])))
+                                    {
+                                        var tempStr = Convert.ToString(spListItemFR["TeamLead"]);
+
+                                        if (!String.IsNullOrEmpty(tempStr))
+                                        {
+                                            var tempUser = Utility.GetUser(oSPWeb, tempStr);
+
+                                            if (tempUser != null)
+                                            {
+                                                this.teamLead_tf.Value = tempUser.Name;
+                                            }
+                                        }
+                                    }
+
+                                    if (!String.IsNullOrEmpty(Convert.ToString(spListItemFR["TeamMembers"])))
+                                    {
+                                        var tempStr = Convert.ToString(spListItemFR["TeamMembers"]);
+
+                                        if (!String.IsNullOrEmpty(tempStr))
+                                        {
+                                            List<SPUser> tempUserList = Utility.GetUsers(tempStr, ',');
+                                            StringBuilder sb = new StringBuilder();
+
+                                            if (tempUserList != null)
+                                            {
+                                                foreach(var item in tempUserList)
+                                                {
+                                                    if(item != null)
+                                                    {
+                                                        sb.Append(item.Name)
+                                                          .Append("       ");
+                                                    }
+                                                }
+                                            }
+
+                                            this.teamMembers_ta.Value = Convert.ToString(sb);
+                                        }
+                                    }
+
+
                                     if (FRID_ == null && isSubmitted == true && isApproved == false) //Submitted
                                     {
                                         string assignee = null;
@@ -1557,6 +1633,11 @@ namespace SL.FG.PFL.WebParts.IRBForm
                                                 DisableControls(false);
                                                 this.btnReject.Visible = true;
                                                 this.btnApprove.Visible = true;
+                                                this.approvingAuthorityComments_div.Visible = true;
+                                                this.approvingAuthorityComments_ta.Disabled = false;
+                                                this.recommendInvestigation_div.Visible = true;
+                                                this.recommendInvestigationNo_rb.Enabled = true;
+                                                this.recommendInvestigationYes_rb.Enabled = true;
                                             }
                                         }
                                     }
@@ -1587,6 +1668,8 @@ namespace SL.FG.PFL.WebParts.IRBForm
                                             this.btnForward.Visible = true;
                                             this.UM_HSE_Comments_ta.Disabled = false;
                                             this.rvf_reportViewed_ta.Disabled = false;
+                                            this.concurrenceOfRPYes_rb.Enabled = true;
+                                            this.concurrenceOfRPNo_rb.Enabled = true;
                                         }
                                     }
                                     else if (FRID_ == null && isApproved == true && isSubmitted == true)
@@ -1947,42 +2030,6 @@ namespace SL.FG.PFL.WebParts.IRBForm
             }
             return false;
         }
-        private bool FillPeopleInterviewedGrid(List<string> lstPeopleViewed)
-        {
-            try
-            {
-                if (lstPeopleViewed != null)
-                {
-                    //Add People Viewed in grid
-                    foreach (var item in lstPeopleViewed)
-                    {
-                        HtmlTableRow tRow = new HtmlTableRow();
-
-                        tRow.Attributes.Add("class", "peopleInterviewedItem");
-
-                        tRow.Cells.Add(new HtmlTableCell() { InnerHtml = Convert.ToString(this.peopleInterviewed_table.Rows.Count) });
-
-                        HtmlTableCell description = new HtmlTableCell();
-
-                        string actions = "<span class='btn btn-default editPeopleInterviewed'><i class='glyphicon glyphicon-pencil'></i></span><span class='btn btn-danger removePeopleInterviewed'><i class='glyphicon glyphicon-remove'></i></span>";
-
-                        description.InnerHtml = "<span class='peopleInterviewedDescription'>" + Convert.ToString(item) + "</span>";
-
-                        tRow.Cells.Add(description);
-
-                        tRow.Cells.Add(new HtmlTableCell() { InnerHtml = actions });
-
-                        this.peopleInterviewed_table.Rows.Add(tRow);
-                    }
-                    return true;
-                }
-            }
-            catch (Exception ex)
-            {
-                SPDiagnosticsService.Local.WriteTrace(0, new SPDiagnosticsCategory("SL.FG.PFL(IRB->FillPeopleViewedGrid)", TraceSeverity.Unexpected, EventSeverity.Error), TraceSeverity.Unexpected, ex.Message, ex.StackTrace);
-            }
-            return false;
-        }
         private bool FillRootCausesGrid(List<string> lstRootCauses)
         {
             try
@@ -2202,7 +2249,6 @@ namespace SL.FG.PFL.WebParts.IRBForm
                         SPUser currentUser = oSPWeb.CurrentUser;
 
                         string keyFindings = this.hdnKeyFindingsList.Value;
-                        string peopleInterviewed = this.hdnPeopleInterviewedList.Value;
                         string rootCauses = this.hdnRootCausesList.Value;
 
                         string p1 = "~|~";
@@ -2214,8 +2260,6 @@ namespace SL.FG.PFL.WebParts.IRBForm
                         //Key Findings List
                         List<string> lstKeyFindings = Utility.GetFormattedDataList(this.hdnKeyFindingsList.Value, p1, true);
 
-                        //People Viewed List
-                        List<string> lstPeopleViewed = Utility.GetFormattedDataList(this.hdnPeopleInterviewedList.Value, p1, true);
 
                         //Root Causes List
                         List<string> lstRootCauses = Utility.GetFormattedDataList(this.hdnRootCausesList.Value, p1, true);
@@ -2250,7 +2294,6 @@ namespace SL.FG.PFL.WebParts.IRBForm
                                     if (!isForwardCase)
                                     {
                                         spListItem["FactsLeadingToConclusion"] = keyFindings;
-                                        spListItem["SuggestionsForImprovements"] = peopleInterviewed;
                                         spListItem["SequenceOfEvents"] = rootCauses;
 
                                         if (this.hdnIsChangesAllowed.Value.Equals("1"))
@@ -2277,7 +2320,18 @@ namespace SL.FG.PFL.WebParts.IRBForm
 
                                             spListItem["SupervisionAtTimeOfIncident"] = this.hdnSupervisionAtTimeOfIncident.Value;
 
-                                            spListItem["FlashReportID"] = this.hdnFRID.Value;
+                                            spListItem["FlashReportID"] = this.hdnFRID.Value;                                          
+                                        }
+
+                                        spListItem["ApprovingAuthorityComments"] = this.approvingAuthorityComments_ta.Value;
+
+                                        if (this.recommendInvestigationYes_rb.Checked == false)
+                                        {
+                                            spListItem["RecommendFurtherInvestigations"] = false;
+                                        }
+                                        else
+                                        {
+                                            spListItem["RecommendFurtherInvestigations"] = true;
                                         }
 
                                         if (isApproveCase)
@@ -2294,7 +2348,6 @@ namespace SL.FG.PFL.WebParts.IRBForm
                                             {
                                                 spListItem["ApprovalDate1"] = Convert.ToDateTime(approvalDate1);
                                             }
-
                                         }
                                     }
                                     else
@@ -2319,6 +2372,15 @@ namespace SL.FG.PFL.WebParts.IRBForm
 
                                         spListItem["HSEComments"] = this.UM_HSE_Comments_ta.Value;
 
+
+                                        if (this.concurrenceOfRPYes_rb.Checked == false)
+                                        {
+                                            spListItem["ConcurrenceOfRP"] = false;
+                                        }
+                                        else
+                                        {
+                                            spListItem["ConcurrenceOfRP"] = true;
+                                        }
                                     }
 
                                     //new 
@@ -2456,7 +2518,6 @@ namespace SL.FG.PFL.WebParts.IRBForm
                         {
                             bool statusRecommendations = FillRecommendationGrid(recommendations);
                             bool statusKeyFindings = FillKeyFindingsGrid(lstKeyFindings);
-                            bool statusPeopleViewed = FillPeopleInterviewedGrid(lstPeopleViewed);
                             bool statusRootCause = FillRootCausesGrid(lstRootCauses);
                         }
                     }

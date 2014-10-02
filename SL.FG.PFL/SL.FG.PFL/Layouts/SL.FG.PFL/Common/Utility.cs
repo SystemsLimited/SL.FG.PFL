@@ -360,27 +360,26 @@ namespace SL.FG.PFL.Layouts.SL.FG.PFL.Common
 
         public static bool CompareUsers(SPUser user1, SPUser user2)
         {
-            SPDiagnosticsService.Local.WriteTrace(0, new SPDiagnosticsCategory("90-Page_Load)", TraceSeverity.Unexpected, EventSeverity.Error), TraceSeverity.Unexpected, "1", "1");
+
             if (user1 != null && user2 != null)
             {
-                SPDiagnosticsService.Local.WriteTrace(0, new SPDiagnosticsCategory("91-Page_Load)", TraceSeverity.Unexpected, EventSeverity.Error), TraceSeverity.Unexpected, "1", "1");
+
                 if (user1.Email.Equals(user2.Email, StringComparison.OrdinalIgnoreCase))
                 {
-                    SPDiagnosticsService.Local.WriteTrace(0, new SPDiagnosticsCategory("92-Page_Load)", TraceSeverity.Unexpected, EventSeverity.Error), TraceSeverity.Unexpected, "1", "1");
+
                     return true;
                 }
-                else {
-                    SPDiagnosticsService.Local.WriteTrace(0, new SPDiagnosticsCategory("93-Page_Load)", TraceSeverity.Unexpected, EventSeverity.Error), TraceSeverity.Unexpected, "1", "1");
+                else
+                {
+
                     return CompareUsername(user1.LoginName, user2.LoginName);
                 }
-                    
+
             }
-            SPDiagnosticsService.Local.WriteTrace(0, new SPDiagnosticsCategory("94-Page_Load)", TraceSeverity.Unexpected, EventSeverity.Error), TraceSeverity.Unexpected, "1", "1");
             return false;
         }
         public static List<SPUser> GetGroupMembers(string groupName)
         {
-
             List<SPUser> Users = new List<SPUser>();
             try
             {
@@ -408,6 +407,37 @@ namespace SL.FG.PFL.Layouts.SL.FG.PFL.Common
                 SPDiagnosticsService.Local.WriteTrace(0, new SPDiagnosticsCategory("SL.FG.PFL(Utility->GetGroupMembers)", TraceSeverity.Unexpected, EventSeverity.Error), TraceSeverity.Unexpected, ex.Message, ex.StackTrace);
             }
             return Users;
+        }
+
+
+        public static List<SPUser> GetUsers(string usernames, char delimeter)
+        {
+            List<SPUser> spUsersList = new List<SPUser>();
+            try
+            {
+                if (!String.IsNullOrEmpty(usernames))
+                {
+                    var tempStr = usernames.Split(delimeter);
+
+                    foreach (var str in tempStr)
+                    {
+                        if (!String.IsNullOrEmpty(str))
+                        {
+                            var tempUser = Utility.GetUser(null, str);
+
+                            if (tempUser != null)
+                            {
+                                spUsersList.Add(tempUser);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                SPDiagnosticsService.Local.WriteTrace(0, new SPDiagnosticsCategory("SL.FG.PFL(Utility->GetUsers)", TraceSeverity.Unexpected, EventSeverity.Error), TraceSeverity.Unexpected, ex.Message, ex.StackTrace);
+            }
+            return spUsersList;
         }
 
     }

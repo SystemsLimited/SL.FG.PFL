@@ -47,5 +47,23 @@ namespace SL.FG.PFL.WebParts.WorkQueue {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView grdMSARecommendationTask;
+        
+        /// <summary>
+        /// grdIRBTasks control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdIRBTasks;
+        
+        /// <summary>
+        /// grdIRRecommendationsOnJob control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdIRRecommendationsOnJob;
     }
 }

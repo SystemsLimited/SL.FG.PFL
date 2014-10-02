@@ -123,20 +123,21 @@ namespace SL.FG.PFL.WebParts.IRRecommendationForm
             this.approvalAuthority_ddl.Attributes.Add("class", "formcontrol disableControl");
         }
 
-        private ListItem FillApprovalAuthority(SPWeb oSPWeb, string departmentName)
+        private void FillApprovalAuthority(SPWeb oSPWeb, string departmentName)
         {
-            ListItem hodLI = null;
+            Department currentUserDept = new Department();
+
             try
             {
                 var currentUser = oSPWeb.CurrentUser;
 
                 string currentUserEmail = null;
-                string currentUserRole = null;
 
                 if (currentUser != null)
                 {
                     currentUserEmail = currentUser.Email;
                 }
+
                 string listName = "Department";
 
                 // Fetch the List
@@ -145,64 +146,62 @@ namespace SL.FG.PFL.WebParts.IRRecommendationForm
                 SPQuery query = new SPQuery();
                 SPListItemCollection spListItems;
                 // Include only the fields you will use.
-                query.ViewFields = "<FieldRef Name='HOD'/><FieldRef Name='HODEmail'/><FieldRef Name='DepartmentDescription'/>";
+                query.ViewFields = "<FieldRef Name='HOD'/><FieldRef Name='HODEmail'/><FieldRef Name='DepartmentDescription'/><FieldRef Name='IsApprover'/>";
                 query.ViewFieldsOnly = true;
                 StringBuilder sb = new StringBuilder();
-                sb.Append("<Where><Eq><FieldRef Name='Title' /><Value Type='Text'>" + departmentName + "</Value></Eq></Where>");
+                sb.Append("<Where><And><Eq><FieldRef Name='Title' /><Value Type='Text'>" + departmentName + "</Value></Eq><Eq><FieldRef Name='IsApprover' /><Value Type='Boolean'>1</Value></Eq></And></Where>");
                 query.Query = sb.ToString();
                 spListItems = spList.GetItems(query);
 
                 List<ListItem> lstItems = new List<ListItem>();
+
+                bool isCurrentUserIsApprover = false;
 
                 foreach (SPListItem spListItem in spListItems)
                 {
                     string email = Convert.ToString(spListItem["HODEmail"]);
                     string name = Convert.ToString(spListItem["HOD"]);
                     string description = Convert.ToString(spListItem["DepartmentDescription"]);
+                    bool isApprover = spListItem["IsApprover"] == null ? false : Convert.ToBoolean(spListItem["IsApprover"]);
 
                     if (currentUserEmail.Equals(email, StringComparison.OrdinalIgnoreCase))
                     {
-                        currentUserRole = description;
+                        currentUserDept.departmentId = spListItem.ID;
+                        currentUserDept.departmentName = departmentName;
+                        currentUserDept.designation = description;
+                        currentUserDept.email = email;
+                        currentUserDept.name = name;
+                        currentUserDept.isApprover = isApprover;
                     }
-
 
                     //string title = name + "  (" + description + ")  ";
                     string title = name;
 
-                    if (!String.IsNullOrEmpty(title) && !String.IsNullOrEmpty(email))
+                    if (!String.IsNullOrEmpty(title) && !String.IsNullOrEmpty(email) && isApprover == true)
                     {
-                        lstItems.Add(new ListItem(title, email));
-
-                        if (description.Equals("HOD", StringComparison.OrdinalIgnoreCase))
+                        if (currentUserEmail.Equals(email, StringComparison.OrdinalIgnoreCase))
                         {
-                            hodLI = new ListItem();
-                            hodLI.Text = title;
-                            hodLI.Value = email;
+                            isCurrentUserIsApprover = true;
                         }
+                        this.approvalAuthority_ddl.Items.Add(new ListItem(title, email));
                     }
                 }
 
-
-                if (currentUserRole != null && (currentUserRole.Equals("Unit Manager", StringComparison.OrdinalIgnoreCase) || currentUserRole.Equals("HOD", StringComparison.OrdinalIgnoreCase)))
+                if (isCurrentUserIsApprover == true)
                 {
-                    this.approvalAuthority_ddl.Items.Add(hodLI);
-                }
-                else
-                {
-                    foreach (var item in lstItems)
-                    {
-                        this.approvalAuthority_ddl.Items.Add(new ListItem(item.Text, item.Value));
-                    }
+                    this.approvalAuthority_ddl.SelectedValue = currentUserEmail;
+                    this.approvalAuthority_ddl.Enabled = false;
+                    this.approvalAuthority_ddl.Attributes.Add("class", "formcontrol disableControl");
                 }
                 this.approvalAuthority_ddl.Items.Insert(0, new ListItem("Please Select", "0"));
 
-                return hodLI;
             }
             catch (Exception ex)
             {
-                SPDiagnosticsService.Local.WriteTrace(0, new SPDiagnosticsCategory("SL.FG.PFL(RecommendationForm->FillApprovalAuthority)", TraceSeverity.Unexpected, EventSeverity.Error), TraceSeverity.Unexpected, ex.Message, ex.StackTrace);
+                SPDiagnosticsService.Local.WriteTrace(0, new SPDiagnosticsCategory("SL.FG.PFL(IRRecommendationForm->FillApprovalAuthority)", TraceSeverity.Unexpected, EventSeverity.Error), TraceSeverity.Unexpected, ex.Message, ex.StackTrace);
+                message_div.InnerHtml = "Something went wrong!!! Please contact the administrator.";
+                DisableControls();
             }
-            return hodLI;
         }
         private bool InitializeRecommendationControls(int recommendationId, string recommendationList, string parentList)
         {
@@ -475,16 +474,7 @@ namespace SL.FG.PFL.WebParts.IRRecommendationForm
 
                                                 if (String.IsNullOrEmpty(this.approvedBy_tf.Value))
                                                 {
-                                                    var hodLI = FillApprovalAuthority(oSPWeb, departmentName);
-
-                                                    var currentUser = oSPWeb.CurrentUser;
-
-                                                    if (currentUser != null && hodLI != null && currentUser.Email.Equals(hodLI.Value, StringComparison.OrdinalIgnoreCase))
-                                                    {
-                                                        this.approvalAuthority_ddl.SelectedValue = hodLI.Value;
-                                                        this.approvalAuthority_ddl.Enabled = false;
-                                                        this.approvalAuthority_ddl.Attributes.Add("class", "formcontrol disableControl");
-                                                    }
+                                                    FillApprovalAuthority(oSPWeb, departmentName);
                                                 }
                                                 else
                                                 {
@@ -498,9 +488,9 @@ namespace SL.FG.PFL.WebParts.IRRecommendationForm
 
                                                         this.approvedBy_tf.Value = user.Name;
 
-                                                        this.approvalAuthority_ddl.Items.Insert(0, new ListItem("Please Select", "0"));
-
                                                         this.approvalAuthority_ddl.DataBind();
+
+                                                        this.approvalAuthority_ddl.Items.Insert(0, new ListItem("Please Select", "0"));
 
                                                         this.approvalAuthority_ddl.SelectedValue = user.Email;
                                                     }

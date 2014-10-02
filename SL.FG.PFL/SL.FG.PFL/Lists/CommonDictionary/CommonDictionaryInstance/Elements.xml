@@ -16,6 +16,11 @@
           <Field Name="SortOrder">1</Field>
         </Row>
         <Row>
+          <Field Name="Title">HSE_Approvers</Field>
+          <Field Name="Value">HSE-Members</Field>
+          <Field Name="SortOrder">1</Field>
+        </Row>        
+        <Row>
           <Field Name="Title">ADGroup</Field>
           <Field Name="Value">HSE-Members</Field>
           <Field Name="SortOrder">1</Field>
@@ -29,6 +34,11 @@
         <Row>
           <Field Name="Title">Access_Denied</Field>
           <Field Name="Value">SitePages/AccessDenied.aspx</Field>
+          <Field Name="SortOrder">1</Field>
+        </Row>
+        <Row>
+          <Field Name="Title">WorkQueue_Redirect</Field>
+          <Field Name="Value">SitePages/WorkQueue.aspx</Field>
           <Field Name="SortOrder">1</Field>
         </Row>
         <!--Email Formats-->
@@ -114,6 +124,7 @@
           <Field Name="SortOrder">1</Field>
         </Row>
         <!--WebParts Data-->
+        
         <!--MSAForm-->
         <Row>
           <Field Name="Title">MSAForm_Cancel_Redirect</Field>
@@ -135,6 +146,143 @@
           <Field Name="Value">SitePages/MSA.aspx</Field>
           <Field Name="SortOrder">1</Field>
         </Row>
+
+        <!--IRB-->
+
+        <Row>
+          <Field Name="Title">IRBFormLink</Field>
+          <Field Name="Value">SitePages/IRB.aspx</Field>
+          <Field Name="SortOrder">1</Field>
+        </Row>
+
+        <Row>
+          <Field Name="Title">IRB_ON_From_FB_To_RP_S</Field>
+          <Field Name="Value">IRB Recommendation</Field>
+          <Field Name="SortOrder">1</Field>
+        </Row>
+
+        <Row>
+          <Field Name="Title">IRBFormLink_TE_Submitted_S</Field>
+          <Field Name="Value">IRB Submitted</Field>
+          <Field Name="SortOrder">1</Field>
+        </Row>
+        <Row>
+          <Field Name="Title">IRBFormLink_TE_Submitted_B</Field>
+          <Field Name="Value"></Field>
+          <Field Name="SortOrder">1</Field>
+        </Row>
+
+        <Row>
+          <Field Name="Title">IRBFormLink_TE_Reject_S</Field>
+          <Field Name="Value">IRB Rejected</Field>
+          <Field Name="SortOrder">1</Field>
+        </Row>
+        <Row>
+          <Field Name="Title">IRBFormLink_TE_Reject_B</Field>
+          <Field Name="Value"></Field>
+          <Field Name="SortOrder">1</Field>
+        </Row>
+
+        <Row>
+          <Field Name="Title">IRBFormLink_TE_Approve_S</Field>
+          <Field Name="Value">IRB Approved</Field>
+          <Field Name="SortOrder">1</Field>
+        </Row>
+        <Row>
+          <Field Name="Title">IRBFormLink_TE_Approve_S</Field>
+          <Field Name="Value"></Field>
+          <Field Name="SortOrder">1</Field>
+        </Row>
+
+        <Row>
+          <Field Name="Title">IRBFormLink_TE_Forward_S</Field>
+          <Field Name="Value">IRB Reviewed/Forwarded</Field>
+          <Field Name="SortOrder">1</Field>
+        </Row>
+        <Row>
+          <Field Name="Title">IRBFormLink_TE_Forward_B</Field>
+          <Field Name="Value"></Field>
+          <Field Name="SortOrder">1</Field>
+        </Row>
+
+        <Row>
+          <Field Name="Title">IRBFormLink_TE_LastSaved_S</Field>
+          <Field Name="Value">IRB Updated</Field>
+          <Field Name="SortOrder">1</Field>
+        </Row>
+        <Row>
+          <Field Name="Title">IRBFormLink_TE_LastSaved_B</Field>
+          <Field Name="Value"></Field>
+          <Field Name="SortOrder">1</Field>
+        </Row>
+
+        <Row>
+          <Field Name="Title">IRB_Cancel_Redirect</Field>
+          <Field Name="Value">SitePages/WorkQueue.aspx?Status=IRB_0</Field>
+          <Field Name="SortOrder">1</Field>
+        </Row>
+        <Row>
+          <Field Name="Title">IRB_LastSave_Redirect</Field>
+          <Field Name="Value">SitePages/WorkQueue.aspx?Status=IRB_1</Field>
+          <Field Name="SortOrder">1</Field>
+        </Row>
+        <Row>
+          <Field Name="Title">IRB_Forward_Redirect</Field>
+          <Field Name="Value">SitePages/WorkQueue.aspx?Status=IRB_2</Field>
+          <Field Name="SortOrder">1</Field>
+        </Row>
+        <Row>
+          <Field Name="Title">IRB_Approve_Redirect</Field>
+          <Field Name="Value">SitePages/WorkQueue.aspx?Status=IRB_3</Field>
+          <Field Name="SortOrder">1</Field>
+        </Row>
+        <Row>
+          <Field Name="Title">IRB_Reject_Redirect</Field>
+          <Field Name="Value">SitePages/WorkQueue.aspx?Status=IRB_4</Field>
+          <Field Name="SortOrder">1</Field>
+        </Row>
+        <Row>
+          <Field Name="Title">IRB_Save_Redirect</Field>
+          <Field Name="Value">SitePages/WorkQueue.aspx?Status=IRB_5</Field>
+          <Field Name="SortOrder">1</Field>
+        </Row>
+        <Row>
+          <Field Name="Title">IRB_SaveAsDraft_Redirect</Field>
+          <Field Name="Value">SitePages/WorkQueue.aspx?Status=IRB_6</Field>
+          <Field Name="SortOrder">1</Field>
+        </Row>
+
+        <!--End-->
+
+        <!--IRRecommendationForm-->
+        <!--On Job-->
+        <Row>
+          <Field Name="Title">RecommendationForm_Cancel_Redirect__IRB</Field>
+          <Field Name="Value">SitePages/WorkQueue.aspx?Status=IRBR_0</Field>
+          <Field Name="SortOrder">1</Field>
+        </Row>
+        <Row>
+          <Field Name="Title">RecommendationForm_Reject_Redirect__IRB</Field>
+          <Field Name="Value">SitePages/WorkQueue.aspx?Status=IRBR_1</Field>
+          <Field Name="SortOrder">1</Field>
+        </Row>
+        <Row>
+          <Field Name="Title">RecommendationForm_Approve_Redirect__IRB</Field>
+          <Field Name="Value">SitePages/WorkQueue.aspx?Status=IRBR_2</Field>
+          <Field Name="SortOrder">1</Field>
+        </Row>
+        <Row>
+          <Field Name="Title">RecommendationForm_Save_Redirect__IRB</Field>
+          <Field Name="Value">SitePages/WorkQueue.aspx?Status=IRBR_3</Field>
+          <Field Name="SortOrder">1</Field>
+        </Row>
+        <Row>
+          <Field Name="Title">IRRecommendationFormLink</Field>
+          <Field Name="Value">SitePages/IRRecommendation.aspx</Field>
+          <Field Name="SortOrder">1</Field>
+        </Row>
+        <!--End-->
+        
         <!--MSARecommendationForm-->
         <Row>
           <Field Name="Title">MSARecommendationForm_Cancel_Redirect</Field>

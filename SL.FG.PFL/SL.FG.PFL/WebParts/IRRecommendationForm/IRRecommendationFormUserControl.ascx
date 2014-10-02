@@ -9,7 +9,7 @@
 
 
 
-<link href="/_layouts/15/SL.FG.FFL/CSS/FGStyle.css" rel="stylesheet" />
+<link href="/_layouts/15/SL.FG.PFL/CSS/FGStyle.css" rel="stylesheet" />
 
 <style type="text/css">
     [id$=responsiblePerson_PeopleEditor_upLevelDiv] {
@@ -188,7 +188,7 @@
                 <asp:HiddenField ID="hdnParamName" runat="server" Value="" />
                 <asp:HiddenField ID="hdnFRIDName" runat="server" Value="" />
                 <asp:HiddenField ID="hdnFlashReportName" runat="server" Value="" />
-                <asp:HiddenField ID="hdnTypeName" runat="server" Value="" />
+                <asp:HiddenField ID="hdnTypeName" runat="server" Value="Recommendation" />
 
                 <div class="form-group pull-right" style="margin-top: 15px;">
                     <input id="print_btn" value="Print" type="button" class="btnPrint" onclick="printContent();" />
@@ -204,13 +204,13 @@
     </div>
 </div>
 
-<script src="/_layouts/15/SL.FG.FFL/Scripts/jQuery.js"></script>
+<script src="/_layouts/15/SL.FG.PFL/Scripts/jQuery.js"></script>
 
 
 <script type="text/javascript">
     function isActionConfirmed(action) {
 
-        var msgTemp = $('[id=hdnTypeName]').val();
+        var msgTemp = $('[id$=hdnTypeName]').val();
 
         var message = "IR-" + msgTemp + ": Are you sure you want to perform this action?";
         var flag = false;
@@ -260,8 +260,8 @@
         popupWindow.document.write('<HTML>\n<HEAD>\n');
         popupWindow.document.write('<TITLE>Recommendation and Suggestion Form</TITLE>\n');
         popupWindow.document.write('<URL></URL>\n');
-        popupWindow.document.write("<link href='/_layouts/15/SL.FG.FFL/CSS/BS3/bootstrap3.min.css' rel='stylesheet'/>\n");
-        popupWindow.document.write("<link href='/_layouts/15/SL.FG.FFL/CSS/FGStyle.css' rel='stylesheet'/>\n");
+        popupWindow.document.write("<link href='/_layouts/15/SL.FG.PFL/CSS/BS3/bootstrap3.min.css' rel='stylesheet'/>\n");
+        popupWindow.document.write("<link href='/_layouts/15/SL.FG.PFL/CSS/FGStyle.css' rel='stylesheet'/>\n");
         popupWindow.document.write('<script>\n');
         popupWindow.document.write('function print_win(){\n');
         popupWindow.document.write('\n window.print();\n');

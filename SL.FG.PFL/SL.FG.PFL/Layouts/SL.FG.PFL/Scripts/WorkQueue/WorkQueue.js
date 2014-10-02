@@ -34,6 +34,8 @@ function autoRefresh(forceGet) {
 
 
 $(document).ready(function () {
+
+    //MSA(Start)
     $("#searchInput1").keyup(function () {
         //split the current value of searchInput
         var data = this.value.split(" ");
@@ -112,6 +114,125 @@ $(document).ready(function () {
         "color": "#C0C0C0"
     });
 
+    $("#searchInput3").keyup(function () {
+        //split the current value of searchInput
+        var data = this.value.split(" ");
+        //create a jquery object of the rows
+        var jo = $("[id$=grdMSAScheduled]").find("tr");
+
+        var header = $(jo).first("tr");
+
+        if (this.value == "") {
+            jo.show();
+            return;
+        }
+        //hide all the rows
+        jo.hide();
+
+        //Recusively filter the jquery object to get results.
+        var filterResult = jo.filter(function (i, v) {
+            var $t = $(this);
+            for (var d = 0; d < data.length; ++d) {
+                var str = $t.html().toLowerCase();
+                if (str.toLowerCase().indexOf(data[d].toLowerCase()) >= 0) {
+                    return true;
+                }
+            }
+            return false;
+        });
+
+        //show the rows that match.
+        header.add(filterResult).show();
+    }).focus(function () {
+        this.value = "";
+        $(this).css({
+            "color": "black"
+        });
+        $(this).unbind('focus');
+    }).css({
+        "color": "#C0C0C0"
+    });
+    //End
+
+
+    //IROnJOb(Start)
+    $("#searchInput_21").keyup(function () {
+        //split the current value of searchInput
+        var data = this.value.split(" ");
+        //create a jquery object of the rows
+        var jo = $("[id$=grdIRBTasks]").find("tr");
+
+        var header = $(jo).first("tr");
+
+        if (this.value == "") {
+            jo.show();
+            return;
+        }
+        //hide all the rows
+        jo.hide();
+
+        //Recusively filter the jquery object to get results.
+        var filterResult = jo.filter(function (i, v) {
+            var $t = $(this);
+            for (var d = 0; d < data.length; ++d) {
+                var str = $t.html().toLowerCase();
+                if (str.toLowerCase().indexOf(data[d].toLowerCase()) >= 0) {
+                    return true;
+                }
+            }
+            return false;
+        });
+
+        //show the rows that match.
+        header.add(filterResult).show();
+    }).focus(function () {
+        this.value = "";
+        $(this).css({
+            "color": "black"
+        });
+        $(this).unbind('focus');
+    }).css({
+        "color": "#C0C0C0"
+    });
+    $("#searchInput_22").keyup(function () {
+        //split the current value of searchInput
+        var data = this.value.split(" ");
+        //create a jquery object of the rows
+        var jo = $("[id$=grdIRRecommendationsOnJob]").find("tr");
+
+        var header = $(jo).first("tr");
+
+        if (this.value == "") {
+            jo.show();
+            return;
+        }
+        //hide all the rows
+        jo.hide();
+
+        //Recusively filter the jquery object to get results.
+        var filterResult = jo.filter(function (i, v) {
+            var $t = $(this);
+            for (var d = 0; d < data.length; ++d) {
+                var str = $t.html().toLowerCase();
+                if (str.toLowerCase().indexOf(data[d].toLowerCase()) >= 0) {
+                    return true;
+                }
+            }
+            return false;
+        });
+
+        //show the rows that match.
+        header.add(filterResult).show();
+    }).focus(function () {
+        this.value = "";
+        $(this).css({
+            "color": "black"
+        });
+        $(this).unbind('focus');
+    }).css({
+        "color": "#C0C0C0"
+    });
+    //End
     $('.panel-collapse').collapse('show');
 
 
@@ -126,16 +247,16 @@ $(document).ready(function () {
                 alert('MSA Saved As Draft...');
                 break;
             case "MSAR_1":
-                alert('Recommendation Saved...');
+                alert('MSA Recommendation Saved...');
                 break;
             case "MSAR_2":
-                alert('Recommendation Sent...');
+                alert('MSA Recommendation Sent...');
                 break;
             case "MSAR_3":
-                alert('Recommendation Approved...');
+                alert('MSA Recommendation Approved...');
                 break;
             case "MSAR_4":
-                alert('Recommendation Rejected...');
+                alert('MSA Recommendation Rejected...');
                 break;
 
             default:

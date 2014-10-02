@@ -588,8 +588,41 @@
                    }              
                });
 
+               $(function () {
+                   if (!$.support.placeholder) {
+                       var active = document.activeElement;
+                       $(':text').focus(function () {
+                           if ($(this).attr('placeholder') != '' && $(this).val() == $(this).attr('placeholder')) {
+                               $(this).val('').removeClass('hasPlaceholder');
+                           }
+                       }).blur(function () {
+                           if ($(this).attr('placeholder') != '' && ($(this).val() == '' || $(this).val() == $(this).attr('placeholder'))) {
+                               $(this).val($(this).attr('placeholder')).addClass('hasPlaceholder');
+                           }
+                       });
+                       $(':text').blur();
+                       $(active).focus();
+                       $('form').submit(function () {
+                           $(this).find('.hasPlaceholder').each(function () { $(this).val(''); });
+                       });
+                   }
+               });
 
 
+               // Capturing when the user modifies a field
+               var warnMessage = 'You have unsaved changes on this page!';
+               var formModified = new Boolean();
+               formModified = false;
+               $('input:not(:button,:submit),textarea,select').on('change', function () {
+                   formModified = true;
+               });
+               // Checking if the user has modified the form upon closing window
+               $('input:submit').on('click', function (e) {
+                   formModified = false;
+               });
+               window.onbeforeunload = function () {
+                   if (formModified != false) return warnMessage;
+               }
 		</script>
     </body>
 

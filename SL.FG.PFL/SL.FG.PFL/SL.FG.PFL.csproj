@@ -69,6 +69,7 @@
     <Compile Include="WebParts\IRAOnJobForm\IRAOnJobForm.cs" />
     <Compile Include="WebParts\IRAOnJobForm\IRAOnJobFormUserControl.ascx.cs">
       <DependentUpon>IRAOnJobFormUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="WebParts\IRAOnJobForm\IRAOnJobFormUserControl.ascx.designer.cs">
       <DependentUpon>IRAOnJobFormUserControl.ascx.cs</DependentUpon>

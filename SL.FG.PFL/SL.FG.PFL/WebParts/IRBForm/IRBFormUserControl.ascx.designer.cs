@@ -364,42 +364,6 @@ namespace SL.FG.PFL.WebParts.IRBForm {
         protected global::Microsoft.SharePoint.WebControls.DateTimeControl investigationDate_dtc;
         
         /// <summary>
-        /// suggestions_div control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl suggestions_div;
-        
-        /// <summary>
-        /// peopleInterviewed_tf control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText peopleInterviewed_tf;
-        
-        /// <summary>
-        /// peopleInterviewed_table control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTable peopleInterviewed_table;
-        
-        /// <summary>
-        /// noOfPeopleInterviewed_span control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl noOfPeopleInterviewed_span;
-        
-        /// <summary>
         /// approvedBy_tf control.
         /// </summary>
         /// <remarks>
@@ -427,6 +391,15 @@ namespace SL.FG.PFL.WebParts.IRBForm {
         protected global::Microsoft.SharePoint.WebControls.DateTimeControl approvalDate_dtc;
         
         /// <summary>
+        /// recommendInvestigation_div control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl recommendInvestigation_div;
+        
+        /// <summary>
         /// recommendInvestigationYes_rb control.
         /// </summary>
         /// <remarks>
@@ -445,13 +418,49 @@ namespace SL.FG.PFL.WebParts.IRBForm {
         protected global::System.Web.UI.WebControls.RadioButton recommendInvestigationNo_rb;
         
         /// <summary>
-        /// incidentTeam_div control.
+        /// approvingAuthorityComments_div control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl incidentTeam_div;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl approvingAuthorityComments_div;
+        
+        /// <summary>
+        /// approvingAuthorityComments_ta control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea approvingAuthorityComments_ta;
+        
+        /// <summary>
+        /// HSEDepartment_div control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl HSEDepartment_div;
+        
+        /// <summary>
+        /// concurrenceOfRPYes_rb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton concurrenceOfRPYes_rb;
+        
+        /// <summary>
+        /// concurrenceOfRPNo_rb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton concurrenceOfRPNo_rb;
         
         /// <summary>
         /// incidentDateOfOccurence control.
@@ -472,40 +481,22 @@ namespace SL.FG.PFL.WebParts.IRBForm {
         protected global::Microsoft.SharePoint.WebControls.DateTimeControl reportDueOnDate;
         
         /// <summary>
-        /// Text1 control.
+        /// teamLead_tf control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Text1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText teamLead_tf;
         
         /// <summary>
-        /// Div1 control.
+        /// teamMembers_ta control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div1;
-        
-        /// <summary>
-        /// DateTimeControl1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Microsoft.SharePoint.WebControls.DateTimeControl DateTimeControl1;
-        
-        /// <summary>
-        /// HSEDepartment_div control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl HSEDepartment_div;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea teamMembers_ta;
         
         /// <summary>
         /// rvf_reportViewed_ta control.
@@ -623,15 +614,6 @@ namespace SL.FG.PFL.WebParts.IRBForm {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hdnKeyFindingsList;
-        
-        /// <summary>
-        /// hdnPeopleInterviewedList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdnPeopleInterviewedList;
         
         /// <summary>
         /// hdnRootCausesList control.
