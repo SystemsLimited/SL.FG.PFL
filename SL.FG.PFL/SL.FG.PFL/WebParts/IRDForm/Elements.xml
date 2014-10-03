@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/" >
+  <Module Name="IRDForm" List="113" Url="_catalogs/wp">
+    <File Path="IRDForm\IRDForm.webpart" Url="SL.FG.PFL_IRDForm.webpart" Type="GhostableInLibrary" >
+      <Property Name="Group" Value="Custom" />
+    </File>
+  </Module>
+</Elements>
