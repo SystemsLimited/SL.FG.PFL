@@ -517,6 +517,44 @@ $(document).ready(function () {
         }
     });
 
+    //Populate Section on the basis of Department
+    $('[id$=responsibleDepartment_ddl]').on('change', function () {
+
+        var responsibleDepartment = $('[id$=responsibleDepartment_ddl] option:selected').val();
+
+        if (responsibleDepartment != 'undefined' && responsibleDepartment != "") {
+
+            var targetListName = "Section";
+            clientContext = new SP.ClientContext();
+            var targetList = clientContext.get_web().get_lists().getByTitle(targetListName);
+
+            var query = "<View>\
+                            <Query>\
+                               <Where>\
+                                  <Eq>\
+                                     <FieldRef Name='SectionDepartment' />\
+                                     <Value Type='Number'>" + responsibleDepartment + "</Value>\
+                                  </Eq>\
+                               </Where>\
+                            </Query>\
+                            </View>";
+
+            var camlQuery = new SP.CamlQuery();
+            camlQuery.set_viewXml(query);
+
+            targetListItems = targetList.getItems(camlQuery);
+
+            clientContext.load(targetListItems, 'Include(ID,Title)');
+
+            clientContext.executeQueryAsync(
+                Function.createDelegate(this,
+                function () {
+                    _returnParam = success_Section(targetListItems);
+                }),
+                Function.createDelegate(this, this.failed));
+        }
+    });
+
     $('.panel-collapse').collapse('hide');
     $('.panel-title').attr('data-toggle', 'collapse');
 

@@ -679,6 +679,7 @@
                                                 <div class="form-group">
                                                     <label>Responsible Section<span style="color: red">&nbsp;*</span></label>
                                                     <select name="responsibleSection_ddl" class="form-control" id="responsibleSection_ddl" runat="server">
+                                                        <option value='0'>Please Select</option>
                                                     </select>
                                                 </div>
                                             </div>
